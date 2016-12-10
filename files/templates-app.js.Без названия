@@ -1,0 +1,3260 @@
+angular.module('templates-app', ['../src/app/templates/cabinet.tpl.html', '../src/app/templates/directives/avatar-uploader.tpl.html', '../src/app/templates/directives/datetimepicker.tpl.html', '../src/app/templates/directives/location-search.tpl.html', '../src/app/templates/directives/location-string.tpl.html', '../src/app/templates/directives/order/order-item.tpl.html', '../src/app/templates/directives/order/orders-list.tpl.html', '../src/app/templates/directives/stars-voter.tpl.html', '../src/app/templates/info.tpl.html', '../src/app/templates/landing.tpl.html', '../src/app/templates/order.tpl.html', '../src/app/templates/partials/about-us.tpl.html', '../src/app/templates/partials/aside.tpl.html', '../src/app/templates/partials/auth-dialog.tpl.html', '../src/app/templates/partials/auth/check.tpl.html', '../src/app/templates/partials/auth/login.tpl.html', '../src/app/templates/partials/auth/logout.tpl.html', '../src/app/templates/partials/auth/registration.tpl.html', '../src/app/templates/partials/benefits.tpl.html', '../src/app/templates/partials/cabinet/cabinet-page.tpl.html', '../src/app/templates/partials/cabinet/change-avatar.tpl.html', '../src/app/templates/partials/cabinet/change-password.tpl.html', '../src/app/templates/partials/cabinet/changes-saved.tpl.html', '../src/app/templates/partials/cabinet/history-orders.tpl.html', '../src/app/templates/partials/cabinet/history-payments.tpl.html', '../src/app/templates/partials/cabinet/loyalty-transactions.tpl.html', '../src/app/templates/partials/cabinet/my-places.tpl.html', '../src/app/templates/partials/cabinet/order-review.tpl.html', '../src/app/templates/partials/cabinet/place-edit.tpl.html', '../src/app/templates/partials/cabinet/profile-edit.tpl.html', '../src/app/templates/partials/cabinet/review-thanks.tpl.html', '../src/app/templates/partials/cabinet/side-panel.tpl.html', '../src/app/templates/partials/footer.tpl.html', '../src/app/templates/partials/header-content.tpl.html', '../src/app/templates/partials/mobile-app-old.tpl.html', '../src/app/templates/partials/mobile-app.tpl.html', '../src/app/templates/partials/nav-menu.tpl.html', '../src/app/templates/partials/order/blocked.tpl.html', '../src/app/templates/partials/order/canceled.tpl.html', '../src/app/templates/partials/order/car_delivered.tpl.html', '../src/app/templates/partials/order/car_delivering.tpl.html', '../src/app/templates/partials/order/car_found.tpl.html', '../src/app/templates/partials/order/car_not_found.tpl.html', '../src/app/templates/partials/order/car_search.tpl.html', '../src/app/templates/partials/order/client_approve_timeout.tpl.html', '../src/app/templates/partials/order/client_not_found.tpl.html', '../src/app/templates/partials/order/client_reject.tpl.html', '../src/app/templates/partials/order/closed.tpl.html', '../src/app/templates/partials/order/form.tpl.html', '../src/app/templates/partials/order/in_progress.tpl.html', '../src/app/templates/partials/order/order_completed.tpl.html', '../src/app/templates/partials/order/order_not_paid.tpl.html', '../src/app/templates/partials/order/order_paid.tpl.html', '../src/app/templates/partials/order/order_pending_payment.tpl.html', '../src/app/templates/partials/order/order_postponed.tpl.html', '../src/app/templates/partials/order/unconfirmed.tpl.html', '../src/app/templates/partials/partners.tpl.html', '../src/app/templates/partials/plans.tpl.html', '../src/app/templates/partials/promotions.tpl.html', '../src/app/templates/partials/reviews.tpl.html', '../src/app/templates/partials/side/carport.tpl.html', '../src/app/templates/partials/side/contacts.tpl.html', '../src/app/templates/partials/side/credit-card.tpl.html', '../src/app/templates/partials/side/faq.tpl.html', '../src/app/templates/partials/side/feedback.tpl.html', '../src/app/templates/partials/side/partners/master-card.en.tpl.html', '../src/app/templates/partials/side/partners/master-card.ru.tpl.html', '../src/app/templates/partials/side/partners/nissan.en.tpl.html', '../src/app/templates/partials/side/partners/nissan.ru.tpl.html', '../src/app/templates/partials/side/partners/suggest.tpl.html', '../src/app/templates/partials/side/partners/visa.en.tpl.html', '../src/app/templates/partials/side/partners/visa.ru.tpl.html', '../src/app/templates/partials/side/review-view.tpl.html', '../src/app/templates/partials/side/review.tpl.html', '../src/app/templates/partials/side/work-with-us.tpl.html', '../src/app/templates/partials/transfer/benefits.tpl.html', '../src/app/templates/partials/transfer/header-content.tpl.html', '../src/app/templates/partials/transfer/slogan.tpl.html', '../src/app/templates/popup-modal.tpl.html', '../src/app/templates/promotions.tpl.html', '../src/app/templates/transfer-airport.tpl.html']);
+
+angular.module("../src/app/templates/cabinet.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/cabinet.tpl.html",
+    "<header id=\"home\" class=\"cabinet-header\">\n" +
+    "	<nav class=\"navbar navbar-default\" role=\"navigation\" ui-view=\"nav-menu\"></nav>\n" +
+    "</header>\n" +
+    "<main id=\"cabinet\" scroll-broadcast class=\"cabinet container\">\n" +
+    "	<section class=\"side-panel col-md-3 clearfix\" ui-view=\"side-panel\"></section>\n" +
+    "	<section class=\"cabinet-content col-md-9\" ui-view=\"cabinet-page\"></section>\n" +
+    "</main>\n" +
+    "<footer class=\"cabinet-footer\" ui-view=\"footer\"></footer>");
+}]);
+
+angular.module("../src/app/templates/directives/avatar-uploader.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/directives/avatar-uploader.tpl.html",
+    "<div class=\"avatar-uploader\">\n" +
+    "	<div class=\"avatar-area-outer\">\n" +
+    "		<div class=\"avatar-area\">\n" +
+    "			<canvas class=\"avatar-area-canvas\" ng-if=\"dataURL\"></canvas>\n" +
+    "		</div>\n" +
+    "		<div class=\"avatar-holder avatar-holder-top\"></div>\n" +
+    "		<div class=\"avatar-holder avatar-holder-left\"></div>\n" +
+    "		<div class=\"avatar-holder avatar-holder-right\"></div>\n" +
+    "		<div class=\"avatar-holder avatar-holder-bottom\"></div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"clearfix\" ng-if=\"showBtns\">\n" +
+    "		<div class=\"col-xs-12 text-center\" ng-if=\"!dataURL\">\n" +
+    "			<button class=\"btn-taxi-inline\" ng-click=\"select()\">({{'CABINET_CHANGE_AVATAR_CHOOSE_TRANSFER_IMAGE'|translate}})</button>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-xs-12 text-center\" ng-if=\"dataURL\">\n" +
+    "			<button class=\"btn-taxi-inline\" ng-click=\"remove()\">{{'CABINET_CHANGE_AVATAR_DELETE_AVATAR'|translate}}</button>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-xs-6\">\n" +
+    "			<div class=\"btn-taxi btn-taxi-inversed\">\n" +
+    "				<input type=\"file\"/>{{'CHOOSE'|translate}}\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-xs-6\">\n" +
+    "			<div class=\"btn-taxi\" ng-click=\"save()\">{{'SAVE'|translate}}</div>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/directives/datetimepicker.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/directives/datetimepicker.tpl.html",
+    "<div class=\"datetimepicker row clearfix\">\n" +
+    "	<div class=\"col-xs-7 datepicker\"  ng-if=\"dateModel\">\n" +
+    "		<table class=\"table\">\n" +
+    "			<tbody>\n" +
+    "			<tr ng-repeat=\"week in calendar\">\n" +
+    "				<td ng-repeat=\"day in week\">\n" +
+    "					<span class=\"pc\" ng-if=\"!day.display\">{{day.date | date : \"dd\"}}</span>\n" +
+    "					<button class=\"btn pc\" ng-click=\"selectDay(day.date)\" ng-class=\"(day.date | date : 'dd') == dateModel.day && (day.date | date : 'M') == dateModel.month ? 'active' :''\" ng-if=\"day.display\">{{day.date | date : \"dd\"}}</button>\n" +
+    "				</td>\n" +
+    "			</tr>\n" +
+    "			</tbody>\n" +
+    "		</table>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-xs-5 timepicker\"  ng-if=\"dateModel\">\n" +
+    "		<div class=\"row\">\n" +
+    "			<div class=\"col-xs-6 hours\"><i ng-click=\"stepHours(1)\" class=\"fa fa-chevron-up chevron\"></i></div>\n" +
+    "			<div class=\"col-xs-6 minutes\"><i ng-click=\"stepMinutes(5)\" class=\"fa fa-chevron-up chevron\"></i></div>\n" +
+    "		</div>\n" +
+    "		<div class=\"row\">\n" +
+    "			<div class=\"col-xs-6 form-field hours\"><input timepicker-two-digit ng-model=\"dateModel.hours\" class=\"form-control\" type=\"text\" ng-change=\"onHoursChange()\"/></div>\n" +
+    "			<div class=\"col-xs-6 form-field minutes\"><input timepicker-two-digit ng-model=\"dateModel.minutes\" class=\"form-control\" type=\"text\" ng-change=\"onMinutesChange()\"/></div>\n" +
+    "		</div>\n" +
+    "		<div class=\"row\">\n" +
+    "			<div class=\"col-xs-6 hours\"><i ng-click=\"stepHours(-1)\" class=\"fa fa-chevron-down chevron\"></i></div>\n" +
+    "			<div class=\"col-xs-6 minutes\"><i ng-click=\"stepMinutes(-5)\" class=\"fa fa-chevron-down chevron\"></i></div>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/directives/location-search.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/directives/location-search.tpl.html",
+    "<ul class=\"location-search\">\n" +
+    "	<li ng-repeat=\"l in list\" ng-click=\"selectLocation(l)\" location-string=\"l\"></li>\n" +
+    "</ul>");
+}]);
+
+angular.module("../src/app/templates/directives/location-string.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/directives/location-string.tpl.html",
+    "<i class=\"location-string\">\n" +
+    "	{{location.string}}\n" +
+    "</i>");
+}]);
+
+angular.module("../src/app/templates/directives/order/order-item.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/directives/order/order-item.tpl.html",
+    "<i class=\"taxi5-icon taxi5-wh_car\"></i>\n" +
+    "<p location-string=\"orderItem.start\"></p>\n" +
+    "<p class=\"order-status\">{{orderItem.status | translate}}</p>");
+}]);
+
+angular.module("../src/app/templates/directives/order/orders-list.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/directives/order/orders-list.tpl.html",
+    "<section class=\"orders-list-section\" ng-if=\"ordersList.length > 1 || !activeID && ordersList.length\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ACTIVE_ORDERS'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "	<ul class=\"orders-list\" ng-if=\"ordersList.length > 1 || !activeID\">\n" +
+    "		<li ng-repeat=\"order in ordersList\" ng-class=\"order.id === activeID ? 'active' : ''\">\n" +
+    "			<span class=\"remove-order\" ng-click=\"removeOrder(order)\"><i class=\"fa fa-times\"></i></span>\n" +
+    "\n" +
+    "			<div class=\"clearfix\" ng-click=\"selectOrder(order)\" order-item=\"order\"></div>\n" +
+    "		</li>\n" +
+    "	</ul>\n" +
+    "</section>");
+}]);
+
+angular.module("../src/app/templates/directives/stars-voter.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/directives/stars-voter.tpl.html",
+    "<div class=\"stars-voter\">\n" +
+    "	<span class=\"stars-voter-container\">\n" +
+    "		<i ng-repeat=\"star in stars\" class=\"fa fa-star\" ng-class=\"star.filled ? 'active' : ''\"></i>\n" +
+    "	</span>\n" +
+    "	<span class=\"stars-voter-description\" ng-if=\"description\" ng-switch=\"hovered\">\n" +
+    "		<span ng-switch-when=\"1\">{{'CABINET_ORDER_REVIEW_HORRIBLE'|translate}}</span>\n" +
+    "		<span ng-switch-when=\"2\">{{'CABINET_ORDER_REVIEW_BAD'|translate}}</span>\n" +
+    "		<span ng-switch-when=\"3\">{{'CABINET_ORDER_REVIEW_FINE'|translate}}</span>\n" +
+    "		<span ng-switch-when=\"4\">{{'CABINET_ORDER_REVIEW_GOOD'|translate}}</span>\n" +
+    "		<span ng-switch-when=\"5\">{{'CABINET_ORDER_REVIEW_EXCELLENT'|translate}}</span>\n" +
+    "		<span ng-switch-default>{{hovered}}</span>\n" +
+    "	</span>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/info.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/info.tpl.html",
+    "<main class=\"simple-info\">\n" +
+    "	<section id=\"plans\" scroll-broadcast class=\"plans container\" ui-view=\"plans\"></section>\n" +
+    "	<section id=\"reviews\" scroll-broadcast class=\"reviews\" ui-view=\"reviews\"></section>\n" +
+    "	<section id=\"about-us\" scroll-broadcast class=\"about-us container\"  ui-view=\"about-us\"></section>\n" +
+    "</main>\n" +
+    "<aside id=\"aside-modal\" aside-modal class=\"modal fade aside-simple-info\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\" ui-view=\"aside\"></aside>");
+}]);
+
+angular.module("../src/app/templates/landing.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/landing.tpl.html",
+    "<header id=\"home\" scroll-broadcast>\n" +
+    "	<nav scroll-toggle=\"0\" class=\"navbar navbar-default\" role=\"navigation\" ui-view=\"nav-menu\"></nav>\n" +
+    "	<div ui-view=\"header-content\"></div>\n" +
+    "</header>\n" +
+    "<main>\n" +
+    "	<section id=\"benefits\" scroll-broadcast class=\"benefits\" ui-view=\"benefits\"></section>\n" +
+    "	<section id=\"mobile-app\" scroll-broadcast class=\"mobile-app\" ui-view=\"mobile-app\"></section>\n" +
+    "	<section id=\"plans\" scroll-broadcast class=\"plans container\" ui-view=\"plans\"></section>\n" +
+    "	<section id=\"reviews\" scroll-broadcast class=\"reviews\" ui-view=\"reviews\"></section>\n" +
+    "	<section id=\"about-us\" scroll-broadcast class=\"about-us container\"  ui-view=\"about-us\"></section>\n" +
+    "</main>\n" +
+    "<footer ui-view=\"footer\"></footer>\n" +
+    "<aside id=\"aside-modal\" aside-modal class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\" ui-view=\"aside\"></aside>\n" +
+    "<div auth-modal ui-view=\"auth-dialog\" class=\"auth-modal modal fade\" id=\"auth-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"auth-modal-label\" aria-hidden=\"true\">\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/order.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/order.tpl.html",
+    "<section class=\"order-form-container\">\n" +
+    "	<ya-map map-order ya-zoom=\"{{mapZoom}}\" ya-center=\"{{mapCenter}}\" ya-after-init=\"afterMapInit($target)\" ya-controls=\"zoomControl\">\n" +
+    "	</ya-map>\n" +
+    "	<div order-calc class=\"calc-price-info clearfix\">\n" +
+    "		<div class=\"calc-box\">\n" +
+    "			<div class=\" calc-info\">\n" +
+    "				<div class=\"col-xs-6 one-line\"><translate>ORDER_FORM_TRAVEL_TIME_CAPTION</translate></div>\n" +
+    "				<div class=\"col-xs-6\"><img src=\"/assets/app/images/on-the-way-icon.png\" alt=\"\"/></div>\n" +
+    "			</div>\n" +
+    "			<div class=\" calc-data\">\n" +
+    "				<translate translate-values=\"{time: '{{routeTime}}', length: '{{routeLength}}' }\">ORDER_FORM_TRAVEL_TIME_VALUE</translate>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<div class=\"calc-box fluid\">\n" +
+    "			<div class=\" calc-info\">\n" +
+    "				<div class=\"col-xs-6 two-line\"><translate>ORDER_FORM_TRAVEL_COST_CAPTION</translate></div>\n" +
+    "				<div class=\"col-xs-6\"><img src=\"/assets/app/images/price-icon.png\" alt=\"\"/></div>\n" +
+    "			</div>\n" +
+    "			<div class=\"calc-data\">\n" +
+    "				<span>{{routePrice | byn:('CURRENCY_FORMAT_DEFAULT' | translate) }}</span>\n" +
+    "				<translate class=\"currency secondary\" translate-values=\"{price: '{{routePrice | byr | numberGap: 3}}' }\">ORDER_FORM_TRAVEL_COST_VALUE_BYR</translate>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "	<aside>\n" +
+    "		<i class=\"form-close fa fa-times\" ng-click=\"closeOrderForm()\"></i>\n" +
+    "		<div class=\"lang-btns clearfix\">\n" +
+    "			<button ng-click=\"changeLang('ru')\" ng-class=\"lang === 'ru' ? 'active' : '' \">ru</button>\n" +
+    "			<button ng-click=\"changeLang('en')\" ng-class=\"lang === 'en' ? 'active' : '' \">en</button>\n" +
+    "		</div>\n" +
+    "		<div orders-list=\"sessionOrdersList\"></div>\n" +
+    "		<div ui-view=\"order\"></div>\n" +
+    "		<ul class=\"store-buttons\">\n" +
+    "			<li><a href=\"https://itunes.apple.com/ru/app/taksi-patnica/id951910609?mt=8\" target=\"_blank\" class=\"taxi5 taxi5-app_store_black_transparent_{{lang || 'en'}}\"></a></li>\n" +
+    "			<li><a href=\"https://play.google.com/store/apps/details?id=com.isolutions.taxi5\" target=\"_blank\" class=\"taxi5 taxi5-google_play_black_transparent_{{lang || 'en'}}\"></a></li>\n" +
+    "		</ul>\n" +
+    "	</aside>\n" +
+    "</section>");
+}]);
+
+angular.module("../src/app/templates/partials/about-us.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/about-us.tpl.html",
+    "<h2>{{'WHO_ARE_WE'|translate}}</h2>\n" +
+    "<article>\n" +
+    "	<div class=\"col-md-5\">\n" +
+    "		<h3>\n" +
+    "			<translate>ABOUT_US_MISSION</translate>\n" +
+    "		</h3>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-md-offset-1 col-md-6\">\n" +
+    "		<translate>ABOUT_US_TEXT</translate>\n" +
+    "	</div>\n" +
+    "</article>");
+}]);
+
+angular.module("../src/app/templates/partials/aside.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/aside.tpl.html",
+    "<div class=\"modal-dialog\">\n" +
+    "	<button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span aria-hidden=\"true\">&times;</span><span class=\"sr-only\">Close</span></button>\n" +
+    "	<div class=\"side-content\" ui-view=\"aside-content\"></div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/auth-dialog.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/auth-dialog.tpl.html",
+    "<div class=\"modal-dialog clearfix\">\n" +
+    "	<button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span aria-hidden=\"true\">&times;</span><span class=\"sr-only\">Close</span></button>\n" +
+    "	<div ui-view=\"auth-dialog-content\"></div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/auth/check.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/auth/check.tpl.html",
+    "<h3>{{'LOGIN'|translate}}</h3>\n" +
+    "<p class=\"customer-phone\">{{activeCustomer.phone | phone}}</p>\n" +
+    "<div class=\"login-check\">\n" +
+    "	<img class=\"preloader\" src=\"/assets/app/images/preloader_orange.GIF\" alt=\"\"/>\n" +
+    "	<p>{{'SIGNING_IN'|translate}}...</p>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/auth/login.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/auth/login.tpl.html",
+    "<h3>{{'LOGIN'|translate}}</h3>\n" +
+    "<form name=\"loginFrom\" novalidate>\n" +
+    "	<div class=\"form-group\" show-errors>\n" +
+    "		<label class=\"control-label form-field\" for=\"client-phone\"> <input autocomplete=\"off\" name=\"phone\" class=\"form-control\" id=\"client-phone\" type=\"tel\" ng-model=\"activeCustomer.phone\" intl-tel-input placeholder=\"{{'LOGIN_PHONE_NUMBER'|translate}}\" required\n" +
+    "				/> </label>\n" +
+    "	</div>\n" +
+    "	<p ng-if=\"loginFrom.phone.$invalid\" class=\"info\">\n" +
+    "		{{'LOGIN_REQUIREMENTS'|translate}}\n" +
+    "	</p>\n" +
+    "\n" +
+    "	<div ng-show=\"loginFrom.phone.$valid\">\n" +
+    "		<div class=\"form-group\" show-errors>\n" +
+    "			<label class=\"control-label form-field\" for=\"client-password\"> <input autocomplete=\"off\" name=\"password\" class=\"form-control\" id=\"client-password\" type=\"password\" ng-model=\"password_string\" placeholder=\"{{'PASSWORD'|translate}}\" required\n" +
+    "					/> </label>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div ng-if=\"sending != 1\" class=\"buttons row\">\n" +
+    "			<div class=\"col-sm-5 col-sm-offset-2\">\n" +
+    "				<button type=\"submit\" class=\"btn btn-taxi btn-taxi-inversed\" ng-click=\"loginViaPassword()\" ng-disabled=\"loginFrom.$invalid\">{{'LOGIN_BUTTON'|translate}}</button>\n" +
+    "			</div>\n" +
+    "			<div class=\"col-sm-5\">\n" +
+    "				<button type=\"button\" class=\"btn-taxi-inline\" ng-click=\"registration()\"><translate>LOGIN_REGISTER_PROMPT</translate></button>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "		<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "</form>");
+}]);
+
+angular.module("../src/app/templates/partials/auth/logout.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/auth/logout.tpl.html",
+    "<h3>{{'LOGOUT'|translate}}</h3>\n" +
+    "<p class=\"customer-phone\">{{activeCustomer.phone | phone}}</p>\n" +
+    "<div class=\"login-check\">\n" +
+    "	<img class=\"preloader\" src=\"/assets/app/images/preloader_orange.GIF\" alt=\"\"/>\n" +
+    "	<p>{{'SIGNING_OUT'|translate}}...</p>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/auth/registration.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/auth/registration.tpl.html",
+    "<h3>{{'REGISTER_SMS'|translate}}</h3>\n" +
+    "<p class=\"customer-phone\">{{activeCustomer.phone | phone}}</p>\n" +
+    "<form name=\"registerFrom\" novalidate>\n" +
+    "	<p class=\"info\">\n" +
+    "		{{'REGISTER_SENT_MESSAGE'|translate}}\n" +
+    "	</p>\n" +
+    "	<div class=\"col-sm-12 row reg-code-area\">\n" +
+    "		<div class=\"col-sm-3 control-label form-field text-center\">\n" +
+    "			<label for=\"confirmationCode\"><translate>REGISTER_SMS_CODE</translate></label>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-sm-6 control-label form-field text-center\">\n" +
+    "			<input id=\"confirmationCode\" type=\"text\" class=\"form-control\" ng-model=\"regCode\"  autocomplete=\"off\" required/>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-sm-3 resend-code\">\n" +
+    "			<button ng-if=\"!codeRequest\" type=\"button\" class=\"resend-code-btn\" ng-click=\"sendCode()\"><span>{{'REGISTER_CODE_NOT_DELIVERED'|translate}}</span></button>\n" +
+    "			<span ng-if=\"codeRequest\"><i class=\"fa fa-spinner fa-spin\"></i></span>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "	<div ng-if=\"sending != 1\" class=\"buttons row\">\n" +
+    "		<div class=\"col-sm-5 col-sm-offset-2\">\n" +
+    "			<button type=\"submit\" class=\"btn btn-taxi btn-taxi-inversed\" ng-click=\"loginViaSmsCode()\" ng-disabled=\"registerFrom.$invalid\">{{'LOGIN_BUTTON'|translate}}</button>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-sm-5\">\n" +
+    "			<button type=\"button\" class=\"btn-taxi-inline\" ng-click=\"loginForm()\"><translate>REGISTER_BACK_TO_LOGIN</translate></button>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "\n" +
+    "	<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "</form>");
+}]);
+
+angular.module("../src/app/templates/partials/benefits.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/benefits.tpl.html",
+    "<h2 class=\"text-center\">{{'BENEFITS'|translate}}</h2>\n" +
+    "\n" +
+    "<div id=\"carousel-benefits\" class=\"carousel slide container\" data-ride=\"carousel\" data-interval=\"0\">\n" +
+    "<!-- Indicators -->\n" +
+    "<ol class=\"carousel-indicators\">\n" +
+    "\n" +
+    "	<li class=\"active\" data-slide-to=\"0\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_bowtie\"></i></li>\n" +
+    "	<li data-slide-to=\"1\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_car\"></i></li>\n" +
+    "	<li data-slide-to=\"2\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_nosmoking\"></i></li>\n" +
+    "	<li data-slide-to=\"3\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_wifi\"></i></li>\n" +
+    "	<li data-slide-to=\"4\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_check\"></i></li>\n" +
+    "	<li data-slide-to=\"5\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_oneprice\"></i></li>\n" +
+    "	<li data-slide-to=\"6\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_cheap_plans\"></i></li>\n" +
+    "	<!--<li data-slide-to=\"7\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_card\"></i></li>-->\n" +
+    "	<li data-slide-to=\"7\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_insurance\"></i></li>\n" +
+    "	<li data-slide-to=\"8\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_plane\"></i></li>\n" +
+    "	<li data-slide-to=\"9\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_nonstandart\"></i></li>\n" +
+    "	<li data-slide-to=\"10\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_heart\"></i></li>\n" +
+    "	<!--<li data-slide-to=\"11\" data-target=\"#carousel-benefits\"><i class=\"taxi5-icon taxi5-adv_star\"></i></li>-->\n" +
+    "\n" +
+    "</ol>\n" +
+    "\n" +
+    "<!-- Wrapper for slides -->\n" +
+    "<div class=\"carousel-inner\" role=\"listbox\">\n" +
+    "\n" +
+    "	<div class=\"item clearfix active\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4 img-block\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_bowtie\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_DRIVERS_HEADING'|translate}}</h3>\n" +
+    "			<p><translate>BENEFITS_DRIVERS_CONTENT</translate></p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"item clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_car\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_VEHICLES_HEADING'|translate}}</h3>\n" +
+    "			<p><translate>BENEFITS_VEHICLES_CONTENT</translate></p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"item clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_nosmoking\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_SMOKING_HEADING'|translate}}</h3>\n" +
+    "			<p>{{'BENEFITS_SMOKING_CONTENT'|translate}}</p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"item clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_wifi\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_WIFI_HEADING'|translate}}</h3>\n" +
+    "			<p>{{'BENEFITS_WIFI_CONTENT'|translate}}</p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"item clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_check\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_SERVICE_HEADING'|translate}}</h3>\n" +
+    "			<p><translate>BENEFITS_SERVICE_CONTENT</translate></p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"item clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_oneprice\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_PRICE_HEADING'|translate}}</h3>\n" +
+    "			<p>{{'BENEFITS_PRICE_CONTENT'|translate}}</p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"item clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_cheap_plans\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_TARIFF_HEADING'|translate}}</h3>\n" +
+    "			<p>{{'BENEFITS_TARIFF_CONTENT'|translate}}</p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<!--<div class=\"item clearfix\">-->\n" +
+    "\n" +
+    "		<!--<div class=\"col-md-4\">-->\n" +
+    "			<!--<i class=\"taxi5-icon taxi5-adv_card\"></i>-->\n" +
+    "		<!--</div>-->\n" +
+    "\n" +
+    "		<!--<div class=\"carousel-description col-md-offset-1 col-md-7\">-->\n" +
+    "			<!--<h3>3 способа оплаты</h3>-->\n" +
+    "\n" +
+    "			<!--<p>Рассчитывайтесь наличными, пластиковой картой и прямо из приложения &mdash; бонусами, милями или с баланса, который легко пополняется в-->\n" +
+    "				<!--личном кабинете. Мы принимаем карты Visa, MasterCard, БелКарт, принимаем электронные деньги.</p>-->\n" +
+    "		<!--</div>-->\n" +
+    "\n" +
+    "	<!--</div>-->\n" +
+    "\n" +
+    "	<div class=\"item clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_insurance\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_INSURANCE_HEADING'|translate}}</h3>\n" +
+    "			<p>{{'BENEFITS_INSURANCE_CONTENT'|translate}}</p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"item clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_plane\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_MEETING_HEADING'|translate}}</h3>\n" +
+    "			<p>{{'BENEFITS_MEETING_CONTENT'|translate}}</p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"item clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_nonstandart\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_IRREGULAR_ORDERS_HEADING'|translate}}</h3>\n" +
+    "			<p><translate>BENEFITS_IRREGULAR_ORDERS_CONTENT</translate></p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"item clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<i class=\"taxi5-icon taxi5-adv_heart\"></i>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"carousel-description col-md-offset-1 col-md-7\">\n" +
+    "			<h3>{{'BENEFITS_IMPROVE_SERVICE_HEADING'|translate}}</h3>\n" +
+    "			<p>{{'BENEFITS_IMPROVE_SERVICE_CONTENT'|translate}}</p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<!--<div class=\"item clearfix\">-->\n" +
+    "\n" +
+    "		<!--<div class=\"col-md-4\">-->\n" +
+    "			<!--<i class=\"taxi5-icon taxi5-adv_star\"></i>-->\n" +
+    "		<!--</div>-->\n" +
+    "\n" +
+    "		<!--<div class=\"carousel-description col-md-offset-1 col-md-7\">-->\n" +
+    "			<!--<h3>Бонусная система</h3>-->\n" +
+    "\n" +
+    "			<!--<p>В такси «Пятница» действует система бонусных километров, особые условия для постоянных клиентов.</p>-->\n" +
+    "		<!--</div>-->\n" +
+    "\n" +
+    "	<!--</div>-->\n" +
+    "\n" +
+    "</div>\n" +
+    "\n" +
+    "<!-- Controls -->\n" +
+    "<span class=\"left carousel-control\" data-target=\"#carousel-benefits\" role=\"button\" data-slide=\"prev\">\n" +
+    "	<span class=\"fa fa-angle-left\"></span>\n" +
+    "	<span class=\"sr-only\">Previous</span>\n" +
+    "</span>\n" +
+    "<span class=\"right carousel-control\" data-target=\"#carousel-benefits\" role=\"button\" data-slide=\"next\">\n" +
+    "	<span class=\"fa fa-angle-right\"></span>\n" +
+    "	<span class=\"sr-only\">Next</span>\n" +
+    "</span>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/cabinet-page.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/cabinet-page.tpl.html",
+    "<div ui-view=\"cabinet-page-content\"></div>\n" +
+    "<div popup-modal ui-view=\"popup-dialog\" class=\"modal fade\" id=\"popup-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"popup-modal-label\" aria-hidden=\"true\">\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/change-avatar.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/change-avatar.tpl.html",
+    "<div ng-controller=\"CabinetAvatarController\">\n" +
+    "	<h3>{{'CABINET_CHANGE_AVATAR_HEADING'|translate}}</h3>\n" +
+    "	<avatar-uploader show-btns=\"showBtns\" image-src=\"getAvatar()\" save-callback=\"saveAvatar(avatar)\"></avatar-uploader>\n" +
+    "	<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "	<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/change-password.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/change-password.tpl.html",
+    "<div ng-controller=\"CabinetChangePasswordController\">\n" +
+    "\n" +
+    "	<h3 ng-if=\"activeCustomer.password_exists\">{{'CABINET_CHANGE_PASSWORD_HEADING'|translate}}</h3>\n" +
+    "	<h3 ng-if=\"!activeCustomer.password_exists\">{{'CABINET_ASSIGN_PASSWORD_HEADING'|translate}}</h3>\n" +
+    "\n" +
+    "	<form name=\"changePasswordForm\" class=\"password-change\" novalidate>\n" +
+    "\n" +
+    "		<div ng-if=\"!via_code && activeCustomer.password_exists\" class=\"form-group old-password\" show-errors>\n" +
+    "			<label class=\"control-label form-field\" for=\"client-old-password\">\n" +
+    "				<input pattern=\".{5,50}\" autocomplete=\"off\" name=\"old_password\" class=\"form-control\" id=\"client-old-password\" type=\"password\" ng-model=\"formData.old_password\" placeholder=\"{{'OLD_PASSWORD'|translate}}\" required\n" +
+    "					/> </label>\n" +
+    "\n" +
+    "\n" +
+    "			<button type=\"button\" class=\"btn-taxi-inline\" ng-click=\"lostPass()\"><span class=\"dashed\">{{'CABINET_CHANGE_PASSWORD_FORGOT'|translate}}</span></button>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div ng-if=\"via_code\" class=\"clearfix reg-code-area\">\n" +
+    "			<div class=\"col-sm-3 control-label form-field text-center\">\n" +
+    "				<label for=\"confirmationCode\"><translate>REGISTER_SMS_CODE</translate></label>\n" +
+    "			</div>\n" +
+    "			<div class=\"col-sm-6 control-label form-field text-center\">\n" +
+    "				<input id=\"confirmationCode\" type=\"text\" class=\"form-control\" ng-model=\"formData.sms_code\"  autocomplete=\"off\" required/>\n" +
+    "			</div>\n" +
+    "			<div class=\"col-sm-3 resend-code\">\n" +
+    "				<button ng-if=\"!codeRequest\" type=\"button\" class=\"resend-code-btn\" ng-click=\"sendCode()\"><span>{{'REGISTER_CODE_NOT_DELIVERED'|translate}}</span></button>\n" +
+    "				<span ng-if=\"codeRequest\"><i class=\"fa fa-spinner fa-spin\"></i></span>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"form-group\" show-errors>\n" +
+    "			<label class=\"control-label form-field\" for=\"client-new-password\"> <input pattern=\".{5,50}\" autocomplete=\"off\" name=\"new_password\" class=\"form-control\" id=\"client-new-password\" type=\"password\" ng-model=\"formData.new_password\" placeholder=\"{{'NEW_PASSWORD'|translate}}\" required\n" +
+    "					/> </label>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"form-group\" show-errors>\n" +
+    "			<label class=\"control-label form-field\" for=\"client-new-password-repeat\"> <input pattern=\".{5,50}\" autocomplete=\"off\" name=\"new_password_repeat\" class=\"form-control\" id=\"client-new-password-repeat\" type=\"password\" ng-model=\"formData.new_password_repeat\" placeholder=\"{{'REPEAT_PASSWORD'|translate}}\" required\n" +
+    "					/> </label>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div ng-if=\"sending != 1\" class=\"buttons row\">\n" +
+    "			<div class=\"col-sm-6 col-sm-offset-3\">\n" +
+    "				<button type=\"submit\" class=\"btn btn-taxi btn-taxi-inversed\" ng-click=\"changePassword()\" ng-disabled=\"changePasswordForm.$invalid\">{{'SAVE'|translate}}</button>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "\n" +
+    "		<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "\n" +
+    "	</form>\n" +
+    "\n" +
+    "	<p ng-init=\"initForm()\"></p>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/changes-saved.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/changes-saved.tpl.html",
+    "<div ng-controller=\"CabinetChangePasswordController\">\n" +
+    "	<h3>\n" +
+    "		{{'CHANGES_SAVED'|translate}}\n" +
+    "	</h3>\n" +
+    "	<!--<p class=\"saved-success\"><i class=\"fa fa-check\"></i></p>-->\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/history-orders.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/history-orders.tpl.html",
+    "<div class=\"orders-history\" ng-controller=\"CabinetHistoryController\" ng-init=\"ordersHistory.total ? null : refreshOrdersHistory()\">\n" +
+    "	<h1>{{'CABINET_ORDERS_HISTORY'|translate}}\n" +
+    "		<button ng-if=\"loading == false\" class=\"btn refresh\" ng-click=\"refreshOrdersHistory(ordersHistory.period, ordersHistory.limit)\"><i class=\" glyphicon glyphicon-repeat\"></i></button>\n" +
+    "\n" +
+    "		<span class=\"total\">\n" +
+    "			<span ng-if=\"!loading\"><small>{{'CABINET_HISTORY_TOTAL'|translate}}</small> {{ordersHistory.total}}</span>\n" +
+    "			<img ng-if=\"loading\" class=\"loading-circle\" alt=\"\" src=\"/assets/app/images/preloader_orange.GIF\">\n" +
+    "		</span>\n" +
+    "	</h1>\n" +
+    "	<table class=\"table\">\n" +
+    "		<thead>\n" +
+    "		<tr>\n" +
+    "			<th colspan=\"4\">\n" +
+    "				<p>\n" +
+    "					<button ng-class=\"ordersHistory.period === 'all' ? 'active' : ''\" ng-click=\"refreshOrdersHistory('all', ordersHistory.limit)\">{{'CABINET_HISTORY_ALL_TIME'|translate}}</button>\n" +
+    "					<button ng-class=\"ordersHistory.period === 'year' ? 'active' : ''\" ng-click=\"refreshOrdersHistory('year', ordersHistory.limit)\">{{'CABINET_HISTORY_LAST_YEAR'|translate}}</button>\n" +
+    "					<button ng-class=\"ordersHistory.period === 'month' ? 'active' : ''\" ng-click=\"refreshOrdersHistory('month', ordersHistory.limit)\">{{'CABINET_HISTORY_LAST_MONTH'|translate}}</button>\n" +
+    "				</p>\n" +
+    "				<p class=\"pull-right\">\n" +
+    "					<button ng-class=\"ordersHistory.limit === 10 ? 'active' : ''\" ng-click=\"refreshOrdersHistory(ordersHistory.period, 10)\">10</button>\n" +
+    "					<button ng-class=\"ordersHistory.limit === 25 ? 'active' : ''\" ng-click=\"refreshOrdersHistory(ordersHistory.period, 25)\">25</button>\n" +
+    "					<button ng-class=\"ordersHistory.limit === 50 ? 'active' : ''\" ng-click=\"refreshOrdersHistory(ordersHistory.period, 50)\">50</button>\n" +
+    "				</p>\n" +
+    "			</th>\n" +
+    "		</tr>\n" +
+    "		</thead>\n" +
+    "		<tbody>\n" +
+    "		<tr ng-repeat=\"order in ordersHistory.orders\" class=\"order-row\">\n" +
+    "			<td class=\"order-waypoints\">\n" +
+    "				<p class=\"order-start\" location-string=\"order.start\"></p>\n" +
+    "\n" +
+    "				<p ng-if=\"order.finish\" class=\"order-finish\" location-string=\"order.finish\"><span class=\"glyphicon glyphicon-arrow-right\"></span></p>\n" +
+    "\n" +
+    "				<p ng-if=\"order.is_postponed\" class=\"order-postponed\">{{'CABINET_HISTORY_POSTPONED_AT'|translate}} {{order.start_at | date : \"dd-MM-yy HH:mm\"}}</p>\n" +
+    "\n" +
+    "			</td>\n" +
+    "			<td class=\"order-date text-center\">\n" +
+    "				<p>{{order.created_at | date : \"dd-MM-yy\"}}<br/>{{order.created_at | date : \"HH:mm\"}}</p>\n" +
+    "				<button ng-click=\"repeatOrder(order)\" class=\"btn btn-taxi btn-taxi-inversed repeat-order-btn\">\n" +
+    "					{{'CABINET_HISTORY_REPEAT'|translate}}\n" +
+    "				</button>\n" +
+    "			</td>\n" +
+    "			<td class=\"order-carrier\">\n" +
+    "				<!--<div ng-if=\"order.driver\" class=\"driver-avatar\">-->					<!--<img alt=\"avatar\" src=\"/assets/app/images/default-user.jpg\" class=\"img-circle\">-->				<!--</div>-->\n" +
+    "				<p class=\"order-driver\" ng-if=\"order.driver\">{{order.driver.firstname + \" \" + order.driver.lastname}}</p>\n" +
+    "\n" +
+    "				<p class=\"order-vehicle\" ng-if=\"order.vehicle\">{{order.vehicle.info.manufacturer + \" \" + order.vehicle.info.model + \" \" + order.vehicle.license_tax}}</p>\n" +
+    "\n" +
+    "				<!--<p class=\"order-non-vehicle\">{{order.status | translate}}</p>-->\n" +
+    "			</td>\n" +
+    "			<td class=\"order-review hidden-xs\" popup-click ng-click=\"enterOrderReview(order)\">\n" +
+    "				<button ng-if=\"!order.review_meta\" class=\"btn\">{{'CABINET_HISTORY_RATE'|translate}}</button>\n" +
+    "				<stars-voter ng-if=\"order.review_meta\" value=\"order.review_meta.average\" read-only=\"true\"></stars-voter>\n" +
+    "			</td>\n" +
+    "		</tr>\n" +
+    "		</tbody>\n" +
+    "	</table>\n" +
+    "	<p class=\"text-center\" ng-if=\"ordersHistory.total > ordersHistory.orders.length\">\n" +
+    "		<button ng-if=\"loading == false\" class=\"btn load-more\" ng-click=\"loadOrdersHistory()\">{{'CABINET_HISTORY_MORE'|translate}}</button>\n" +
+    "		<img ng-if=\"loading == true\" class=\"loading-circle\" alt=\"\" src=\"/assets/app/images/preloader_orange.GIF\">\n" +
+    "	</p>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/history-payments.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/history-payments.tpl.html",
+    "");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/loyalty-transactions.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/loyalty-transactions.tpl.html",
+    "<div class=\"loyalty-transactions\" ng-controller=\"CabinetLoyaltyController\" ng-init=\"transactionsHistory.total ? null : refreshTransactionsHistory()\">\n" +
+    "	<h1>{{'CABINET_LOYALTY_CHARGES_HISTORY'|translate}}\n" +
+    "		<button ng-if=\"loading == false\" class=\"btn refresh\" ng-click=\"refreshTransactionsHistory(transactionsHistory.period, transactionsHistory.limit)\"><i class=\" glyphicon glyphicon-repeat\"></i></button>\n" +
+    "\n" +
+    "		<span class=\"total\">\n" +
+    "			<span ng-if=\"!loading\">\n" +
+    "				<small>{{'CABINET_LOYALTY_CHARGES_HISTORY_REMAINDER'|translate}}</small>\n" +
+    "\n" +
+    "				<span class='currency' ng-if=\"loyaltyAccount.balance\">{{loyaltyAccount.balance.amount | byn:('CURRENCY_FORMAT_DEFAULT' | translate)}}</span>\n" +
+    "			</span>\n" +
+    "			<img ng-if=\"loading\" class=\"loading-circle\" alt=\"\" src=\"/assets/app/images/preloader_orange.GIF\">\n" +
+    "		</span>\n" +
+    "	</h1>\n" +
+    "	<table class=\"table\">\n" +
+    "		<thead>\n" +
+    "		<tr>\n" +
+    "			<th colspan=\"4\">\n" +
+    "				<p>\n" +
+    "					<button ng-class=\"transactionsHistory.period === 'all' ? 'active' : ''\" ng-click=\"refreshTransactionsHistory('all', transactionsHistory.limit)\">{{'CABINET_LOYALTY_CHARGES_HISTORY_ALL_TIME'|translate}}</button>\n" +
+    "					<button ng-class=\"transactionsHistory.period === 'year' ? 'active' : ''\" ng-click=\"refreshTransactionsHistory('year', transactionsHistory.limit)\">{{'CABINET_LOYALTY_CHARGES_HISTORY_LAST_YEAR'|translate}}</button>\n" +
+    "					<button ng-class=\"transactionsHistory.period === 'month' ? 'active' : ''\" ng-click=\"refreshTransactionsHistory('month', transactionsHistory.limit)\">{{'CABINET_LOYALTY_CHARGES_HISTORY_LAST_MONTH'|translate}}</button>\n" +
+    "				</p>\n" +
+    "				<p class=\"pull-right\">\n" +
+    "					<button ng-class=\"transactionsHistory.limit === 10 ? 'active' : ''\" ng-click=\"refreshTransactionsHistory(transactionsHistory.period, 10)\">10</button>\n" +
+    "					<button ng-class=\"transactionsHistory.limit === 25 ? 'active' : ''\" ng-click=\"refreshTransactionsHistory(transactionsHistory.period, 25)\">25</button>\n" +
+    "					<button ng-class=\"transactionsHistory.limit === 50 ? 'active' : ''\" ng-click=\"refreshTransactionsHistory(transactionsHistory.period, 50)\">50</button>\n" +
+    "				</p>\n" +
+    "			</th>\n" +
+    "		</tr>\n" +
+    "		<tr>\n" +
+    "			<th class=\"light\">\n" +
+    "				{{'TRANSACTION_NUMBER'|translate}}\n" +
+    "			</th>\n" +
+    "			<th class=\"light\">\n" +
+    "				{{'TRANSACTION_COMMITED_AT'|translate}}\n" +
+    "			</th>\n" +
+    "			<th class=\"light\">\n" +
+    "				{{'TRANSACTION_AMOUNT'|translate}}\n" +
+    "			</th>\n" +
+    "			<th class=\"light\">\n" +
+    "				{{'COMMENT'|translate}}\n" +
+    "			</th>\n" +
+    "		</tr>\n" +
+    "		</thead>\n" +
+    "		<tbody>\n" +
+    "		<tr ng-repeat=\"transaction in transactionsHistory.transactions\" class=\"transaction-row\">\n" +
+    "			<td class=\"transaction-number\" title=\"{{transaction.number}}\">\n" +
+    "				{{transaction.number}}\n" +
+    "			</td>\n" +
+    "			<td>\n" +
+    "				{{transaction.commited_at | date : \"dd-MM-yy HH:mm\"}}\n" +
+    "			</td>\n" +
+    "			<td class=\"transaction-amount\">\n" +
+    "				<span class=\"currency\" ng-if=\"undefined !== transaction.amount\">{{transaction.amount | byn:('CURRENCY_FORMAT_DEFAULT' | translate)}}</span>\n" +
+    "				<span class=\"currency secondary\" ng-if=\"undefined !== transaction.amount\">({{transaction.amount | byr | number}}&nbsp;{{'CURRENCY_BYR' | translate}})</span>\n" +
+    "			</td>\n" +
+    "			<td>\n" +
+    "				<span ng-if=\"transaction.comment\">{{transaction.comment}}</span>\n" +
+    "				<i  ng-if=\"!transaction.comment\" class=\"fa fa-minus\"></i>\n" +
+    "			</td>\n" +
+    "		</tr>\n" +
+    "		</tbody>\n" +
+    "	</table>\n" +
+    "	<p class=\"text-center\" ng-if=\"transactionsHistory.total > transactionsHistory.transactions.length\">\n" +
+    "		<button ng-if=\"loading == false\" class=\"btn load-more\" ng-click=\"loadTransactionsHistory()\">{{'CABINET_HISTORY_MORE'|translate}}</button>\n" +
+    "		<img ng-if=\"loading == true\" class=\"loading-circle\" alt=\"\" src=\"/assets/app/images/preloader_orange.GIF\">\n" +
+    "	</p>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/my-places.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/my-places.tpl.html",
+    "<div ng-controller=\"CabinetPlacesController\" class=\"customer-places\" ng-init=\"customerPlaces.total ? null : refreshCustomerPlaces()\">\n" +
+    "	<h1>{{'CABINET_FAVORITE_PLACES'|translate}}\n" +
+    "		<button ng-if=\"loading == false\" class=\"btn refresh\" ng-click=\"refreshCustomerPlaces(customerPlaces.period, customerPlaces.limit)\"><i class=\" glyphicon glyphicon-repeat\"></i></button>\n" +
+    "\n" +
+    "		<span class=\"total\">\n" +
+    "			<span ng-if=\"!loading\"><small>{{'CABINET_HISTORY_TOTAL'|translate}}</small> {{customerPlaces.total}}</span>\n" +
+    "			<img ng-if=\"loading\" class=\"loading-circle\" alt=\"\" src=\"/assets/app/images/preloader_orange.GIF\">\n" +
+    "		</span>\n" +
+    "	</h1>\n" +
+    "	<table class=\"table\">\n" +
+    "		<thead>\n" +
+    "		<tr>\n" +
+    "			<!--<th colspan=\"4\">-->\n" +
+    "				<!--<p class=\"pull-right\">-->\n" +
+    "					<!--<button ng-class=\"customerPlaces.limit === 10 ? 'active' : ''\" ng-click=\"refreshCustomerPlaces(customerPlaces.period, 10)\">10</button>-->\n" +
+    "					<!--<button ng-class=\"customerPlaces.limit === 25 ? 'active' : ''\" ng-click=\"refreshCustomerPlaces(customerPlaces.period, 25)\">25</button>-->\n" +
+    "					<!--<button ng-class=\"customerPlaces.limit === 50 ? 'active' : ''\" ng-click=\"refreshCustomerPlaces(customerPlaces.period, 50)\">50</button>-->\n" +
+    "				<!--</p>-->\n" +
+    "			<!--</th>-->\n" +
+    "			<th class=\"place-waypoints\">\n" +
+    "				{{'ADDRESS'|translate}}\n" +
+    "			</th>\n" +
+    "			<th class=\"place-alias\">\n" +
+    "				{{'CABINET_FAVORITE_PLACES_NAME'|translate}}\n" +
+    "			</th>\n" +
+    "			<th class=\"place-count\">\n" +
+    "				{{'CABINET_FAVORITE_PLACES_COUNT'|translate}}\n" +
+    "			</th>\n" +
+    "		</tr>\n" +
+    "		</thead>\n" +
+    "\n" +
+    "		<tbody>\n" +
+    "		<tr ng-repeat=\"place in customerPlaces.places\" class=\"place-row\">\n" +
+    "			<td class=\"place-waypoints\">\n" +
+    "				<p class=\"place\" location-string=\"place\" no-alias=\"true\"></p>\n" +
+    "			</td>\n" +
+    "			<td class=\"place-alias\">\n" +
+    "				<p ng-class=\"!place.alias ? 'noname-place' : ''\">{{place.alias || \"(\" + ('CABINET_FAVORITE_PLACES_UNTITLED'|translate) + \")\"}}</p>\n" +
+    "				<button ng-click=\"enterPlaceEdit(place)\" class=\"btn-taxi-inline place-name-btn\">\n" +
+    "					{{'CABINET_FAVORITE_PLACES_CHANGE'|translate}}\n" +
+    "				</button>\n" +
+    "			</td>\n" +
+    "			<td class=\"place-count\">\n" +
+    "				<p>{{place.counter}}</p>\n" +
+    "				<button ng-click=\"repeatPlace(place)\" class=\"btn btn-taxi btn-taxi-inversed repeat-order-btn\">\n" +
+    "					{{'REPEAT'|translate}}\n" +
+    "				</button>\n" +
+    "			</td>\n" +
+    "\n" +
+    "		</tr>\n" +
+    "		</tbody>\n" +
+    "\n" +
+    "	</table>\n" +
+    "\n" +
+    "	<p class=\"text-center\" ng-if=\"customerPlaces.total > customerPlaces.places.length\">\n" +
+    "		<button ng-if=\"loading == false\" class=\"btn load-more\" ng-click=\"loadCustomerPlaces()\">{{'MORE'|translate}}</button>\n" +
+    "		<img ng-if=\"loading == true\" class=\"loading-circle\" alt=\"\" src=\"/assets/app/images/preloader_orange.GIF\">\n" +
+    "	</p>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/order-review.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/order-review.tpl.html",
+    "<div class=\"order-review\" ng-controller=\"CabinetOrderReviewController\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h3>\n" +
+    "			{{'CABINET_ORDER_REVIEW'|translate}}\n" +
+    "		</h3>\n" +
+    "	</div>\n" +
+    "	<div class=\"modal-body order-row clearfix\">\n" +
+    "		<div class=\"order-waypoints\">\n" +
+    "			<p class=\"order-start\" location-string=\"order.start\"></p>\n" +
+    "\n" +
+    "			<p ng-if=\"order.finish\" class=\"order-finish\" location-string=\"order.finish\"><span class=\"glyphicon glyphicon-arrow-right\"></span></p>\n" +
+    "\n" +
+    "			<p ng-if=\"order.is_postponed\" class=\"order-postponed\">\n" +
+    "				<translate translate-values=\"{value: {{order.start_at | date : 'dd-MM-yy HH:mm'}} }\">CABINET_ORDER_DEFERRED_FOR</translate>\n" +
+    "			</p>\n" +
+    "		</div>\n" +
+    "		<div class=\"order-date text-center\">{{order.created_at | date : \"dd-MM-yy\"}}<br/>{{order.created_at | date : \"HH:mm\"}}</div>\n" +
+    "		<div class=\"order-carrier\">\n" +
+    "			<!--<div ng-if=\"order.driver\" class=\"driver-avatar\">-->				<!--<img alt=\"avatar\" src=\"/assets/app/images/default-user.jpg\" class=\"img-circle\">-->			<!--</div>-->\n" +
+    "			<p class=\"order-driver\" ng-if=\"order.driver\">{{order.driver.firstname + \" \" + order.driver.lastname}}</p>\n" +
+    "\n" +
+    "			<p class=\"order-vehicle\" ng-if=\"order.vehicle\">{{order.vehicle.info.manufacturer + \" \" + order.vehicle.info.model + \" \" + order.vehicle.license_tax}}</p>\n" +
+    "\n" +
+    "			<p class=\"order-non-vehicle\">{{order.status | translate}}</p>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"modal-footer\">\n" +
+    "\n" +
+    "		<div class=\"review-ratings clearfix\">\n" +
+    "			<div class=\"row review-ratings-position\">\n" +
+    "				<div class=\"col-xs-6 review-ratings-description\">{{'CABINET_ORDER_REVIEW_POLITENESS'|translate}}</div>\n" +
+    "				<div class=\"col-xs-6 review-ratings-value\">\n" +
+    "					<stars-voter value=\"order.review_meta.civility\" description=\"true\"></stars-voter>\n" +
+    "				</div>\n" +
+    "			</div>\n" +
+    "			<div class=\"row review-ratings-position\">\n" +
+    "				<div class=\"col-xs-6 review-ratings-description\">{{'CABINET_ORDER_REVIEW_CLEANLINESS'|translate}}</div>\n" +
+    "				<div class=\"col-xs-6 review-ratings-value\">\n" +
+    "					<stars-voter value=\"order.review_meta.cleanliness\" description=\"true\"></stars-voter>\n" +
+    "				</div>\n" +
+    "			</div>\n" +
+    "			<div class=\"row review-ratings-position\">\n" +
+    "				<div class=\"col-xs-6 review-ratings-description\">{{'CABINET_ORDER_REVIEW_VELOCITY'|translate}}</div>\n" +
+    "				<div class=\"col-xs-6 review-ratings-value\">\n" +
+    "					<stars-voter value=\"order.review_meta.velocity\" description=\"true\"></stars-voter>\n" +
+    "				</div>\n" +
+    "			</div>\n" +
+    "			<div class=\"row review-rating-comment\">\n" +
+    "				<textarea class=\"col-xs-10 col-xs-offset-1\" ng-model=\"order.review_meta.comment\" rows=\"4\" placeholder=\"{{'CABINET_ORDER_REVIEW_FEW_WORDS'|translate}}\"></textarea>\n" +
+    "			</div>\n" +
+    "			<div class=\"review-rating-send text-center\">\n" +
+    "				<button ng-if=\"sending != 1\" class=\"btn btn-taxi btn-taxi-inversed\" ng-click=\"sendOrderReview()\">{{'CABINET_ORDER_REVIEW_LEAVE'|translate}}</button>\n" +
+    "				<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "\n" +
+    "				<p class=\"sending-info\" ng-click=\"ololo()\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/place-edit.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/place-edit.tpl.html",
+    "<div class=\"place-edit clearfix\" ng-controller=\"CabinetPlaceEditController\">\n" +
+    "	<h3>\n" +
+    "		{{'CABINET_FAVORITE_PLACES_CHANGING'|translate}}\n" +
+    "	</h3>\n" +
+    "\n" +
+    "	<p class=\"place\" location-string=\"place\"></p>\n" +
+    "\n" +
+    "	<form name=\"placeForm\" novalidate=\"\">\n" +
+    "		<div class=\"form-group\" show-errors>\n" +
+    "			<label class=\"control-label form-field\" for=\"place-alias\"> <input pattern=\".{0,50}\" autocomplete=\"off\" name=\"alias\" class=\"form-control\" id=\"place-alias\" type=\"text\" ng-model=\"place.alias\" placeholder=\"{{'CABINET_FAVORITE_PLACES_NAME'|translate}}\"\n" +
+    "					/> </label>\n" +
+    "		</div>\n" +
+    "		<div ng-if=\"sending != 1\" class=\"buttons row\">\n" +
+    "			<div class=\"col-sm-6 col-sm-offset-3\">\n" +
+    "				<button type=\"submit\" class=\"btn btn-taxi btn-taxi-inversed\" ng-click=\"placeSave()\" ng-disabled=\"placeForm.$invalid\">{{'SAVE'|translate}}</button>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "\n" +
+    "		<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "	</form>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/profile-edit.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/profile-edit.tpl.html",
+    "<div class=\"profile-edit\">\n" +
+    "	<h1>{{'CABINET_PROFILE_HEADING'|translate}}</h1>\n" +
+    "\n" +
+    "	<form ng-controller=\"CabinetProfileEditController\" name=\"profileEdit\">\n" +
+    "		<div class=\"form-group row\">\n" +
+    "			<label class=\"col-sm-3\" for=\"customerName\">{{'NAME'|translate}}</label>\n" +
+    "\n" +
+    "			<div class=\"col-sm-5\" show-errors>\n" +
+    "				<input type=\"text\" id=\"customerName\" name=\"name\" ng-model=\"customerProfile.name\" required=\"\"/>\n" +
+    "			</div>\n" +
+    "			<div class=\"col-sm-4\" ng-if=\"profileEdit.name.$invalid\">\n" +
+    "				<p class=\"error\">{{'ENTER_THE_NAME'|translate}}</p>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<div class=\"form-group row\">\n" +
+    "			<label class=\"col-sm-3\">{{'PHONE'|translate}}</label>\n" +
+    "\n" +
+    "			<div class=\"col-sm-5\">\n" +
+    "				<p>{{customerProfile.phone | phone}}<i class=\"fa fa-check\"></i>\n" +
+    "				</p>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<div class=\"form-group row\">\n" +
+    "			<label class=\"col-xs-3\" for=\"customerAvatar\">{{'AVATAR'|translate}}</label>\n" +
+    "\n" +
+    "			<div class=\"col-xs-5 change-avtr\" show-errors>\n" +
+    "				<button ng-click=\"changeAvatar()\"  class=\"btn-taxi-inline\" type=\"button\" id=\"customerAvatar\">{{'CHANGE'|translate}}</button>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<div class=\"form-group row\">\n" +
+    "			<label class=\"col-sm-3\" for=\"customerEmail\">E-mail</label>\n" +
+    "\n" +
+    "			<div class=\"col-sm-5\" show-errors>\n" +
+    "				<input type=\"email\" id=\"customerEmail\" name=\"email\" ng-model=\"customerProfile.email\"/>\n" +
+    "			</div>\n" +
+    "			<div class=\"col-sm-4\" ng-if=\"profileEdit.email.$invalid\">\n" +
+    "				<p class=\"error\">{{'ENTER_VALID_EMAIL'|translate}}</p>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<div class=\"form-group row\">\n" +
+    "			<label class=\"col-sm-3\" for=\"customerBirthDate\">{{'BIRTHDAY'|translate}}</label>\n" +
+    "\n" +
+    "			<div class=\"col-sm-5 bootstrap-dp\">\n" +
+    "				<button ng-class=\"dobdpIsOpened ? 'active' : ''\" id=\"customerBirthDate\" type=\"button\" class=\"btn-bootstrap-dp form-control\"\n" +
+    "				        datepicker-popup=\"dd/MM/yyyy\"\n" +
+    "				        starting-day=\"1\"\n" +
+    "				        show-weeks=\"false\"\n" +
+    "				        show-button-bar=\"false\"\n" +
+    "				        ng-model=\"customerProfile.date_of_birth\"\n" +
+    "				        is-open=\"dobdpIsOpened\"\n" +
+    "				        ng-click=\"dobdpOpen($event)\"><i class=\"fa fa-calendar\"></i><span>{{(customerProfile.date_of_birth | date : \"dd/MM/yyyy\") || 'CABINET_PROFILE_CHOOSE'|translate }}</span>\n" +
+    "				</button>\n" +
+    "				<i ng-click=\"dobdpClear()\" ng-if=\"customerProfile.date_of_birth\" class=\"fa fa-times\"></i>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<div class=\"form-group row\">\n" +
+    "			<label class=\"col-sm-3 col-xs-4\">{{'PASSWORD'|translate}}</label>\n" +
+    "\n" +
+    "			<div class=\"col-sm-5 col-xs-7 change-pswd\">\n" +
+    "				<button type=\"button\" popup-click ng-click=\"passwordPopup()\" class=\"btn-taxi-inline\"><i class=\"fa fa-lock\"></i> <span ng-if=\"activeCustomer.password_exists\">{{'CABINET_CHANGE_PASSWORD'|translate}}</span> <span ng-if=\"!activeCustomer.password_exists\">{{'CABINET_ASSIGN_PASSWORD'|translate}}</span>\n" +
+    "				</button>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<div class=\"form-group row\">\n" +
+    "			<label class=\"col-sm-3\"><translate>CABINET_PROFILE_RECEIVE_NEWS</translate></label>\n" +
+    "\n" +
+    "			<div class=\"switch col-sm-5\">\n" +
+    "				<input id=\"smsNews\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" name=\"news_via_sms\" ng-model=\"customerProfile.news_via_sms\"><label for=\"smsNews\"></label> <span>{{'BY_SMS'|translate}}</span><br/>\n" +
+    "				<input id=\"emailNews\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" name=\"news_via_email\" ng-model=\"customerProfile.news_via_email\"><label for=\"emailNews\"></label> <span>{{'BY_EMAIL'|translate}}</span>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<hr/>\n" +
+    "		<div class=\"col-sm-3 col-sm-offset-3\">\n" +
+    "			<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "\n" +
+    "			<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "			<button ng-if=\"sending != 1\" class=\"btn btn-taxi btn-taxi-inversed\" ng-disabled=\"profileEdit.$invalid\" type=\"button\" ng-click=\"editProfile()\">{{'SAVE'|translate}}</button>\n" +
+    "\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</form>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/review-thanks.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/review-thanks.tpl.html",
+    "<div class=\"order-review\" ng-controller=\"CabinetOrderReviewController\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h3>\n" +
+    "			{{'CABINET_ORDER_REVIEW_THANKS'|translate}}\n" +
+    "		</h3>\n" +
+    "	</div>\n" +
+    "	<div class=\"modal-body clearfix\">\n" +
+    "		<p class=\"important-text\">\n" +
+    "			{{'CABINET_ORDER_REVIEW_THANKS_MESSAGE'|translate}}\n" +
+    "		</p>\n" +
+    "	</div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/cabinet/side-panel.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/cabinet/side-panel.tpl.html",
+    "<div class=\"customer-details clearfix col-md-12 col-sm-6\">\n" +
+    "	<div class=\"customer-info row\">\n" +
+    "		<div ng-click=\"changeAvatar()\" class=\"customer-avatar col-xs-5\">\n" +
+    "			<img class=\"img-circle\" src=\"{{ activeCustomer.avatar || '/assets/app/images/default-user.jpg' }}\" alt=\"avatar\"/>\n" +
+    "		</div>\n" +
+    "		<div ng-click=\"changeProfile()\" class=\"col-xs-7 customer-profile\">\n" +
+    "			<p class='customer-name'>{{activeCustomer.name || 'CABINET_NEW_CUSTOMER'|translate}}</p>\n" +
+    "\n" +
+    "			<p class=\"customer-phone\">\n" +
+    "				{{activeCustomer.phone | phone}}\n" +
+    "			</p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<a href=\"/{{lang}}/cabinet/profile-edit\" class=\"btn profile-edit-btn\"> <span class=\"fa fa-cog\"></span> </a>\n" +
+    "	</div>\n" +
+    "</div>\n" +
+    "\n" +
+    "\n" +
+    "<nav class=\"side-menu col-md-12 col-sm-6\">\n" +
+    "	<ul>\n" +
+    "		<li><a link-menu href=\"/{{lang}}/cabinet/history-orders\"><span class=\"taxi5 taxi5-adv_car\"></span>{{'CABINET_ORDERS_HISTORY'|translate}}</a></li>\n" +
+    "		<li><a link-menu href=\"/{{lang}}/cabinet/my-places\"><span class=\"taxi5 taxi5-adv_heart\"></span>{{'CABINET_FAVORITE_PLACES'|translate}}</a></li>\n" +
+    "		<!--<li><a link-menu href=\"/{{lang}}/cabinet/loyalty-transactions\"><span class=\"taxi5 taxi5-adv_economy\"></span>{{'CABINET_LOYALTY_CHARGES'|translate}}</a></li>-->\n" +
+    "		<li><a link-menu href=\"/{{lang}}/cabinet/profile-edit\"><span class=\"taxi5 taxi5-adv_mantie\"></span>{{'CABINET_PROFILE'|translate}}</a></li>\n" +
+    "	</ul>\n" +
+    "</nav>");
+}]);
+
+angular.module("../src/app/templates/partials/footer.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/footer.tpl.html",
+    "<!--<a class=\"feedback-btn btn btn-default hidden-xs hidden-sm\" href=\"/{{lang}}/review\">Сообщить об ошибке</a>-->\n" +
+    "<div class=\"container\">\n" +
+    "	<div class=\"col-md-4 left-block\">\n" +
+    "		<p copyright>&copy; 2014 - {{currentYear}} <translate>FOOTER_COMPANY_NAME</translate></p>\n" +
+    "		<p>УНН 192554560</p>\n" +
+    "		<p>лицензия Министерства транспорта и коммуникаций РБ №02190/1-76181  выдано на основании решения от 18.03.2016</p>\n" +
+    "		<a href=\"/{{lang}}/review\">{{'LEAVE_COMPLIANT'|translate}}</a>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-md-3 social-buttons\">\n" +
+    "		<ul class=\"row\">\n" +
+    "			<li class=\"facebook\"><a href=\"https://www.facebook.com/taxi5by\" class=\"fa fa-facebook\" target=\"_blank\"></a></li>\n" +
+    "			<li class=\"vk\"><a href=\"http://vk.com/taxi5by\" class=\"fa fa-vk\" target=\"_blank\"></a></li>\n" +
+    "			<li class=\"twitter\"><a href=\"https://twitter.com/taxi5by\" class=\"fa fa-twitter\" target=\"_blank\"></a></li>\n" +
+    "			<li class=\"instagram\"><a href=\"http://instagram.com/taxi5by\" class=\"fa fa-instagram\" target=\"_blank\"></a></li>\n" +
+    "			<li class=\"youtube\"><a href=\"https://www.youtube.com/channel/UCFBs-iCA3o48MZlATEMVFLQ\" class=\"fa fa-youtube\" target=\"_blank\"></a></li>\n" +
+    "		</ul>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"col-md-5 menu-copyright-block container\">\n" +
+    "		<div class=\"col-md-12 row\">\n" +
+    "			<ul class=\"col-md-6\">\n" +
+    "				<li>\n" +
+    "					<a scroll-animate ng-if=\"lang === 'ru' || !lang\" href=\"/{{lang}}/transfer-aeroport\">{{'TRANSFER_AIRPORT'|translate}}</a>\n" +
+    "					<a scroll-animate ng-if=\"lang === 'en'\" href=\"/{{lang}}/transfer-airport\">{{'TRANSFER_AIRPORT'|translate}}</a>\n" +
+    "				</li>\n" +
+    "				<li><a href=\"/{{lang}}/faq\">{{'FREQUENTLY_ASKED_QUESTIONS'|translate}}</a></li>\n" +
+    "				<li><a href=\"/{{lang}}/work-with-us\">{{'WORK_FOR_US'|translate}}</a></li>\n" +
+    "				<li><a href=\"/{{lang}}/partners\">{{'PARTNERS'|translate}}</a></li>\n" +
+    "			</ul>\n" +
+    "			<ul class=\"col-md-6\">\n" +
+    "				<li><a href=\"/{{lang}}/credit-card\">{{'CREDIT_CARD_PAYMENT'|translate}}</a></li>\n" +
+    "				<li><a href=\"/{{lang}}/contacts\">{{'CONTACTS'|translate}}</a></li>\n" +
+    "				<li><a href=\"/{{lang}}/carport\">{{'OUR_CARS'|translate}}</a></li>\n" +
+    "				<!--<li><a href=\"/for-partners\">Партнерам и инвесторам</a></li>-->\n" +
+    "				<!--<li><a href=\"/for-media\">Материалы для СМИ</a></li>-->\n" +
+    "			</ul>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-md-8 card-payment-methods\">\n" +
+    "		<ul>\n" +
+    "\n" +
+    "			<li><img src=\"/assets/app/images/payment-methods/visa.png\" alt=\"\"/></li>\n" +
+    "			<li><img src=\"/assets/app/images/payment-methods/master-card.png\" alt=\"\"/></li>\n" +
+    "			<li><img src=\"/assets/app/images/payment-methods/belcard.png\" alt=\"\"/></li>\n" +
+    "			<li><img src=\"/assets/app/images/payment-methods/assist-by.png\" alt=\"\"/></li>\n" +
+    "		</ul>\n" +
+    "	</div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/header-content.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/header-content.tpl.html",
+    "<section class=\"slogan container text-center\">\n" +
+    "	<h1>\n" +
+    "		<translate>HEADER_SLOGAN</translate>\n" +
+    "	</h1>\n" +
+    "	<img src=\"/assets/app/images/passatpic.png\" alt=\"\"/>\n" +
+    "\n" +
+    "	<!--<div>-->        <!--<p>Вызов такси</p>-->\n" +
+    "\n" +
+    "	<!--<h2><a href=\"tel:7500\"><i class=\"fa fa-phone\"></i>7500</a></h2>-->    <!--</div>-->\n" +
+    "</section>\n" +
+    "\n" +
+    "<section class=\"phones\">\n" +
+    "	<div class=\"container\">\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<small>{{'HEADER_PHONES_SHORT_CODE'|translate}}</small>\n" +
+    "			<br/><a class=\"spec\" href=\"tel:7500\">7500</a>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<small>{{'HEADER_PHONES_LANDLINE'|translate}}</small>\n" +
+    "			<br/><a href=\"tel:+375173997500\">+375 17 399-75-00</a>\n" +
+    "\n" +
+    "		</div>\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<small>{{'HEADER_PHONES_MOBILE'|translate}}, Velcom</small>\n" +
+    "			<br/><a href=\"tel:+375291337500\">+375 29 133-75-00</a>\n" +
+    "\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "</section>\n" +
+    "\n" +
+    "<section class=\"benefits container text-center hidden-xs\">\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-wh_car\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'HEADER_BENEFITS_VEHICLES'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-tie_wh\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'HEADER_BENEFITS_DRIVERS'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-check_wh\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'HEADER_BENEFITS_RECEIPT'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-one_wh\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'HEADER_BENEFITS_PRICE'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-pay_card_wh\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'HEADER_BENEFITS_PAYMENT'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-wifi_wh\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'HEADER_BENEFITS_WIFI'|translate}}</div>\n" +
+    "	</div>\n" +
+    "</section>");
+}]);
+
+angular.module("../src/app/templates/partials/mobile-app-old.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/mobile-app-old.tpl.html",
+    "<div class=\"container\" ng-controller=\"SubscribeController\">\n" +
+    "	<h2>Мобильное приложение</h2>\n" +
+    "\n" +
+    "	<ul class=\"col-md-4 col-sm-6\">\n" +
+    "		<li class=\"clearfix\"><span>1</span>\n" +
+    "\n" +
+    "			<p>Вызывайте такси одной кнопкой</p>\n" +
+    "		</li>\n" +
+    "		<li class=\"clearfix\"><span>2</span>\n" +
+    "\n" +
+    "			<p>Оценивайте таксистов</p>\n" +
+    "		</li>\n" +
+    "		<li class=\"clearfix\"><span>3</span>\n" +
+    "\n" +
+    "			<p>Следите за такси по карте</p>\n" +
+    "		</li>\n" +
+    "		<li class=\"clearfix\"><span>4</span>\n" +
+    "\n" +
+    "			<p>Платите за поездку прямо из приложения</p>\n" +
+    "		</li>\n" +
+    "		<li class=\"clearfix\"><span>5</span>\n" +
+    "\n" +
+    "			<p>Рассчитайте время в пути с учетом маршрута и пробок</p>\n" +
+    "		</li>\n" +
+    "	</ul>\n" +
+    "\n" +
+    "	<div class=\"col-md-4 iphone text-center\">\n" +
+    "		<img alt=\"\" src=\"/assets/app/images/iphone_wh.svg\">\n" +
+    "\n" +
+    "		<div class=\"screen\">\n" +
+    "			<img class=\"logo\" alt=\"\" src=\"/assets/app/images/iphone-logo-company.svg?\">\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"col-md-4 col-sm-6 subcribe  text-center\">\n" +
+    "		<img alt=\"\" src=\"/assets/app/images/handicon_wh.svg\">\n" +
+    "\n" +
+    "		<p>\n" +
+    "			Подпишитесь <br> на выход <br> приложения\n" +
+    "		</p>\n" +
+    "\n" +
+    "		<form name=\"subscribeForm\" id=\"subscribe-form\">\n" +
+    "\n" +
+    "			<div class=\"form-group subscribe-email\" show-errors>\n" +
+    "				<input id=\"subscribe-email\" type=\"email\" class=\"form-control\" placeholder=\"Эл. почта\" name=\"email\" ng-model=\"subscribe.email\" required/>\n" +
+    "				<p class=\"help-block\"><small>введите правильный e-mail</small></p>\n" +
+    "			</div>\n" +
+    "			<button ng-if=\"send === 0\" type=\"submit\" class=\"btn btn-default\" ng-disabled=\"subscribeForm.$invalid\" ng-click=\"subscribeSend()\">ПОДПИСАТЬСЯ</button>\n" +
+    "\n" +
+    "\n" +
+    "			<p ng-if=\"send === -1\">отправка запроса...</p>\n" +
+    "			<p ng-if=\"send === 200\">Спасибо!</p>\n" +
+    "			<p ng-if=\"send === 409\">Вы уже подписаны</p>\n" +
+    "			<p ng-if=\"send === 400\">Ошибка</p>\n" +
+    "		</form>\n" +
+    "		<span class=\"subscribe-text hide\"></span>\n" +
+    "	</div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/mobile-app.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/mobile-app.tpl.html",
+    "<div class=\"container\" ng-controller=\"SubscribeController\">\n" +
+    "	<h2>{{'MOBILE_APPLICATION'|translate}}</h2>\n" +
+    "\n" +
+    "	<div class=\"col-md-6 iphone text-center\">\n" +
+    "		<img alt=\"\" src=\"/assets/app/images/iphone_wh.svg\">\n" +
+    "\n" +
+    "\n" +
+    "			<div id=\"carousel-mobile-app\" class=\"carousel slide\" data-ride=\"carousel\">\n" +
+    "				<!-- Indicators -->\n" +
+    "				<div class=\"carousel-inner\" role=\"listbox\">\n" +
+    "					<div class=\"item active\">\n" +
+    "						<img src=\"/assets/app/images/screens/taxi5_ios_main.jpeg\" alt=\"screen\">\n" +
+    "					</div>\n" +
+    "					<div class=\"item\">\n" +
+    "						<img src=\"/assets/app/images/screens/taxi5_ios_search.jpeg\" alt=\"screen\">\n" +
+    "					</div>\n" +
+    "					<div class=\"item\">\n" +
+    "						<img src=\"/assets/app/images/screens/taxi5_ios_car_search.jpeg\" alt=\"screen\">\n" +
+    "					</div>\n" +
+    "					<div class=\"item\">\n" +
+    "						<img src=\"/assets/app/images/screens/taxi5_ios_orders.jpeg\" alt=\"screen\">\n" +
+    "					</div>\n" +
+    "					<div class=\"item\">\n" +
+    "						<img src=\"/assets/app/images/screens/taxi5_ios_about.jpeg\" alt=\"screen\">\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "				<!--<span data-target=\"#carousel-mobile-app\" data-slide=\"prev\" role=\"button\" class=\"left carousel-control\"><span class=\"fa fa-angle-left pull-left\"></span></span>-->\n" +
+    "				<!--<span data-target=\"#carousel-mobile-app\" data-slide=\"next\" role=\"button\" class=\"right carousel-control\"><span class=\"fa fa-angle-right pull-right\"></span></span>-->\n" +
+    "			</div>\n" +
+    "\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"col-md-6 subcribe  text-center\">\n" +
+    "		<img alt=\"\" src=\"/assets/app/images/handicon_wh.svg\">\n" +
+    "\n" +
+    "		<p>{{'MOBILE_APPLICATION_PROMO_TEXT'|translate}}</p>\n" +
+    "\n" +
+    "		<ul class=\"store-buttons\">\n" +
+    "			<!--<li><a href=\"https://itunes.apple.com/ru/app/taksi-patnica/id951910609?mt=8\" target=\"_blank\" class=\"taxi5 taxi5-label_apple_transparent\"></a></li>-->\n" +
+    "			<!--<li><a href=\"https://play.google.com/store/apps/details?id=com.isolutions.taxi5\" target=\"_blank\" class=\"taxi5 taxi5-label_google_transparent\"></a></li>-->\n" +
+    "\n" +
+    "			<li><a href=\"https://itunes.apple.com/ru/app/taksi-patnica/id951910609?mt=8\" target=\"_blank\" class=\"taxi5 taxi5-app_store_black_transparent_{{lang || 'en'}}\"></a></li>\n" +
+    "			<li><a href=\"https://play.google.com/store/apps/details?id=com.isolutions.taxi5\" target=\"_blank\" class=\"taxi5 taxi5-google_play_black_transparent_{{lang || 'en'}}\"></a></li>\n" +
+    "		</ul>\n" +
+    "	</div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/nav-menu.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/nav-menu.tpl.html",
+    "<div class=\"container\">\n" +
+    "\n" +
+    "	<div class=\"navbar-header\">\n" +
+    "		<button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-collapse\">\n" +
+    "			<span class=\"sr-only\">Toggle navigation</span> <span class=\"icon-bar\"></span> <span class=\"icon-bar\"></span> <span class=\"icon-bar\"></span>\n" +
+    "		</button>\n" +
+    "		<a class=\"navbar-brand\" scroll-listen=\"home\" scroll-animate href=\"/{{lang}}/home\"> <img class=\"logo\" src=\"/assets/app/images/logo.svg\" alt=\"Такси Пятница\"/>\n" +
+    "			<img class=\"logo-inversed\" src=\"/assets/app/images/logo_blk.svg\"\n" +
+    "			     alt=\"Такси Пятница\"/> </a>\n" +
+    "\n" +
+    "		<div class=\"lang-btns clearfix\">\n" +
+    "			<button ng-click=\"changeLang('ru')\" ng-class=\"lang === 'ru' ? 'active' : '' \">ru</button>\n" +
+    "			<button ng-click=\"changeLang('en')\" ng-class=\"lang === 'en' ? 'active' : '' \">en</button>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"navbar-menu collapse navbar-collapse\" id=\"navbar-collapse\">\n" +
+    "		<ul class=\"nav navbar-nav\">\n" +
+    "			<!--<li><a scroll-listen=\"benefits\" scroll-animate href=\"/{{lang}}/benefits\">{{'MENU_BENEFITS'|translate}}</a></li>-->\n" +
+    "			<li><a scroll-listen=\"mobile-app\" scroll-animate href=\"/{{lang}}/mobile-app\">{{'MENU_APPLICATION'|translate}}</a></li>\n" +
+    "			<li><a scroll-listen=\"plans\" scroll-animate href=\"/{{lang}}/plans\">{{'MENU_PLANS'|translate}}</a></li>\n" +
+    "			<li><a scroll-listen=\"reviews\" scroll-animate href=\"/{{lang}}/reviews\">{{'MENU_REVIEWS'|translate}}</a></li>\n" +
+    "			<li><a scroll-listen=\"about-us\" scroll-animate href=\"/{{lang}}/about-us\">{{'MENU_ABOUT_US'|translate}}</a></li>\n" +
+    "			<li><a scroll-listen=\"promotions\" scroll-animate href=\"/{{lang}}/promotions\"><i class=\"fa fa-heart\"></i>{{'MENU_PROMOTIONS'|translate}}</a></li>\n" +
+    "			<li>\n" +
+    "				<a scroll-listen=\"cabinet\" scroll-animate href=\"/{{lang}}/{{isCustomerLogged() ? 'cabinet' : 'login'}}\"><i ng-class=\"isCustomerLogged() ? 'fa-user' : 'fa-key'\" class=\"fa\"></i>{{'MENU_CABINET'|translate}}</a><a class=\"logout\" ng-click=\"emulateLogout()\" ng-if=\"isCustomerLogged()\" href=\"/{{lang}}/logout\"><i class=\"fa fa-power-off\"></i></a><i ng-if=\"emulatingLogout\" class=\"emulating-logout fa fa-spinner fa-spin\"></i>\n" +
+    "			</li>\n" +
+    "\n" +
+    "		</ul>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<ul class=\"nav navbar-nav navbar-right\">\n" +
+    "		<li><a href=\"/{{lang}}/order\">{{'MENU_ORDER'|translate}}</a></li>\n" +
+    "	</ul>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/blocked.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/blocked.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_BLOCKED_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<p class=\"order-information-message\"><translate><translate>ORDER_BLOCKED_MESSAGE</translate></translate></p>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>BACK_TO_THE_ORDER_FORM</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/canceled.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/canceled.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_CANCELED_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<p class=\"order-information-message\"><translate>ORDER_OFF_TREATMENT_MESSAGE</translate></p>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>BACK_TO_THE_ORDER_FORM</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/car_delivered.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/car_delivered.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_CAR_DELIVERED_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"vehicle-info\">\n" +
+    "		<img src=\"/assets/app/images/passat-min.png\" alt=\"\"/>\n" +
+    "		<table class=\"table\">\n" +
+    "			<tr>\n" +
+    "				<th>{{'VEHICLE'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.info.manufacturer}} {{activeOrder.vehicle.info.model}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'REGISTRATION_NUMBER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.license_tax}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'DRIVER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.driver.firstname}} {{activeOrder.driver.middlename}}</td>\n" +
+    "			</tr>\n" +
+    "		</table>\n" +
+    "	</div>\n" +
+    "\n" +
+    "\n" +
+    "	<div class=\"location-info\">\n" +
+    "		<i location-string=\"activeOrder.start\"></i>\n" +
+    "		<p ng-if=\"activeOrder.start.comment\" class=\"location-comment\">{{activeOrder.start.comment}}</p>\n" +
+    "		<p ng-if=\"activeOrder.start.plate && activeOrder.start.plate.text\" class=\"location-comment\">{{'PLATE_TEXT'|translate}}: {{activeOrder.start.plate.text}}</p>\n" +
+    "	</div>\n" +
+    "	<div class=\"location-info location-info-secondary\" ng-if=\"activeOrder.finish\">\n" +
+    "		<i location-string=\"activeOrder.finish\"></i>\n" +
+    "		<p ng-if=\"activeOrder.finish.comment\" class=\"location-comment\">{{activeOrder.finish.comment}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<p class=\"order-information-message\"><strong>{{'ORDER_CAR_DELIVERED_MESSAGE'|translate}}</strong></p>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>NEED_ANOTHER_CAR</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/car_delivering.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/car_delivering.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_CAR_DELIVERING_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"vehicle-info\">\n" +
+    "		<img src=\"/assets/app/images/car-on-the-road.png\" alt=\"\"/>\n" +
+    "		<table class=\"table\">\n" +
+    "			<tr>\n" +
+    "				<th>{{'VEHICLE'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.info.manufacturer}} {{activeOrder.vehicle.info.model}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'REGISTRATION_NUMBER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.license_tax}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'DRIVER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.driver.firstname}} {{activeOrder.driver.middlename}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr ng-if=\"activeOrderEtaStamp\">\n" +
+    "				<th>{{'ETA'|translate}}</th>\n" +
+    "				<th><timer ng-if=\"!orderLate\" end-time=\"activeOrderEtaStamp\" interval=\"1000\" finish-callback=\"refreshOrder()\"><translate translate-values=\"{minutes: '{{minutes}}', seconds: '{{seconds}}' }\">ORDER_CAR_DELIVERING_ETA</translate></timer>\n" +
+    "				<timer ng-if=\"orderLate\" start-time=\"activeOrderEtaStamp\" interval=\"1000\"><translate translate-values=\"{minutes: '{{minutes}}', seconds: '{{seconds}}' }\">ORDER_CAR_DELIVERING_ETA_LATE</translate></timer></th>\n" +
+    "			</tr>\n" +
+    "		</table>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"location-info\">\n" +
+    "		<i location-string=\"activeOrder.start\"></i>\n" +
+    "		<p ng-if=\"activeOrder.start.comment\" class=\"location-comment\">{{activeOrder.start.comment}}</p>\n" +
+    "		<p ng-if=\"activeOrder.start.plate && activeOrder.start.plate.text\" class=\"location-comment\">{{'PLATE_TEXT'|translate}}: {{activeOrder.start.plate.text}}</p>\n" +
+    "	</div>\n" +
+    "	<div class=\"location-info location-info-secondary\" ng-if=\"activeOrder.finish\">\n" +
+    "		<i location-string=\"activeOrder.finish\"></i>\n" +
+    "		<p ng-if=\"activeOrder.finish.comment\" class=\"location-comment\">{{activeOrder.finish.comment}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>NEED_ANOTHER_CAR</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/car_found.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/car_found.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_CAR_FOUND_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"vehicle-info\">\n" +
+    "		<img src=\"/assets/app/images/passat-min.png\" alt=\"\"/>\n" +
+    "		<table class=\"table\">\n" +
+    "			<tr>\n" +
+    "				<th>{{'VEHICLE'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.info.manufacturer}} {{activeOrder.vehicle.info.model}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'REGISTRATION_NUMBER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.license_tax}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'DRIVER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.driver.firstname}} {{activeOrder.driver.middlename}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr ng-if=\"activeOrderWaitMinutes\">\n" +
+    "				<th>{{'ETA'|translate}}</th>\n" +
+    "				<th><translate translate-values=\"{value: '{{activeOrderWaitMinutes}}'}\">ETA_APPROX_VALUE</translate></th>\n" +
+    "			</tr>\n" +
+    "		</table>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"location-info\">\n" +
+    "		<i location-string=\"activeOrder.start\"></i>\n" +
+    "		<p ng-if=\"activeOrder.start.comment\" class=\"location-comment\">{{activeOrder.start.comment}}</p>\n" +
+    "		<p ng-if=\"activeOrder.start.plate && activeOrder.start.plate.text\" class=\"location-comment\">{{'PLATE_TEXT'|translate}}: {{activeOrder.start.plate.text}}</p>\n" +
+    "	</div>\n" +
+    "	<div class=\"location-info location-info-secondary\" ng-if=\"activeOrder.finish\">\n" +
+    "		<i location-string=\"activeOrder.finish\"></i>\n" +
+    "		<p ng-if=\"activeOrder.finish.comment\" class=\"location-comment\">{{activeOrder.finish.comment}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "\n" +
+    "	<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "\n" +
+    "	<div ng-if=\"sending != 1\" class=\"row clearfix\">\n" +
+    "		<div class=\"col-sm-12\">\n" +
+    "			<button type=\"button\" class=\"btn col-sm-12 order-btn\" ng-click=\"approveOrder()\">{{'APPROVE_ORDER'|translate}}</button>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-sm-12 order-client-reject\">\n" +
+    "			<button type=\"button\" class=\"order-btn-reject\" ng-click=\"cancelOrder()\">{{'ORDER_CANCELLATION'|translate}}</button>\n" +
+    "			<div class=\"approve-countdown\"  ng-if=\"sending != 0\">\n" +
+    "				<timer ng-if=\"carApproveCountdown > 0\" countdown=\"carApproveCountdown\" interval=\"1000\" finish-callback=\"cancelTimeoutOrder()\"><translate translate-values=\"{value: '{{countdown}}' }\">ORDER_CAR_FOUND_CANCELLATION_IN</translate></timer>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/car_not_found.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/car_not_found.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_CAR_NOT_FOUND_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "\n" +
+    "	<p class=\"order-information-message\">{{'ORDER_CAR_NOT_FOUND_TRY_AGAIN'|translate}}</p>\n" +
+    "\n" +
+    "\n" +
+    "	<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "\n" +
+    "	<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "	<button ng-if=\"sending != 1\" type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"repeatOrder()\">{{'REPEAT_SEARCH'|translate}}</button>\n" +
+    "	<div class=\"col-sm-12 order-client-reject\">\n" +
+    "		{{'OR'|translate}}\n" +
+    "		<button ng-click=\"newOrder()\" class=\"order-btn-reject\" type=\"button\"><translate>BACK_TO_THE_ORDER_FORM</translate></button>\n" +
+    "	</div>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/car_search.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/car_search.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_CAR_SEARCH_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "	<div class=\"countdown\">\n" +
+    "		<img class=\"countdown-process\" alt=\"\" src=\"/assets/app/images/loading-process.png\">\n" +
+    "\n" +
+    "		<div class=\"countdown-value\">\n" +
+    "			<timer ng-if=\"carSearchCountdown !== 0\" countdown=\"carSearchCountdown\" interval=\"1000\" finish-callback=\"refreshOrder()\">{{seconds}}</timer>\n" +
+    "			<span ng-if=\"carSearchCountdown === 0\" ng-init=\"refreshOrder()\">0</span>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"location-info\">\n" +
+    "		<i location-string=\"activeOrder.start\"></i>\n" +
+    "		<p ng-if=\"activeOrder.start.comment\" class=\"location-comment\">{{activeOrder.start.comment}}</p>\n" +
+    "		<p ng-if=\"activeOrder.start.plate && activeOrder.start.plate.text\" class=\"location-comment\">{{'PLATE_TEXT'|translate}}: {{activeOrder.start.plate.text}}</p>\n" +
+    "	</div>\n" +
+    "	<div class=\"location-info location-info-secondary\" ng-if=\"activeOrder.finish\">\n" +
+    "		<i location-string=\"activeOrder.finish\"></i>\n" +
+    "		<p ng-if=\"activeOrder.finish.comment\" class=\"location-comment\">{{activeOrder.finish.comment}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<p class=\"sending-info\" ng-if=\"sending == 1\" >{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "	<p class=\"sending-info sending-error\" ng-if=\"sending == 0\" >{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "	<button ng-if=\"sending != 1\" type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"cancelOrder()\">{{'ORDER_CANCELLATION'|translate}}</button>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/client_approve_timeout.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/client_approve_timeout.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_CLIENT_APPROVE_TIMEOUT_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"cleanOrder()\"><translate>BACK_TO_THE_ORDER_FORM</translate></button>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/client_not_found.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/client_not_found.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_CLIENT_NOT_FOUND_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "\n" +
+    "	<p class=\"order-information-message\"><translate>ORDER_CLIENT_NOT_FOUND_MESSAGE</translate></p>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>BACK_TO_THE_ORDER_FORM</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/client_reject.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/client_reject.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_CLIENT_REJECT_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>BACK_TO_THE_ORDER_FORM</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/closed.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/closed.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_CLOSED_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "\n" +
+    "	<p class=\"order-information-message\">{{'ORDER_CLOSED_THANKS_MESSAGE'|translate}}</p>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>BACK_TO_THE_ORDER_FORM</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/form.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/form.tpl.html",
+    "<div class=\"order-form\" location-search-container>\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2 ng-click=\"test()\">{{'ORDER_FORM_ORDER_TAXI'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "	<form name=\"orderForm\" novalidate form-validate>\n" +
+    "\n" +
+    "\n" +
+    "		<div id=\"accordion\" role=\"tablist\" aria-multiselectable=\"false\">\n" +
+    "\n" +
+    "			<div class=\"panel\" show-inner-errors ng-form=\"customerSubform\">\n" +
+    "				<div role=\"tab\" id=\"headingZero\" class=\"customer-tab\">\n" +
+    "					<button class=\"btn accordion-heading\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseZero\" aria-expanded=\"true\" aria-controls=\"collapseZero\">\n" +
+    "						<span>{{'ORDER_FORM_CUSTOMER'|translate}}<i class=\"fa chevron\"></i><i ng-if=\"customerSubform.phone.$valid && customerSubform.name.$valid\" class=\"client-information\"><i ng-if=\"customerSubform.phone.$valid\">{{activeCustomer.phone |\n" +
+    "							phone}}</i><i ng-if=\"customerSubform.phone.$valid && activeCustomer.name\">, </i>{{activeCustomer.name}}</i>\n" +
+    "							<span ng-if=\"!customerSubform.phone.$valid || !customerSubform.name.$valid\" class=\"client-information field-meta\">({{'ORDER_FORM_REQUIRED_INFORMATION'|translate}})</span>\n" +
+    "						</span>\n" +
+    "					</button>\n" +
+    "				</div>\n" +
+    "\n" +
+    "				<div id=\"collapseZero\" class=\"in\" role=\"tabpanel\" aria-labelledby=\"headingZero\">\n" +
+    "					<div class=\"form-group\" show-errors>\n" +
+    "						<label class=\"control-label form-field\" for=\"client-phone\"> <span>{{'PHONE'|translate}}<i class=\"required\">*</i></span>\n" +
+    "							<input autocomplete=\"off\" name=\"phone\" class=\"form-control\" id=\"client-phone\" type=\"tel\" ng-model=\"activeCustomer.phone\" intl-tel-input placeholder=\"{{'PHONE_NUMBER'|translate}}\" required\n" +
+    "									/> </label>\n" +
+    "					</div>\n" +
+    "					<div class=\"form-group\" show-errors>\n" +
+    "						<label class=\"control-label form-field client-name \" for=\"client-name\"> <span>{{'NAME'|translate}}<i class=\"required\">*</i></span>\n" +
+    "							<input autocomplete=\"off\" id=\"client-name\" class=\"form-control\" type=\"text\" ng-model=\"activeCustomer.name\" name=\"name\" required placeholder=\"{{'NAME'|translate}}\"\n" +
+    "									/> </label>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "			</div>\n" +
+    "\n" +
+    "\n" +
+    "			<div class=\"panel\" show-inner-errors ng-form=\"routeFromSubform\">\n" +
+    "				<div role=\"tab\" id=\"headingOne\">\n" +
+    "					<button class=\"collapsed btn accordion-heading\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n" +
+    "						<span>{{'ORDER_FORM_FROM_WHERE'|translate}}<i class=\"fa chevron\"></i>\n" +
+    "							<i location-string=\"activeOrder.start\"></i>\n" +
+    "							<span ng-if=\"!activeOrder.start.type\" class=\"location-string field-meta\">({{'ORDER_FORM_REQUIRED_INFORMATION'|translate}})</span>\n" +
+    "						</span>\n" +
+    "					</button>\n" +
+    "				</div>\n" +
+    "				<div id=\"collapseOne\" class=\"collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\">\n" +
+    "					<div class=\"form-field\" show-errors>\n" +
+    "						<input name=\"route-from\" autocomplete=\"off\" id=\"route-from\" type=\"text\" placeholder=\"{{'ORDER_FORM_FROM_WHERE_ADDRESS_OR_NAME'|translate}}\" ng-model=\"activeOrder.start\" location-search=\"activeOrder.start\" autocomplete-event-name=\"'autocomplete-waypoint-start'\" force-open-event-name=\"'force-open-waypoint-start'\"  required/>\n" +
+    "						<button autocomplete-event-name=\"'autocomplete-waypoint-start'\" geo-position=\"activeOrder.start\" class=\"btn geo-position-btn\"><i class=\"fa fa-map-marker\"></i></button>\n" +
+    "					</div>\n" +
+    "					<div ng-if=\"activeOrder.start.type\" ng-switch=\"activeOrder.start.type\" class=\"location-additional-info clearfix\">\n" +
+    "						<div ng-switch-when=\"address\" class=\"clearfix row\">\n" +
+    "							<div class=\"col-xs-6\" show-errors>\n" +
+    "								<label class=\"form-field control-label\" for=\"route-from-building\"><span>{{'ORDER_FORM_LOCATION_BUILDING'|translate}}<i class=\"required\">*</i></span>\n" +
+    "									<input location-specify-geo=\"activeOrder.start\" name=\"route-from-building\" autocomplete=\"off\" id=\"route-from-building\" ng-model=\"activeOrder.start.address.building\" required/> </label>\n" +
+    "							</div>\n" +
+    "							<div class=\"col-xs-6\" show-errors>\n" +
+    "								<label class=\"form-field control-label\" for=\"route-from-section\"><span>{{'ORDER_FORM_LOCATION_SECTION'|translate}}</span>\n" +
+    "									<input location-specify-geo=\"activeOrder.start\" name=\"route-from-section\" autocomplete=\"off\" id=\"route-from-section\" ng-model=\"activeOrder.start.address.section\"/> </label>\n" +
+    "							</div>\n" +
+    "							<div class=\"col-xs-6\" show-errors>\n" +
+    "								<label class=\"form-field control-label\" for=\"route-from-porch\"><span>{{'ORDER_FORM_LOCATION_PORCH'|translate}}</span> <input name=\"route-from-porch\" autocomplete=\"off\" id=\"route-from-porch\" ng-model=\"activeOrder.start.address.porch\"/> </label>\n" +
+    "							</div>\n" +
+    "							<div class=\"col-xs-6\" show-errors>\n" +
+    "								<label class=\"form-field control-label\" for=\"route-from-apartment\"><span>{{'ORDER_FORM_LOCATION_APARTMENT'|translate}}</span> <input name=\"route-from-apartment\" autocomplete=\"off\" id=\"route-from-apartment\" ng-model=\"activeOrder.start.address.apartment\"/>\n" +
+    "								</label>\n" +
+    "							</div>\n" +
+    "						</div>\n" +
+    "						<div ng-switch-when=\"object\" class=\"clearfix row\">\n" +
+    "							<div ng-if=\"activeOrder.start.object.type === 'airport'\">\n" +
+    "\n" +
+    "								<div class=\"col-sm-6\" show-errors>\n" +
+    "									<label class=\"form-field control-label\" for=\"route-from-flight\"><span>{{'ORDER_FORM_LOCATION_FLIGHT_NUMBER'|translate}}</span> <input name=\"route-from-flight\" autocomplete=\"off\" id=\"route-from-flight\" ng-model=\"activeOrder.start.object.flight\"/> </label>\n" +
+    "								</div>\n" +
+    "\n" +
+    "								<div class=\"col-sm-6\" show-errors>\n" +
+    "									<label class=\"form-field control-label\" for=\"route-from-gate\"><span>{{'ORDER_FORM_LOCATION_FLIGHT_ARRIVAL_GATE'|translate}}</span> <input name=\"route-from-gate\" autocomplete=\"off\" id=\"route-from-gate\" ng-model=\"activeOrder.start.object.gate\"/> </label>\n" +
+    "								</div>\n" +
+    "\n" +
+    "								<div class=\"col-sm-12 flight-checkbox\">\n" +
+    "									<input id=\"airport-plate\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"activeOrder.start.plate.need\"><label for=\"airport-plate\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_LOCATION_MEET_WITH_PLATE</translate></span></label>\n" +
+    "								</div>\n" +
+    "\n" +
+    "								<div ng-if=\"activeOrder.start.plate.need\">\n" +
+    "									<label class=\"form-field col-xs-12 control-label\" for=\"route-from-plate-text\"><span>{{'ORDER_FORM_LOCATION_PLATE_TEXT'|translate}}</span>\n" +
+    "										<input name=\"route-from-plate-text\" autocomplete=\"off\" id=\"route-from-plate-text\" type=\"text\" ng-model=\"activeOrder.start.plate.text\"/> </label>\n" +
+    "								</div>\n" +
+    "							</div>\n" +
+    "						</div>\n" +
+    "						<div ng-if=\"activeOrder.start.object && activeOrder.start.object.type !== 'airport' || !activeOrder.start.object\" class=\"clearfix\" show-errors>\n" +
+    "							<label class=\"form-field control-label\" for=\"route-from-comment\"><span>{{'COMMENT'|translate}}</span>\n" +
+    "								<input name=\"route-from-comment\" autocomplete=\"off\" id=\"route-from-comment\" type=\"text\" ng-model=\"activeOrder.start.comment\"/> </label>\n" +
+    "						</div>\n" +
+    "						<hr/>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "			</div>\n" +
+    "			<div class=\"panel\" show-inner-errors ng-form=\"routeToSubform\">\n" +
+    "				<div role=\"tab\" id=\"headingTwo\">\n" +
+    "					<button class=\"collapsed btn accordion-heading\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTwo\" aria-expanded=\"false\" aria-controls=\"collapseTwo\">\n" +
+    "<span>{{'ORDER_FORM_TO_WHERE'|translate}}<i class=\"fa chevron\"></i>\n" +
+    "\n" +
+    "							<i location-string=\"activeOrder.finish\"></i>\n" +
+    "							<span ng-if=\"!activeOrder.finish.type\" class=\"location-string field-meta\">{{'ORDER_FORM_NEED_FOR_CALCULATION'|translate}}</span>\n" +
+    "\n" +
+    "							</span>\n" +
+    "					</button>\n" +
+    "				</div>\n" +
+    "				<div id=\"collapseTwo\" class=\"collapse\" role=\"tabpanel\" aria-labelledby=\"headingTwo\">\n" +
+    "					<div class=\"form-field\">\n" +
+    "						<div class=\"form-field\" show-errors>\n" +
+    "							<input name=\"route-to\" autocomplete=\"off\" id=\"route-to\" type=\"text\" placeholder=\"{{'ORDER_FORM_FROM_WHERE_ADDRESS_OR_NAME'|translate}}\" ng-model=\"activeOrder.finish\" autocomplete-event-name=\"'autocomplete-waypoint-finish'\" force-open-event-name=\"'force-open-waypoint-finish'\" location-search=\"activeOrder.finish\"/>\n" +
+    "						</div>\n" +
+    "						<div ng-if=\"activeOrder.finish.type\" ng-switch=\"activeOrder.finish.type\" class=\"location-additional-info clearfix\">\n" +
+    "							<div ng-switch-when=\"address\" class=\"clearfix row\">\n" +
+    "								<div class=\"col-xs-6\" show-errors>\n" +
+    "									<label class=\"form-field control-label\" for=\"route-to-building\"><span>{{'ORDER_FORM_LOCATION_BUILDING'|translate}}<i class=\"required\">*</i></span>\n" +
+    "										<input location-specify-geo=\"activeOrder.finish\" name=\"route-to-building\" autocomplete=\"off\" id=\"route-to-building\" ng-model=\"activeOrder.finish.address.building\" required/> </label>\n" +
+    "								</div>\n" +
+    "								<div class=\"col-xs-6\" show-errors>\n" +
+    "									<label class=\"form-field control-label\" for=\"route-to-section\"><span>{{'ORDER_FORM_LOCATION_SECTION'|translate}}</span>\n" +
+    "										<input location-specify-geo=\"activeOrder.finish\" name=\"route-to-section\" autocomplete=\"off\" id=\"route-to-section\" ng-model=\"activeOrder.finish.address.section\"/> </label>\n" +
+    "								</div>\n" +
+    "								<div class=\"col-xs-6\" show-errors>\n" +
+    "									<label class=\"form-field control-label\" for=\"route-to-porch\"><span>{{'ORDER_FORM_LOCATION_PORCH'|translate}}</span> <input name=\"route-to-porch\" autocomplete=\"off\" id=\"route-to-porch\" ng-model=\"activeOrder.finish.address.porch\"/> </label>\n" +
+    "								</div>\n" +
+    "								<div class=\"col-xs-6\" show-errors>\n" +
+    "									<label class=\"form-field control-label\" for=\"route-to-apartment\"><span>{{'ORDER_FORM_LOCATION_APARTMENT'|translate}}</span> <input name=\"route-to-apartment\" autocomplete=\"off\" id=\"route-to-apartment\" ng-model=\"activeOrder.finish.address.apartment\"/>\n" +
+    "									</label>\n" +
+    "								</div>\n" +
+    "							</div>\n" +
+    "							<!--<div class=\"clearfix\" show-errors>-->\n" +
+    "								<!--<label class=\"form-field col-xs-12 control-label\" for=\"route-to-comment\"><span>{{'COMMENT'|translate}}</span>-->\n" +
+    "									<!--<input name=\"route-to-comment\" autocomplete=\"off\" id=\"route-to-comment\" type=\"text\" ng-model=\"activeOrder.finish.comment\"/> </label>-->\n" +
+    "							<!--</div>-->\n" +
+    "							<hr/>\n" +
+    "						</div>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "			</div>\n" +
+    "			<div order-postponed ng-model=\"activeOrder.start_at\" class=\"panel\">\n" +
+    "				<div role=\"tab\" id=\"headingFour\">\n" +
+    "					<button class=\"collapsed btn accordion-heading\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseFour\" aria-expanded=\"false\" aria-controls=\"collapseFour\">\n" +
+    " <span>{{'ORDER_FORM_WHEN'|translate}}<i class=\"fa chevron\"></i>\n" +
+    "					 <span ng-if=\"!activeOrder.is_postponed\" class=\"location-string field-meta\">{{'ORDER_FORM_POSTPONED_NOW_HEADING'|translate}}</span>\n" +
+    "					 <span ng-if=\"activeOrder.is_postponed\" class=\"location-string field-meta\">{{activeOrder.start_at | date: \"HH:mm dd/MM/yy\"}}</span>\n" +
+    "							</span>\n" +
+    "					</button>\n" +
+    "				</div>\n" +
+    "				<div id=\"collapseFour\" class=\"collapse\" role=\"tabpanel\" aria-labelledby=\"headingFour\">\n" +
+    "					<div class=\"form-field\">\n" +
+    "						<ul class=\"order-options\">\n" +
+    "							<li>\n" +
+    "								<label for=\"option-postponed-none\" ng-class=\"activeOrder.is_postponed === false ? 'active' : ''\">\n" +
+    "									<input id=\"option-postponed-none\" type=\"radio\" ng-model=\"activeOrder.is_postponed\" value=\"0\" ng-click=\"activeOrder.is_postponed = false\"/>{{'ORDER_FORM_POSTPONED_NOW'|translate}} </label>\n" +
+    "							</li>\n" +
+    "							<li>\n" +
+    "								<label for=\"option-postponed\" ng-class=\"activeOrder.is_postponed === true ? 'active' : ''\">\n" +
+    "									<input id=\"option-postponed\" type=\"radio\" ng-model=\"activeOrder.is_postponed\" value=\"1\" ng-click=\"activeOrder.is_postponed = true\"/>{{'ORDER_FORM_POSTPONED_FOR_DATE'|translate}} </label>\n" +
+    "								<datetimepicker ng-if=\"activeOrder.is_postponed\" dp-date=\"activeOrder.start_at\" min-gap=\"30\" max-days=\"30\" exclude-intervals=\"postponedExcludeIntervals\"></datetimepicker>\n" +
+    "\n" +
+    "								<p ng-if=\"activeOrder.is_postponed\" class=\"field-meta field-meta-else\">({{'ORDER_FORM_POSTPONED_RESTRICTION_MESSAGE'|translate}})<br/><b>{{'ORDER_FORM_POSTPONED_NOW_IN_MINSK'|translate}} {{nowMinsk | date: 'HH:mm dd/MM/yyyy'}}</b></p>\n" +
+    "\n" +
+    "								<div ng-if=\"activeOrder.is_postponed && postponedExcludeIntervals.length && hasExclusion\" class=\"postponed-exclude-intervals\">\n" +
+    "									{{'ORDER_FORM_POSTPONED_NOT_AVAILABLE_ALERT'|translate}}:\n" +
+    "									<ul>\n" +
+    "										<li ng-repeat=\"excludeInterval in postponedExcludeIntervals\">\n" +
+    "											- <translate translate-values=\"{start: {{excludeInterval.start | date: 'dd/MM/yyyy'}}, finish: {{excludeInterval.end | date: 'dd/MM/yyyy'}} }\">ORDER_FORM_POSTPONED_NOT_AVAILABLE_INTERVAL</translate>\n" +
+    "										</li>\n" +
+    "									</ul>\n" +
+    "									<translate>ORDER_FORM_POSTPONED_NOT_AVAILABLE_HINT</translate>\n" +
+    "								</div>\n" +
+    "							</li>\n" +
+    "						</ul>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "			</div>\n" +
+    "			<div class=\"panel\" order-options>\n" +
+    "				<div role=\"tab\" id=\"headingTree\">\n" +
+    "					<button class=\"collapsed btn accordion-heading\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTree\" aria-expanded=\"false\" aria-controls=\"collapseTree\">\n" +
+    " <span>{{'ORDER_FORM_OPTIONS'|translate}}<i class=\"fa chevron\"></i>\n" +
+    "								<div class=\"order-options options-line\">\n" +
+    "									<i class=\"option option-animals\" ng-class=\"activeOrder.options.animal_grid === true ? 'active' : ''\"></i> <i class=\"option option-man\" ng-class=\"activeOrder.options.escort === true ? 'active' : ''\"></i>\n" +
+    "									<i class=\"option option-kids\" ng-class=\"activeOrder.options.child_seat === true ? 'active' : ''\"></i>\n" +
+    "									<i class=\"option option-mute\" ng-class=\"activeOrder.options.mute === true ? 'active' : ''\"></i>\n" +
+    "									<i ng-if=\"activeOrder.options.test_mode\" class=\"fa fa-cogs\"></i>\n" +
+    "								</div>\n" +
+    "							</span>\n" +
+    "					</button>\n" +
+    "				</div>\n" +
+    "				<div id=\"collapseTree\" class=\"collapse\" role=\"tabpanel\" aria-labelledby=\"headingTree\">\n" +
+    "					<div class=\"form-field\">\n" +
+    "						<ul class=\"order-options\">\n" +
+    "							<li>\n" +
+    "								<!--<label for=\"option-animals\" ng-class=\"activeOrder.options.animal_grid === true ? 'active' : ''\"> <input id=\"option-animals\" type=\"checkbox\" ng-model=\"activeOrder.options.animal_grid\"/>Сетка для животных</label>-->\n" +
+    "								<input id=\"option-animals\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"activeOrder.options.animal_grid\"><label for=\"option-animals\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_OPTIONS_ANIMAL</translate></span></label>\n" +
+    "							</li>\n" +
+    "							<li>\n" +
+    "								<!--<label for=\"option-man\" ng-class=\"activeOrder.options.escort === true ? 'active' : ''\"> <input id=\"option-man\" type=\"checkbox\" ng-model=\"activeOrder.options.escort\"/>Сопровождение до двери</label>-->\n" +
+    "								<input id=\"option-man\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"activeOrder.options.escort\"><label for=\"option-man\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_OPTIONS_ESCORT</translate></span></label>\n" +
+    "							</li>\n" +
+    "							<li>\n" +
+    "								<!--<label for=\"option-child\" ng-class=\"activeOrder.options.child_seat === true ? 'active' : ''\"> <input id=\"option-child\" type=\"checkbox\" ng-model=\"activeOrder.options.child_seat\"/>Детское кресло</label>-->\n" +
+    "								<input id=\"option-child\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"activeOrder.options.child_seat\"><label for=\"option-child\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_OPTIONS_CHILD_SEAT</translate></span></label>\n" +
+    "							</li>\n" +
+    "							<li>\n" +
+    "								<input id=\"option-mute\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"activeOrder.options.mute\"><label for=\"option-mute\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_OPTIONS_MUTE</translate></span></label>\n" +
+    "							</li>\n" +
+    "							<li option-testmode ng-if=\"activeOrder.options.test_mode\">\n" +
+    "								<input id=\"option-testmode\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"activeOrder.options.test_mode\"><label for=\"option-testmode\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_OPTIONS_TEST_MODE</translate></span></label>\n" +
+    "							</li>\n" +
+    "						</ul>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div order-calc class=\"calc-price-info-mini clearfix\">\n" +
+    "			<ul class=\"calc-box\">\n" +
+    "				<li class=\"calc-info clearfix\">\n" +
+    "					<div class=\"col-xs-3 text-center\">\n" +
+    "						<img src=\"/assets/app/images/on-the-way-icon.png\" alt=\"\"/>\n" +
+    "					</div>\n" +
+    "					<div class=\"col-xs-9\">\n" +
+    "						<span><translate translate-values=\"{time: '{{routeTime}}', length: '{{routeLength}}' }\">ORDER_FORM_TRAVEL_TIME</translate></span>\n" +
+    "					</div>\n" +
+    "				</li>\n" +
+    "				<li class=\"calc-info clearfix\">\n" +
+    "					<div class=\"col-xs-3 text-center\">\n" +
+    "						<img src=\"/assets/app/images/price-icon.png\" alt=\"\"/>\n" +
+    "					</div>\n" +
+    "					<div class=\"col-xs-9\">\n" +
+    "						<span>\n" +
+    "							<translate translate-values=\"{price_byr: '{{routePrice |byr| numberGap: 3}}' , price_byn: '{{routePrice | byn:('CURRENCY_FORMAT_DEFAULT' | translate) }}' }\">ORDER_FORM_TRAVEL_COST</translate>\n" +
+    "							<!--<translate class=\"currency secondary\" translate-values=\"{price: '{{routePrice | numberGap: 3}}' }\">ORDER_FORM_TRAVEL_COST_BYR</translate>-->\n" +
+    "						</span>\n" +
+    "					</div>\n" +
+    "				</li>\n" +
+    "			</ul>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "\n" +
+    "		<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "		<button ng-if=\"sending != 1\" type=\"submit\" class=\"btn create-order-btn\" ng-click=\"createOrder()\" ng-disabled=\"orderForm.$invalid\"><translate>ORDER_FORM_ORDER_A_TAXI</translate></button>\n" +
+    "	</form>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/in_progress.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/in_progress.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_IN_PROGRESS_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"vehicle-info\">\n" +
+    "		<img src=\"/assets/app/images/car-on-the-road.png\" alt=\"\"/>\n" +
+    "		<table class=\"table\">\n" +
+    "			<tr>\n" +
+    "				<th>{{'VEHICLE'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.info.manufacturer}} {{activeOrder.vehicle.info.model}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'REGISTRATION_NUMBER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.license_tax}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'DRIVER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.driver.firstname}} {{activeOrder.driver.middlename}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr ng-if=\"activeOrderUpdatedAtStamp\">\n" +
+    "				<th>{{'TIME_OF_TRIP'|translate}}</th>\n" +
+    "				<th><timer start-time=\"activeOrderUpdatedAtStamp\" interval=\"1000\">{{minutes}} {{'MINUTES_SHORT'|translate}} {{seconds}} {{'SECONDS_SHORT'|translate}}</timer></th>\n" +
+    "			</tr>\n" +
+    "		</table>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"location-info location-info-secondary\">\n" +
+    "		<i location-string=\"activeOrder.start\"></i>\n" +
+    "		<p ng-if=\"activeOrder.start.comment\" class=\"location-comment\">{{activeOrder.start.comment}}</p>\n" +
+    "		<p ng-if=\"activeOrder.start.plate && activeOrder.start.plate.text\" class=\"location-comment\">{{'PLATE_TEXT'|translate}}: {{activeOrder.start.plate.text}}</p>\n" +
+    "	</div>\n" +
+    "	<div class=\"location-info\" ng-if=\"activeOrder.finish\">\n" +
+    "		<i location-string=\"activeOrder.finish\"></i>\n" +
+    "		<p ng-if=\"activeOrder.finish.comment\" class=\"location-comment\">{{activeOrder.finish.comment}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>NEED_ANOTHER_CAR</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/order_completed.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/order_completed.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_COMPLETED_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"vehicle-info\">\n" +
+    "		<img src=\"/assets/app/images/passat-min.png\" alt=\"\"/>\n" +
+    "		<table class=\"table\">\n" +
+    "			<tr>\n" +
+    "				<th>{{'VEHICLE'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.info.manufacturer}} {{activeOrder.vehicle.info.model}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'REGISTRATION_NUMBER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.license_tax}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'DRIVER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.driver.firstname}} {{activeOrder.driver.middlename}}</td>\n" +
+    "			</tr>\n" +
+    "		</table>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"location-info location-info-secondary\">\n" +
+    "		<i location-string=\"activeOrder.start\"></i>\n" +
+    "		<p ng-if=\"activeOrder.start.comment\" class=\"location-comment\">{{activeOrder.start.comment}}</p>\n" +
+    "		<p ng-if=\"activeOrder.start.plate && activeOrder.start.plate.text\" class=\"location-comment\">{{'PLATE_TEXT'|translate}}: {{activeOrder.start.plate.text}}</p>\n" +
+    "	</div>\n" +
+    "	<div class=\"location-info\" ng-if=\"activeOrder.finish\">\n" +
+    "		<i location-string=\"activeOrder.finish\"></i>\n" +
+    "		<p ng-if=\"activeOrder.finish.comment\" class=\"location-comment\">{{activeOrder.finish.comment}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>NEED_ANOTHER_CAR</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/order_not_paid.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/order_not_paid.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_NOT_PAID_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<p class=\"order-information-message\">{{'ORDER_NOT_PAID_MESSAGE'|translate}}</p>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>BACK_TO_THE_ORDER_FORM</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/order_paid.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/order_paid.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_PAID_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"vehicle-info\">\n" +
+    "		<img src=\"/assets/app/images/passat-min.png\" alt=\"\"/>\n" +
+    "		<table class=\"table\">\n" +
+    "			<tr>\n" +
+    "				<th>{{'VEHICLE'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.info.manufacturer}} {{activeOrder.vehicle.info.model}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'REGISTRATION_NUMBER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.license_tax}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'DRIVER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.driver.firstname}} {{activeOrder.driver.middlename}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'AMOUNT_TOTAL'|translate}}</th>\n" +
+    "				<td>\n" +
+    "					<!--{{activeOrder.amount}}-->\n" +
+    "					{{activeOrder.amount | byn}}\n" +
+    "					<span class=\"currency secondary\">({{activeOrder.amount | byr | number}}&nbsp;{{'CURRENCY_BYR' | translate}})</span>\n" +
+    "				</td>\n" +
+    "			</tr>\n" +
+    "		</table>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"location-info location-info-secondary\">\n" +
+    "		<i location-string=\"activeOrder.start\"></i>\n" +
+    "		<p ng-if=\"activeOrder.start.comment\" class=\"location-comment\">{{activeOrder.start.comment}}</p>\n" +
+    "		<p ng-if=\"activeOrder.start.plate && activeOrder.start.plate.text\" class=\"location-comment\">{{'PLATE_TEXT'|translate}}: {{activeOrder.start.plate.text}}</p>\n" +
+    "	</div>\n" +
+    "	<div class=\"location-info\">\n" +
+    "		<i location-string=\"activeOrder.finish\" ng-if=\"activeOrder.finish\"></i>\n" +
+    "		<p ng-if=\"activeOrder.finish.comment\" class=\"location-comment\">{{activeOrder.finish.comment}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>NEED_ANOTHER_CAR</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/order_pending_payment.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/order_pending_payment.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_PENDING_PAYMENT_HEADING'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"vehicle-info\">\n" +
+    "		<img src=\"/assets/app/images/passat-min.png\" alt=\"\"/>\n" +
+    "		<table class=\"table\">\n" +
+    "			<tr>\n" +
+    "				<th>{{'VEHICLE'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.info.manufacturer}} {{activeOrder.vehicle.info.model}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'REGISTRATION_NUMBER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.vehicle.license_tax}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'DRIVER'|translate}}</th>\n" +
+    "				<td>{{activeOrder.driver.firstname}} {{activeOrder.driver.middlename}}</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'AMOUNT_TOTAL'|translate}}</th>\n" +
+    "				<td>\n" +
+    "					{{activeOrder.amount | byn}}\n" +
+    "					<span class=\"currency secondary\">({{activeOrder.amount | byr | number}}&nbsp;{{'CURRENCY_BYR' | translate}})</span>\n" +
+    "				</td>\n" +
+    "			</tr>\n" +
+    "			<tr>\n" +
+    "				<th>{{'AMOUNT_PAID'|translate}}</th>\n" +
+    "				<td>\n" +
+    "					<!--{{activeOrder.amount_paid || 0}}-->\n" +
+    "					{{(activeOrder.amount_paid || 0) | byn}}\n" +
+    "					<span class=\"currency secondary\">({{activeOrder.amount_paid | byr | number}}&nbsp;{{'CURRENCY_BYR' | translate}})</span>\n" +
+    "				</td>\n" +
+    "			</tr>\n" +
+    "		</table>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"location-info location-info-secondary\">\n" +
+    "		<i location-string=\"activeOrder.start\"></i>\n" +
+    "		<p ng-if=\"activeOrder.start.comment\" class=\"location-comment\">{{activeOrder.start.comment}}</p>\n" +
+    "		<p ng-if=\"activeOrder.start.plate && activeOrder.start.plate.text\" class=\"location-comment\">{{'PLATE_TEXT'|translate}}: {{activeOrder.start.plate.text}}</p>\n" +
+    "	</div>\n" +
+    "	<div class=\"location-info\">\n" +
+    "		<i location-string=\"activeOrder.finish\" ng-if=\"activeOrder.finish\"></i>\n" +
+    "		<p ng-if=\"activeOrder.finish.comment\" class=\"location-comment\">{{activeOrder.finish.comment}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>NEED_ANOTHER_CAR</translate></button>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/order_postponed.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/order_postponed.tpl.html",
+    "<div class=\"order-form text-center\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_POSTPONED_FOR'|translate}} {{activeOrder.start_at | date: \"HH:mm dd/MM/yy\"}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<p class=\"order-information-message\">{{'ORDER_POSTPONED_ACCEPTED_MESSAGE'|translate}}</p>\n" +
+    "\n" +
+    "	<div class=\"location-info\">\n" +
+    "		<i location-string=\"activeOrder.start\"></i>\n" +
+    "\n" +
+    "		<p ng-if=\"activeOrder.start.comment\" class=\"location-comment\">{{activeOrder.start.comment}}</p>\n" +
+    "		<p ng-if=\"activeOrder.start.plate && activeOrder.start.plate.text\" class=\"location-comment\">{{'PLATE_TEXT'|translate}}: {{activeOrder.start.plate.text}}</p>\n" +
+    "	</div>\n" +
+    "	<div class=\"location-info location-info-secondary\" ng-if=\"activeOrder.finish\">\n" +
+    "		<i location-string=\"activeOrder.finish\"></i>\n" +
+    "\n" +
+    "		<p ng-if=\"activeOrder.finish.comment\" class=\"location-comment\">{{activeOrder.finish.comment}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<button type=\"button\" class=\"btn order-btn order-btn-inversed\" ng-click=\"newOrder()\"><translate>NEED_ANOTHER_CAR</translate></button>\n" +
+    "\n" +
+    "	<div class=\"col-sm-12 order-client-reject\">\n" +
+    "		<button type=\"button\" class=\"order-btn-reject\" ng-click=\"cancelOrder()\">{{'ORDER_CANCELLATION'|translate}}</button>\n" +
+    "		<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "		<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/order/unconfirmed.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/order/unconfirmed.tpl.html",
+    "<div class=\"order-form text-center confirm-customer\" ng-controller=\"CreateOrderController\">\n" +
+    "	<div class=\"modal-header\">\n" +
+    "		<h2>{{'ORDER_UNCONFIRMED_HEADING'|translate}}</h2>\n" +
+    "\n" +
+    "		<h2>{{activeCustomer.phone | phone}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<p class=\"order-information-message\"><translate>ORDER_UNCONFIRMED_MESSAGE</translate></p>\n" +
+    "\n" +
+    "	<form name=\"confirmForm\" novalidate class=\"clearfix\">\n" +
+    "		<div class=\"col-sm-12 row\">\n" +
+    "			<div class=\"col-sm-3 control-label form-field text-center\">\n" +
+    "				<label for=\"confirmationCode\"><translate>REGISTER_SMS_CODE</translate></label>\n" +
+    "			</div>\n" +
+    "			<div class=\"col-sm-6 control-label form-field text-center\">\n" +
+    "				<input id=\"confirmationCode\" type=\"text\" class=\"form-control\" ng-model=\"code\"  autocomplete=\"off\" required/>\n" +
+    "			</div>\n" +
+    "			<div class=\"col-sm-3 resend-code\">\n" +
+    "				<button ng-if=\"!codeRequest\" type=\"button\" class=\"resend-code-btn\" ng-click=\"confirmRequest()\"><span>{{'REGISTER_CODE_NOT_DELIVERED'|translate}}</span></button>\n" +
+    "				<span ng-if=\"codeRequest\"><i class=\"fa fa-spinner fa-spin\"></i></span>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "	</form>\n" +
+    "	<p class=\"sending-info\" ng-if=\"sending == 1\">{{'SENDING_REQUEST'|translate}}...</p>\n" +
+    "\n" +
+    "	<p class=\"sending-info sending-error\" ng-if=\"sending == 0\">{{'ERROR_TRY_AGAIN'|translate}}</p>\n" +
+    "	<button ng-disabled=\"confirmForm.$invalid\" ng-if=\"sending != 1\" type=\"button\" class=\"btn order-btn confirm-btn\" ng-click=\"confirm()\">{{'CONFIRM'|translate}}</button>\n" +
+    "\n" +
+    "	<div class=\"col-sm-12 order-client-reject\">\n" +
+    "		<button type=\"button\" class=\"order-btn-reject\" ng-click=\"newOrder()\"><translate>BACK_TO_THE_ORDER_FORM</translate></button>\n" +
+    "	</div>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/partners.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/partners.tpl.html",
+    "<section id=\"partners\" scroll-broadcast class=\"promotions partners\">\n" +
+    "	<h2>{{'PARTNERS_HEADING'|translate}}</h2>\n" +
+    "\n" +
+    "	<div class=\"container\" ng-controller=\"PartnersController\">\n" +
+    "\n" +
+    "		<div class=\"col-md-3 col-sm-4\">\n" +
+    "			<article>\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/slivki_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PARTNERS_SLIVKI_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"col-md-3 col-sm-4\">\n" +
+    "			<article>\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/alfa_bank_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PARTNERS_ALFA_BANK_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"col-md-3 col-sm-4\">\n" +
+    "			<article>\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/mtbank_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PARTNERS_MTBANK_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<!--<div class=\"col-md-3 col-sm-4\">-->\n" +
+    "			<!--<article>-->\n" +
+    "				<!--<header>-->\n" +
+    "					<!--<img alt=\"partner\" src=\"/assets/app/images/bhb_logo.png\"/>-->\n" +
+    "				<!--</header>-->\n" +
+    "				<!--<p>{{'PARTNERS_BLACK_HALL_DESCRIPTION'|translate}}</p>-->\n" +
+    "\n" +
+    "			<!--</article>-->\n" +
+    "		<!--</div>-->\n" +
+    "\n" +
+    "		<div class=\"col-md-3 col-sm-4\">\n" +
+    "			<article>\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/velcom_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PARTNERS_VELCOM_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"col-md-3 col-sm-4\">\n" +
+    "			<article>\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/oriflame_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PARTNERS_ORIFLAME_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"col-md-3 col-sm-4\">\n" +
+    "			<article>\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/nissan_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PARTNERS_DRIVE_MOTORS_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"col-md-3 col-sm-4\">\n" +
+    "			<article>\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/basf_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PARTNERS_BASF_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"col-md-3 col-sm-4\">\n" +
+    "			<article>\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/bodylab_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PARTNERS_BODYLAB_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"col-md-3 col-sm-4\">\n" +
+    "			<article>\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/belneftestrah_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PARTNERS_BELNEFTESTRAH_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "</section>");
+}]);
+
+angular.module("../src/app/templates/partials/plans.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/plans.tpl.html",
+    "<h2>{{'PLANS'|translate}}</h2>\n" +
+    "<div ng-controller=\"PlansController\">\n" +
+    "	<div class=\"table text-center\">\n" +
+    "		<div class=\"line first\">\n" +
+    "			<div class=\"row\">\n" +
+    "				<div class=\"col-sm-5 name\">{{'PLANS_IN_THE_CITY'|translate}}<span ng-if=\"plans.city.meta\"> *</span></div>\n" +
+    "				<div class=\"col-sm-4 value\">\n" +
+    "					<span class='currency' ng-if=\"plans.city.amount\">{{plans.city.amount | byn:('CURRENCY_FORMAT_DEFAULT' | translate) }}</span>\n" +
+    "					<span class=\"currency secondary\" ng-if=\"plans.city.amount\">{{plans.city.amount | byr | number}}&nbsp;<small>{{'CURRENCY_BYR' | translate}}</small></span>\n" +
+    "					<img ng-if=\"!plans.city.amount\" class=\"preloader\" src=\"/assets/app/images/preloader_black.GIF\" alt=\"\"/>\n" +
+    "				</div>\n" +
+    "				<div class=\"col-sm-3 meta\">\n" +
+    "					<strong ng-if=\"plans.city.offer\" class=\"text-danger\">{{'SPECIAL_OFFER'|translate}}</strong>\n" +
+    "\n" +
+    "					<div ng-if=\"plans.city.includes\" class=\"text-gray\">\n" +
+    "						<translate translate-values=\"{mileage: '<br/>{{plans.city.includes}}'}\">PLANS_MILEAGE_TRIP_INCLUDED</translate>\n" +
+    "						<!--Включены первые <br/>{{plans.city.includes}} км поездки-->\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "\n" +
+    "				<div ng-if=\"plans.city.meta\" class=\"col-sm-12 comment\">* {{plans.city.meta}}</div>\n" +
+    "			</div>\n" +
+    "			<hr/>\n" +
+    "		</div>\n" +
+    "		<div class=\"line\">\n" +
+    "			<div class=\"row\">\n" +
+    "				<div class=\"col-sm-5 name\">{{'PLANS_OUTSIDE_THE_CITY'|translate}}<span ng-if=\"plans.country.meta\"> *</span></div>\n" +
+    "				<div class=\"col-sm-4 value\">\n" +
+    "					<span class='currency' ng-if=\"plans.country.amount\">{{plans.country.amount | byn:('CURRENCY_FORMAT_DEFAULT' | translate)}}</span>\n" +
+    "					<span class=\"currency secondary\" ng-if=\"plans.country.amount\">{{plans.country.amount | byr | number}}&nbsp;<small>{{'CURRENCY_BYR' | translate}}</small></span>\n" +
+    "					<img ng-if=\"!plans.country.amount\" class=\"preloader\" src=\"/assets/app/images/preloader_black.GIF\" alt=\"\"/>\n" +
+    "				</div>\n" +
+    "				<div class=\"col-sm-3 meta\">\n" +
+    "					<strong ng-if=\"plans.country.offer\" class=\"text-danger\">{{'SPECIAL_OFFER'|translate}}</strong>\n" +
+    "\n" +
+    "					<div ng-if=\"plans.country.includes\" class=\"text-gray\">\n" +
+    "						<translate translate-values=\"{mileage: '<br/>{{plans.country.includes}}' }\">PLANS_MILEAGE_TRIP_INCLUDED</translate>\n" +
+    "						<!--Включены первые <br/>{{plans.country.includes}} км поездки-->\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "\n" +
+    "				<div ng-if=\"plans.country.meta\" class=\"col-sm-12 comment\">* {{plans.country.meta}}</div>\n" +
+    "			</div>\n" +
+    "			<hr/>\n" +
+    "		</div>\n" +
+    "		<div class=\"line\">\n" +
+    "			<div class=\"row\">\n" +
+    "				<div class=\"col-sm-5 name\">{{'PLANS_DOWNTIME_HOUR'|translate}}<span ng-if=\"plans.idle.meta\"> *</span></div>\n" +
+    "				<div class=\"col-sm-4 value\">\n" +
+    "					<span class='currency' ng-if=\"plans.idle.amount\">{{plans.idle.amount | byn:('CURRENCY_FORMAT_DEFAULT' | translate) }}</span>\n" +
+    "					<span class=\"currency secondary\" ng-if=\"plans.idle.amount\">{{plans.idle.amount | byr | number}}&nbsp;<small>{{'CURRENCY_BYR' | translate}}</small></span>\n" +
+    "					<img ng-if=\"!plans.idle.amount\" class=\"preloader\" src=\"/assets/app/images/preloader_black.GIF\" alt=\"\"/>\n" +
+    "				</div>\n" +
+    "				<div class=\"col-sm-3 meta\">\n" +
+    "					<strong ng-if=\"plans.idle.offer\" class=\"text-danger\">{{'SPECIAL_OFFER'|translate}}</strong>\n" +
+    "\n" +
+    "					<div ng-if=\"plans.idle.includes\" class=\"text-gray\">\n" +
+    "						<translate translate-values=\"{mileage: '<br/>{{plans.idle.includes}}' }\">PLANS_MILEAGE_TRIP_INCLUDED</translate>\n" +
+    "						<!--Включены первые <br/>{{plans.idle.includes}} км поездки-->\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "\n" +
+    "\n" +
+    "				<div ng-if=\"plans.idle.meta\" class=\"col-sm-12 comment\">* {{plans.idle.meta}}</div>\n" +
+    "			</div>\n" +
+    "			<hr/>\n" +
+    "		</div>\n" +
+    "		<div class=\"line last\">\n" +
+    "			<div class=\"row\">\n" +
+    "				<div class=\"col-sm-5 name\">{{'PLANS_PLANTING'|translate}}<span ng-if=\"plans.base.meta\"> *</span></div>\n" +
+    "				<div class=\"col-sm-4 value\">\n" +
+    "					<span class='currency' ng-if=\"plans.base.amount\">{{plans.base.amount | byn:('CURRENCY_FORMAT_DEFAULT' | translate) }}</span>\n" +
+    "					<span class=\"currency secondary\"  ng-if=\"plans.base.amount\">{{plans.base.amount | byr | number}}&nbsp;<small>{{'CURRENCY_BYR' | translate}}</small></span>\n" +
+    "					<img ng-if=\"!plans.base.amount\" class=\"preloader\" src=\"/assets/app/images/preloader_black.GIF\" alt=\"\"/>\n" +
+    "				</div>\n" +
+    "				<div class=\"col-sm-3 meta\">\n" +
+    "\n" +
+    "					<strong ng-if=\"plans.base.offer\" class=\"text-danger\">{{'SPECIAL_OFFER'|translate}}</strong>\n" +
+    "\n" +
+    "					<div ng-if=\"plans.base.includes\" class=\"text-gray\">\n" +
+    "						<translate translate-values=\"{mileage: '<br/>{{plans.base.includes}}' }\">PLANS_MILEAGE_TRIP_INCLUDED</translate>\n" +
+    "						<!--Включены первые <br/>{{plans.base.includes}} км поездки-->\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "\n" +
+    "				<div ng-if=\"plans.base.meta\" class=\"col-sm-12 comment\">* {{plans.base.meta}}</div>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<div class=\"line inverse\">\n" +
+    "			<div class=\"row\">\n" +
+    "				<div class=\"col-sm-5 name\">{{'PLANS_AIRPORT'|translate}}<span ng-if=\"plans.airport.meta\"> *</span></div>\n" +
+    "				<div class=\"col-sm-4 value\">\n" +
+    "					<span class='currency' ng-if=\"plans.airport.amount\">{{plans.airport.amount | byn:('CURRENCY_FORMAT_DEFAULT' | translate) }}</span>\n" +
+    "					<span class=\"currency secondary\"  ng-if=\"plans.airport.amount\">{{plans.airport.amount | byr | number}}&nbsp;<small>{{'CURRENCY_BYR' | translate}}</small></span>\n" +
+    "					<img ng-if=\"!plans.airport.amount\" class=\"preloader\" src=\"/assets/app/images/preloader_black.GIF\" alt=\"\"/>\n" +
+    "				</div>\n" +
+    "				<div class=\"col-sm-3 meta\">\n" +
+    "					<strong ng-if=\"plans.airport.offer\" class=\"text-danger\">{{'SPECIAL_OFFER'|translate}}</strong>\n" +
+    "\n" +
+    "					<div ng-if=\"plans.airport.includes\" class=\"text-gray\">\n" +
+    "						<translate translate-values=\"{mileage: '<br/>{{plans.airport.includes}}' }\">PLANS_MILEAGE_TRAVEL_INCLUDED</translate>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "\n" +
+    "				<div class=\"col-sm-12 comment\">\n" +
+    "					* <translate translate-compile=\"true\" translate-values=\"{link: (lang=== 'ru' ? 'transfer-aeroport' : 'transfer-airport')}\">PLANS_AIRPORT_DESCRIPTION</translate>\n" +
+    "				</div>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "		<!--<div class=\"line inverse\">-->\n" +
+    "			<!--<div class=\"row\">-->\n" +
+    "				<!--<div class=\"col-sm-5 name\">{{'PLANS_AIRPORT'|translate}}<span ng-if=\"plans.airport.meta\"> *</span></div>-->\n" +
+    "				<!--<div class=\"col-sm-4 value\">-->\n" +
+    "					<!--<span class='currency' ng-if=\"plans.airport.amount\">{{plans.airport.amount | byn:('CURRENCY_FORMAT_DEFAULT' | translate) }}</span>-->\n" +
+    "					<!--<span class=\"currency secondary\"  ng-if=\"plans.airport.amount\">{{plans.airport.amount | byr | number}}&nbsp;<small>{{'CURRENCY_BYR' | translate}}</small></span>-->\n" +
+    "					<!--<img ng-if=\"!plans.airport.amount\" class=\"preloader\" src=\"/assets/app/images/preloader_black.GIF\" alt=\"\"/>-->\n" +
+    "				<!--</div>-->\n" +
+    "				<!--<div class=\"col-sm-3 meta\">-->\n" +
+    "					<!--<strong ng-if=\"plans.airport.offer\" class=\"text-danger\">{{'SPECIAL_OFFER'|translate}}</strong>-->\n" +
+    "\n" +
+    "					<!--<div ng-if=\"plans.airport.includes\" class=\"text-gray\">-->\n" +
+    "						<!--<translate translate-values=\"{mileage: '<br/>{{plans.airport.includes}}' }\">PLANS_MILEAGE_TRAVEL_INCLUDED</translate>-->\n" +
+    "						<!--&lt;!&ndash;Включены первые <br/>{{plans.airport.includes}} км поездки&ndash;&gt;-->\n" +
+    "					<!--</div>-->\n" +
+    "				<!--</div>-->\n" +
+    "\n" +
+    "				<!--<div ng-if=\"plans.airport.meta\" class=\"col-sm-12 comment\">* {{plans.airport.meta}}</div>-->\n" +
+    "			<!--</div>-->\n" +
+    "		<!--</div>-->\n" +
+    "		<p class=\"description\">{{'PLANS_PAYMENT_TYPES'|translate}}.</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"tel-block col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 text-center clearfix\">\n" +
+    "\n" +
+    "		<div class=\"col-sm-7\">{{'PLANS_CALL_FOR_SPECIAL_OFFER'|translate}}</div>\n" +
+    "\n" +
+    "		<div class=\"col-sm-5 tel\">\n" +
+    "			<i class=\"taxi5-icon taxi5-callusicon\"></i><b><a href=\"tel:7500\">7500</a></b>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/promotions.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/promotions.tpl.html",
+    "<section id=\"promotions\" scroll-broadcast class=\"promotions\">\n" +
+    "	<h2>{{'PROMO_HEADING'|translate}}</h2>\n" +
+    "\n" +
+    "	<div class=\"container\" ng-controller=\"PartnersController\">\n" +
+    "\n" +
+    "		<div class=\"col-md-4 col-sm-6\">\n" +
+    "			<article ng-click=\"showAbout('master-card')\">\n" +
+    "\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/master_card_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PROMO_MASTER_CARD_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<!--<div class=\"col-md-4 col-sm-6\">-->\n" +
+    "			<!--<article ng-click=\"showAbout('visa')\">-->\n" +
+    "\n" +
+    "				<!--<header>-->\n" +
+    "					<!--<img alt=\"partner\" src=\"/assets/app/images/visa_logo.png\"/>-->\n" +
+    "				<!--</header>-->\n" +
+    "				<!--<p>{{'PROMO_VISA_DESCRIPTION'|translate}}</p>-->\n" +
+    "\n" +
+    "			<!--</article>-->\n" +
+    "		<!--</div>-->\n" +
+    "\n" +
+    "		<div class=\"col-md-4 col-sm-6\">\n" +
+    "			<article ng-click=\"showAbout('nissan')\">\n" +
+    "\n" +
+    "				<header>\n" +
+    "					<img alt=\"partner\" src=\"/assets/app/images/nissan_logo.png\"/>\n" +
+    "				</header>\n" +
+    "				<p>{{'PROMO_NISSAN_DESCRIPTION'|translate}}</p>\n" +
+    "\n" +
+    "			</article>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"col-md-4 col-sm-6\" ng-click=\"suggest()\">\n" +
+    "			<div class=\"suggest\">\n" +
+    "				<header><i class=\"fa fa-plus\"></i></header>\n" +
+    "				<p>{{'PROMO_SUGGEST'|translate}}</p>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "</section>");
+}]);
+
+angular.module("../src/app/templates/partials/reviews.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/reviews.tpl.html",
+    "<h2>{{'REVIEWS'|translate}} <a href=\"/{{lang}}/review\" class=\"btn review-btn\"><i class=\"fa fa-comment-o\"></i><span>{{'REVIEWS_LEAVE_REVIEW'|translate}}</span></a></h2>\n" +
+    "\n" +
+    "<div data-interval=\"0\" data-ride=\"carousel\" class=\"carousel slide container\" id=\"reviews-carousel\" ng-controller=\"ReviewController\">\n" +
+    "	<!-- Wrapper for slides -->\n" +
+    "	<div class=\"carousel-inner\">\n" +
+    "		<div ng-if=\"!reviews.length\" class=\"item row active\">\n" +
+    "			<div ng-repeat=\"a in preloader\" class=\"col-md-4 col-sm-12 col-xs-12 review-block preload\">\n" +
+    "				<img class=\"preloader\" src=\"/assets/app/images/preloader_orange.GIF\" alt=\"\"/>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div ng-if=\"reviews.length\" class=\"item row\" ng-class=\"$index==0 ? 'active' : ''\"  ng-repeat=\"line in (reviews.length/3 | array) track by $index\">\n" +
+    "			<div ng-repeat=\"review in reviews.slice(3*$index, 3*$index + 3)\" class=\"col-md-4 col-sm-12 col-xs-12 review-block\"  aside-click ng-click=\"showReview(review)\">\n" +
+    "				<img ng-if=\"!!review.avatar_url\" alt=\"\" ng-src=\"{{review.avatar_url}}\" class=\"review-author-image\">\n" +
+    "				<img ng-if=\"!review.avatar_url\" alt=\"\" src=\"/assets/app/images/review-user-icon.png\" class=\"review-author-image\">\n" +
+    "				<article ng-switch=\"review.type\">\n" +
+    "					<p class=\"review-text\">{{review.short_message}}</p>\n" +
+    "\n" +
+    "					<i ng-switch-when=\"VK\" class=\"fa fa-vk\"></i>\n" +
+    "					<i ng-switch-when=\"FB\" class=\"fa fa-facebook-square\"></i>\n" +
+    "					<i ng-switch-when=\"TWITTER\" class=\"fa fa-twitter\"></i>\n" +
+    "					<i ng-switch-when=\"WEBSITE\" class=\"fa fa-globe\"></i>\n" +
+    "\n" +
+    "					<span class=\"author\">{{review.display_name}}</span>\n" +
+    "				</article>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<!-- Controls -->\n" +
+    "	<span ng-if=\"reviews.length > 3\" data-target=\"#reviews-carousel\" data-slide=\"prev\" role=\"button\" class=\"left carousel-control\"><span class=\"fa fa-angle-left pull-left\"></span></span>\n" +
+    "	<span ng-if=\"reviews.length > 3\" data-target=\"#reviews-carousel\" data-slide=\"next\" role=\"button\" class=\"right carousel-control\"><span class=\"fa fa-angle-right pull-right\"></span></span>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/side/carport.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/carport.tpl.html",
+    "<h2>{{'OUR_CARS'|translate}}</h2>\n" +
+    "<translate>OUR_CARS_ASIDE_CONTENT</translate>");
+}]);
+
+angular.module("../src/app/templates/partials/side/contacts.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/contacts.tpl.html",
+    "<h2>{{'CONTACT_INFORMATION'|translate}}</h2>\n" +
+    "\n" +
+    "<h4 class=\"taxi-call-phone-title\">{{'CONTACT_INFORMATION_CALLING_TAXI'|translate}}</h4>\n" +
+    "<address class=\"taxi-call-phone\">\n" +
+    "	<a href=\"tel:7500\">7500</a> {{'OR'|translate}} <a href=\"tel:+375291337500\">+375 29 133-75-00</a>\n" +
+    "</address>\n" +
+    "\n" +
+    "<h4>{{'CONTACT_INFORMATION_ADMINISTRATION'|translate}}</h4>\n" +
+    "<h5>\n" +
+    "	<translate translate-values=\"{building:'14', office:'30'}\">CONTACT_INFORMATION_ADMINISTRATION_ADDRESS</translate>\n" +
+    "</h5>\n" +
+    "<address>\n" +
+    "	{{'PHONE'|translate}}: <a href=\"tel:+375172983642\">+375 17 298-36-42</a><br>\n" +
+    "	<translate translate-values=\"{start:'9.00', finish:'18.00'}\">CONTACT_INFORMATION_ADMINISTRATION_WORKING_HOURS</translate>\n" +
+    "</address>\n" +
+    "\n" +
+    "<h4>{{'CONTACT_INFORMATION_COMPLAINTS'|translate}}</h4>\n" +
+    "<address>\n" +
+    "	<!--<a href=\"tel:+375447175889\">+375-44-7175889</a> <br>-->\n" +
+    "	<!--<a href=\"tel:+375447300513\">+375 44 730-05-13</a> <br>-->\n" +
+    "	<a href=\"tel:+375447300513\">+375 44 717-58-89</a> <br>\n" +
+    "	{{'CONTACT_INFORMATION_AROUND_THE_CLOCK'|translate}}\n" +
+    "</address>\n" +
+    "\n" +
+    "<h4>{{'CONTACT_INFORMATION_COOPERATION'|translate}}</h4>\n" +
+    "<address>\n" +
+    "	Email: info@taxi5.by\n" +
+    "</address>\n" +
+    "\n" +
+    "<h4>{{'CONTACT_INFORMATION_MARKETING'|translate}}</h4>\n" +
+    "<address>\n" +
+    "	Email: marketing@taxi5.by\n" +
+    "</address>");
+}]);
+
+angular.module("../src/app/templates/partials/side/credit-card.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/credit-card.tpl.html",
+    "<h2>Оплата кредитной картой</h2>\n" +
+    "<ul class=\"credit-card-payment-info-list\">\n" +
+    "	<li>\n" +
+    "		<p>Оплата банковской картой VISA, MasterCard, БЕЛКАРТ через систему <a href=\"http://belassist.by\" target=\"_blank\">Ассист</a>\n" +
+    "		</p>\n" +
+    "\n" +
+    "		<p>Оплата производится через интернет в режиме реального времени непосредственно после оформления заказа.\n" +
+    "		</p>\n" +
+    "\n" +
+    "		<p>Для совершения финансовой операции подходят карточки международных систем VISA (всех видов), MasterCard (в том числе Maestro), эмитированные любым банком мира, в том числе эмитированные АСБ «Беларусбанк», а также карты системы БЕЛКАРТ.\n" +
+    "		</p>\n" +
+    "\n" +
+    "		<p>\n" +
+    "			<a href=\"http://belkart.by/BELKART/news/2014/payment-belcard-in-the-internet/\" target=\"_blank\">О процедуре оплаты по карточам БЕЛКАРТ ОАО \"АСБ Беларусбанк\"</a>\n" +
+    "		</p>\n" +
+    "\n" +
+    "		<p>* Код CVV2/CVC2 — это контрольный номер, состоящий из трех цифр, который напечатан на обратной стороне банковской карты. Этот номер, обычно, напечатан в верхнем правом углу специальной полосы для подписи. Ввод номера необходим, чтобы убедиться, что карта используется настоящим владельцем.\n" +
+    "		</p>\n" +
+    "	</li>\n" +
+    "	<li>\n" +
+    "		<p>При выборе оплаты заказа с помощью банковской карты, обработка платежа (включая ввод номера банковской карты) производится ООО «Компания электронных платежей «АССИСТ» с использованием программно-аппаратного комплекса системы электронных платежей ASSIST, которая прошла международную сертификацию.\n" +
+    "		</p>\n" +
+    "\n" +
+    "		<p>В системе, обеспечивающей безопасность платежей, используется защищённый протокол TLS для передачи конфиденциальной информации от клиента на сервер и дальнейшей обработки в процессинговом центре. Это значит, что конфиденциальные данные плательщика (реквизиты карты, регистрационные данные и др.) не поступают в интернет-магазин, их обработка полностью защищена, и никто не может получить персональные и банковские данные клиента. Кроме того, при обработке платежей по банковским картам, используется безопасная технология 3D-Secure, которую в обязательном порядке требует международная платёжная система VISA и MasterCard.\n" +
+    "		</p>\n" +
+    "	</li>\n" +
+    "	<li>\n" +
+    "		<p>Чтобы оплатить этим способом:</p>\n" +
+    "		<ol>\n" +
+    "			<li>Зайти в приложение в раздел \"Оплата\"</li>\n" +
+    "			<li>\n" +
+    "				После нажатия на кнопку «Добавить еще одну карту» система направит вас на сайт провайдера электронных платежей\n" +
+    "				<a href=\"http://belassist.by\" target=\"_blank\">belassist.by</a>, обеспечивающей безопасность платежей. Авторизационный сервер устанавливает с Покупателем соединение по защищённому протоколу TLS и принимает от Покупателя параметры его банковской карты (номер карты, дата окончания действия карты, имя держателя карты в той транскрипции, как оно указано на банковской карте, а также номер CVC2, либо CVV2, указанные на оборотной стороне карты). Нажать кнопку «Оплатить» Операция оплаты банковской картой онлайн полностью конфиденциальна и безопасна.\n" +
+    "			</li>\n" +
+    "			<li>\n" +
+    "				Ваши персональные данные и реквизиты карточки вводятся не на странице нашего сайта, а на авторизационной странице платежной системы. Доступ к ним осуществляется по протоколу безопасной передачи данных TLS, так же применяются технологии безопасных интернет платежей Verified by Visa и MasterCard SecureСode.\n" +
+    "			</li>\n" +
+    "			<li>\n" +
+    "				Списание денежных средств происходит только в том случае, если при окончании поездки в приложении нажать «Оплатить картой».\n" +
+    "			</li>\n" +
+    "		</ol>\n" +
+    "	</li>\n" +
+    "	<li>\n" +
+    "		<p>К оплате принимаются карты платежных систем Visa International, MasterCard и Белкарт всех классов и банков. Мы рекомендуем заранее обратиться в свой банк, чтобы удостовериться в том, что ваша карта может быть использована для платежей в сети интернет. Причины отказа в авторизации могут быть следующими:</p>\n" +
+    "		<ul>\n" +
+    "			<li>на карте недостаточно средств для оплаты заказа;</li>\n" +
+    "			<li>банк, выпустивший карточку Покупателя, установил запрет на оплату в Интернете;</li>\n" +
+    "			<li>истекло время ожидания ввода данных банковской карты;</li>\n" +
+    "			<li>введённые данные не были подтверждены вами на платежной странице, ошибка - формата данных и.т.д.</li>\n" +
+    "		</ul>\n" +
+    "		<p>В зависимости от причины отказа в авторизации для решения вопроса вы можете:</p>\n" +
+    "		<ul>\n" +
+    "			<li>обратиться за разъяснениями в Банк, выпустивший карточку Покупателя;</li>\n" +
+    "\n" +
+    "			<li>в случае невозможности решения проблемы Банком — повторить попытку оплаты, воспользовавшись картой, выпущенной другим Банком.</li>\n" +
+    "		</ul>\n" +
+    "\n" +
+    "	</li>\n" +
+    "	<li>\n" +
+    "		<p>Возврат денежных средств</p>\n" +
+    "\n" +
+    "		<p>При возврате деньги возвращаются на ту карту, с которой была совершена покупка в течении 30 дней, в зависимости от банка , выпустившего карту</p>\n" +
+    "	</li>\n" +
+    "	<li>\n" +
+    "		<p>Заказ такси осуществляется через сайт и приложение Такси Пятница и по телефонам <a href=\"tel:7500\">7500</a>,\n" +
+    "			<a href=\"tel:+375291337500\">+375 29 133 75 00</a>, <a href=\"tel:+375173997500\">+375 17 399 75 00</a>.\n" +
+    "		</p>\n" +
+    "		<p>Организация имеет частную форму собственности, полное наименование «Общество с ограниченной ответственностью «Такси пятница», осуществляет вид деятельности - перевозка пассажиров автомобилями-такси. </p>\n" +
+    "		<p>Организация зарегистрирована по адресу: г. Минск, ул. Стрелковая, д. 14, оф. 30; режим работы - круглосуточно, лицензия Министерства транспорта и коммуникаций РБ №02190/1--71186 выдано на основании решения от 28.04.2014. </p>\n" +
+    "		<p>Оплата производится как наличным, так и безналичным путем, с применением пластиковых карт любого банка</p>\n" +
+    "	</li>\n" +
+    "</ul>");
+}]);
+
+angular.module("../src/app/templates/partials/side/faq.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/faq.tpl.html",
+    "<h2>{{'FREQUENTLY_ASKED_QUESTIONS'|translate}}</h2>\n" +
+    "<div aria-multiselectable=\"true\" role=\"tablist\" class=\"faq\" id=\"accordion-faq\" class=\"panel-group\">\n" +
+    "\n" +
+    "	<div class=\"panel\">\n" +
+    "		<h4 aria-controls=\"collapse-faq-1\" aria-expanded=\"true\" data-target=\"#collapse-faq-1\" data-parent=\"#accordion-faq\" data-toggle=\"collapse\" id=\"heading-faq-1\" role=\"tab\" class=\"\">\n" +
+    "			<i class=\"bullet fa fa-minus-square-o\"></i>\n" +
+    "			{{'FAQ_ASIDE_AMOUNT_QUESTION'|translate}}\n" +
+    "		</h4>\n" +
+    "\n" +
+    "		<p aria-labelledby=\"heading-faq-1\" role=\"tabpanel\" class=\"panel-collapse collapse in\" id=\"collapse-faq-1\" style=\"height: auto;\">\n" +
+    "			{{'FAQ_ASIDE_AMOUNT_ANSWER'|translate}}</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"panel\">\n" +
+    "		<h4 aria-controls=\"collapse-faq-2\" aria-expanded=\"false\" data-target=\"#collapse-faq-2\" data-parent=\"#accordion-faq\" data-toggle=\"collapse\" class=\"collapsed\" id=\"heading-faq-2\" role=\"tab\">\n" +
+    "			<i class=\"bullet fa fa-minus-square-o\"></i>\n" +
+    "			{{'FAQ_ASIDE_PHONES_QUESTION'|translate}}\n" +
+    "		</h4>\n" +
+    "\n" +
+    "		<p aria-labelledby=\"heading-faq-2\" role=\"tabpanel\" class=\"panel-collapse collapse\" id=\"collapse-faq-2\">\n" +
+    "			{{'FAQ_ASIDE_PHONES_ANSWER'|translate}}<br>\n" +
+    "			<strong>Velcom: +375 29 133-75-00</strong><br>\n" +
+    "			<strong>МТС: +375 29 750-82-37</strong><br>\n" +
+    "			<strong>Life: +375 25 549-41-41</strong><br>\n" +
+    "		</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"panel\">\n" +
+    "		<h4 aria-controls=\"collapse-faq-3\" aria-expanded=\"false\" data-target=\"#collapse-faq-3\" data-parent=\"#accordion-faq\" data-toggle=\"collapse\" class=\"collapsed\" id=\"heading-faq-3\" role=\"tab\">\n" +
+    "			<i class=\"bullet fa fa-minus-square-o\"></i>\n" +
+    "			{{'FAQ_ASIDE_AIRPORT_QUESTION'|translate}}</h4>\n" +
+    "\n" +
+    "		<p aria-labelledby=\"heading-faq-3\" role=\"tabpanel\" class=\"panel-collapse collapse\" id=\"collapse-faq-3\">\n" +
+    "			<translate>FAQ_ASIDE_AIRPORT_ANSWER</translate>\n" +
+    "		</p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "\n" +
+    "	<div class=\"panel\">\n" +
+    "\n" +
+    "		<h4 aria-controls=\"collapse-faq-4\" aria-expanded=\"false\" data-target=\"#collapse-faq-4\" data-parent=\"#accordion-faq\" data-toggle=\"collapse\" class=\"collapsed\" id=\"heading-faq-4\" role=\"tab\">\n" +
+    "			<i class=\"bullet fa fa-minus-square-o\"></i>\n" +
+    "			{{'FAQ_ASIDE_POSTPONED_QUESTION'|translate}}\n" +
+    "		</h4>\n" +
+    "\n" +
+    "		<p aria-labelledby=\"heading-faq-4\" role=\"tabpanel\" class=\"panel-collapse collapse\" id=\"collapse-faq-4\">\n" +
+    "			<translate>FAQ_ASIDE_POSTPONED_ANSWER</translate>\n" +
+    "		</p>\n" +
+    "	</div>\n" +
+    "	\n" +
+    "	<div class=\"panel\">\n" +
+    "\n" +
+    "		<h4 aria-controls=\"collapse-faq-5\" aria-expanded=\"false\" data-target=\"#collapse-faq-5\" data-parent=\"#accordion-faq\" data-toggle=\"collapse\" class=\"collapsed\" id=\"heading-faq-5\" role=\"tab\">\n" +
+    "			<i class=\"bullet fa fa-minus-square-o\"></i>\n" +
+    "			{{'FAQ_ASIDE_CHILD_SEAT_QUESTION'|translate}}\n" +
+    "		</h4>\n" +
+    "\n" +
+    "		<p aria-labelledby=\"heading-faq-5\" role=\"tabpanel\" class=\"panel-collapse collapse\" id=\"collapse-faq-5\">\n" +
+    "			<translate>FAQ_ASIDE_CHILD_SEAT_ANSWER</translate>\n" +
+    "		</p>\n" +
+    "	</div>\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("../src/app/templates/partials/side/feedback.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/feedback.tpl.html",
+    "<h2>Обратная связь</h2>\n" +
+    "<form name=\"feedbackForm\" class=\"feedback-form\" ng-controller=\"FeedbackController\" novalidate>\n" +
+    "\n" +
+    "	<div class=\"form-group feedback-name\" show-errors>\n" +
+    "		<label class=\"control-label\" for=\"feedback-name\">Имя</label>\n" +
+    "		<input type=\"text\" class=\"form-control\" id=\"feedback-name\" placeholder=\"Имя\" name=\"name\" ng-model=\"feedback.name\" required\n" +
+    "				pattern=\"^[\\w][\\w\\s]+[\\w]$\"/>\n" +
+    "		<p class=\"help-block\"><small>Введите верное имя</small></p>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"form-group feedback-phone\" show-errors>\n" +
+    "		<label class=\"control-label\" for=\"feedback-phone\">Email или телефон</label>\n" +
+    "		<input type=\"text\" class=\"form-control\" id=\"feedback-phone\" placeholder=\"Email или телефон\" name=\"contact\" ng-model=\"feedback.contact\" required\n" +
+    "		       pattern=\"^([A-Za-z0-9_][A-Za-z0-9_\\.\\-]+@[A-Za-z0-9_\\-]{2,}\\.[A-Za-z0-9_\\-]{2,}|\\+?[0-9]{7,})$\"/>\n" +
+    "		<p class=\"help-block\"><small>Введите верный email или номер телефона</small></p>\n" +
+    "	</div>\n" +
+    "	<div class=\"form-group feedback-text\" show-errors>\n" +
+    "		<label class=\"control-label\" for=\"feedback-text\">Сообщение</label>\n" +
+    "		<textarea class=\"form-control\" id=\"feedback-text\" placeholder=\"Текст сообщения\" name=\"text\" rows=\"7\" ng-model=\"feedback.text\" required></textarea>\n" +
+    "		<p class=\"help-block\"><small>Введите текст сообщения</small></p>\n" +
+    "	</div>\n" +
+    "	<button ng-if=\"send === 0\" type=\"submit\" class=\"btn btn-default btn-block feedback-send\" ng-disabled=\"feedbackForm.$invalid\" ng-click=\"sendFeedback()\">Отправить</button>\n" +
+    "\n" +
+    "	<div  ng-if=\"send === 1\" class=\"feedback-msg\">Отправка...</div>\n" +
+    "	<div  ng-if=\"send === 2\" class=\"feedback-msg\">Спасибо!</div>\n" +
+    "	<div  ng-if=\"send === -1\" class=\"feedback-msg\">Ошибка!</div>\n" +
+    "</form>");
+}]);
+
+angular.module("../src/app/templates/partials/side/partners/master-card.en.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/partners/master-card.en.tpl.html",
+    "<h2>MasterCard</h2>\n" +
+    "\n" +
+    "<p>Скидка 7% при оплате картами MasterCard</p>\n" +
+    "<p>Служба такси «Пятница» — это новое современное такси с высокими стандартами, созданное специально для людей! Служба\n" +
+    "	предлагает только новые машины c чистыми, уютными и аккуратными салонами, зарядное устройство для мобильного, а\n" +
+    "	также Wi-fi. Оплачивая поездку картой MasterCard, Вы получаете скидку 7%.</p>\n" +
+    "");
+}]);
+
+angular.module("../src/app/templates/partials/side/partners/master-card.ru.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/partners/master-card.ru.tpl.html",
+    "<h2>MasterCard</h2>\n" +
+    "\n" +
+    "<p>Скидка 7% при оплате картами MasterCard</p>\n" +
+    "<p>Служба такси «Пятница» — это новое современное такси с высокими стандартами, созданное специально для людей! Служба\n" +
+    "	предлагает только новые машины c чистыми, уютными и аккуратными салонами, зарядное устройство для мобильного, а\n" +
+    "	также Wi-fi. Оплачивая поездку картой MasterCard, Вы получаете скидку 7%.</p>\n" +
+    "");
+}]);
+
+angular.module("../src/app/templates/partials/side/partners/nissan.en.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/partners/nissan.en.tpl.html",
+    "<h2>ДрайвМоторс, дилер Nissan в РБ</h2>\n" +
+    "\n" +
+    "<p>ДрайвМоторс предлагает своим клиентам скидку на поездку от автоцентра в размере 60 000 рублей.</p>\n" +
+    "<p>Если Ваш автомобиль находится в нашем автоцентре на техническом обслуживании, администраторы вызовут Вам такси из\n" +
+    "	службы «Пятница» и предложат карту со скидкой.</p>\n" +
+    "<p>Звоните и приезжайте:</p>\n" +
+    "<p>Мы работаем каждый день с 8.00 до 20.00</p>\n" +
+    "<p>Автоцентр ДрайвМоторс,</p>\n" +
+    "<p>Минск, Долгиновский тракт, 186</p>\n" +
+    "<p>+375 17 23-23-900</p>\n" +
+    "<p>www.nissan-belarus.by</p>");
+}]);
+
+angular.module("../src/app/templates/partials/side/partners/nissan.ru.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/partners/nissan.ru.tpl.html",
+    "<h2>ДрайвМоторс, дилер Nissan в РБ</h2>\n" +
+    "\n" +
+    "<p>ДрайвМоторс предлагает своим клиентам скидку на поездку от автоцентра в размере 60 000 рублей.</p>\n" +
+    "<p>Если Ваш автомобиль находится в нашем автоцентре на техническом обслуживании, администраторы вызовут Вам такси из\n" +
+    "	службы «Пятница» и предложат карту со скидкой.</p>\n" +
+    "<p>Звоните и приезжайте:</p>\n" +
+    "<p>Мы работаем каждый день с 8.00 до 20.00</p>\n" +
+    "<p>Автоцентр ДрайвМоторс,</p>\n" +
+    "<p>Минск, Долгиновский тракт, 186</p>\n" +
+    "<p>+375 17 23-23-900</p>\n" +
+    "<p>www.nissan-belarus.by</p>");
+}]);
+
+angular.module("../src/app/templates/partials/side/partners/suggest.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/partners/suggest.tpl.html",
+    "<h3>{{'PROMO_SUGGEST'|translate}}</h3>\n" +
+    "<form name=\"reviewForm\" class=\"feedback-form\" ng-controller=\"FeedbackController\" novalidate>\n" +
+    "\n" +
+    "	<div ng-show=\"!isCustomerLogged()\">\n" +
+    "		<div class=\"form-group feedback-name\" show-errors>\n" +
+    "			<label class=\"control-label\" for=\"feedback-name\">{{'NAME'|translate}}</label> <input type=\"text\" class=\"form-control\" id=\"feedback-name\" placeholder=\"{{'NAME'|translate}}\" name=\"name\" ng-model=\"review.name\" required\n" +
+    "			                                                                    pattern=\"^[\\S]+$\"/>\n" +
+    "\n" +
+    "			<p class=\"help-block\">\n" +
+    "				<small>{{'ENTER_VALID_NAME'|translate}}</small>\n" +
+    "			</p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"form-group feedback-phone\" show-errors>\n" +
+    "			<label class=\"control-label\" for=\"feedback-phone\">{{'EMAIL_OR_PHONE'|translate}}</label>\n" +
+    "			<input type=\"text\" class=\"form-control\" id=\"feedback-phone\" placeholder=\"{{'EMAIL_OR_PHONE'|translate}}\" name=\"contact\" ng-model=\"review.contact\" required\n" +
+    "			       pattern=\"^([A-Za-z0-9_][A-Za-z0-9_\\.\\-]+@[A-Za-z0-9_\\-]{2,}\\.[A-Za-z0-9_\\-]{2,}|\\+?[0-9]{7,})$\"/>\n" +
+    "\n" +
+    "			<p class=\"help-block\">\n" +
+    "				<small>{{'ENTER_VALID_EMAIL_OR_PHONE'|translate}}</small>\n" +
+    "			</p>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div ng-show=\"isCustomerLogged()\" class=\"customer-info row\">\n" +
+    "		<div class=\"customer-avatar col-xs-4\">\n" +
+    "			<img class=\"img-circle\" src=\"{{ activeCustomer.avatar || '/assets/app/images/default-user.jpg' }}\" alt=\"avatar\"/>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-xs-8 customer-profile\">\n" +
+    "			<a href=\"/{{lang}}/cabinet/profile-edit\" class='customer-name'>{{activeCustomer.name || 'NEW_CUSTOMER'|translate }}</a>\n" +
+    "\n" +
+    "			<a href=\"/{{lang}}/cabinet/profile-edit\" class=\"customer-phone\"> {{activeCustomer.phone | phone}} </a>\n" +
+    "		</div>\n" +
+    "		<a href=\"/{{lang}}/logout\" class=\"btn profile-logout-btn\"> <span class=\"fa fa-power-off\"></span> </a>\n" +
+    "	</div>\n" +
+    "\n" +
+    "\n" +
+    "	<div class=\"form-group feedback-text\" show-errors>\n" +
+    "		<label class=\"control-label\" for=\"feedback-text\">{{'MESSAGE'|translate}}</label>\n" +
+    "		<textarea class=\"form-control\" id=\"feedback-text\" placeholder=\"{{'MESSAGE_TEXT'|translate}}\" name=\"text\" rows=\"7\" ng-model=\"review.text\" required></textarea>\n" +
+    "\n" +
+    "		<p class=\"help-block\">\n" +
+    "			<small>{{'ENTER_MESSAGE_TEXT'|translate}}</small>\n" +
+    "		</p>\n" +
+    "	</div>\n" +
+    "	<button ng-if=\"send === 0\" type=\"submit\" class=\"btn btn-taxi\" ng-disabled=\"reviewForm.$invalid\" ng-click=\"sendReview()\">{{'SEND'|translate}}</button>\n" +
+    "\n" +
+    "	<div ng-if=\"send === 1\" class=\"feedback-msg\">{{'SENDING'|translate}}...</div>\n" +
+    "	<div ng-if=\"send === 2\" class=\"feedback-msg\">{{'THANKS'|translate}}!</div>\n" +
+    "	<div ng-if=\"send === -1\" class=\"feedback-msg\">{{'ERROR'|translate}}!</div>\n" +
+    "</form>");
+}]);
+
+angular.module("../src/app/templates/partials/side/partners/visa.en.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/partners/visa.en.tpl.html",
+    "<h2>Visa</h2>\n" +
+    "\n" +
+    "<p>Получайте скидку 5% на поездку с премиальными картами Visa Gold, Visa Platinum и Visa Infinite</p>");
+}]);
+
+angular.module("../src/app/templates/partials/side/partners/visa.ru.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/partners/visa.ru.tpl.html",
+    "<h2>Visa</h2>\n" +
+    "\n" +
+    "<p>Получайте скидку 5% на поездку с премиальными картами Visa Gold, Visa Platinum и Visa Infinite</p>");
+}]);
+
+angular.module("../src/app/templates/partials/side/review-view.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/review-view.tpl.html",
+    "<h2 class=\"text-center\">\n" +
+    "	{{review.display_name}}<br/> <img ng-if=\"review.avatar_url !== ''\" alt=\"\" ng-src=\"{{review.avatar_url}}\" class=\"review-author-image\">\n" +
+    "	<img ng-if=\"review.avatar_url === ''\" alt=\"\" src=\"/assets/app/images/review-user-icon.png\" class=\"review-author-image\">\n" +
+    "</h2>\n" +
+    "<p class=\"review-text\">{{review.message}}</p>\n" +
+    "<a ng-if=\"review.source_link && !simple\" target=\"_blank\" ng-href=\"{{review.source_link}}\" class=\"review-external-link\">View on </a>\n" +
+    "<span ng-if=\"!simple\" ng-switch=\"review.type\">\n" +
+    "	<i ng-switch-when=\"VK\" class=\"fa fa-vk review-social-icon\"></i>\n" +
+    "	<i ng-switch-when=\"FB\" class=\"fa fa-facebook-square review-social-icon\"></i>\n" +
+    "	<i ng-switch-when=\"TWITTER\" class=\"fa fa-twitter review-social-icon\"></i>\n" +
+    "	<!--<i ng-switch-when=\"WEBSITE\" class=\"fa fa-globe review-social-icon\"></i>-->\n" +
+    "</span>");
+}]);
+
+angular.module("../src/app/templates/partials/side/review.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/review.tpl.html",
+    "<h2>{{'REVIEWS_ASIDE_LEAVE_REVIEW'|translate}}</h2>\n" +
+    "<form name=\"reviewForm\" class=\"feedback-form\" ng-controller=\"FeedbackController\" novalidate>\n" +
+    "\n" +
+    "	<div ng-show=\"!isCustomerLogged()\">\n" +
+    "		<div class=\"form-group feedback-name\" show-errors>\n" +
+    "			<label class=\"control-label\" for=\"feedback-name\">{{'NAME'|translate}}</label> <input type=\"text\" class=\"form-control\" id=\"feedback-name\" placeholder=\"{{'NAME'|translate}}\" name=\"name\" ng-model=\"review.name\" required\n" +
+    "			                                                                    pattern=\"^[\\S]+$\"/>\n" +
+    "\n" +
+    "			<p class=\"help-block\">\n" +
+    "				<small>{{'ENTER_VALID_NAME'|translate}}</small>\n" +
+    "			</p>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"form-group feedback-phone\" show-errors>\n" +
+    "			<label class=\"control-label\" for=\"feedback-phone\">{{'EMAIL_OR_PHONE'|translate}}</label> <input type=\"text\" class=\"form-control\" id=\"feedback-phone\" placeholder=\"{{'EMAIL_OR_PHONE'|translate}}\" name=\"contact\" ng-model=\"review.contact\" required\n" +
+    "			                                                                                   pattern=\"^([A-Za-z0-9_][A-Za-z0-9_\\.\\-]+@[A-Za-z0-9_\\-]{2,}\\.[A-Za-z0-9_\\-]{2,}|\\+?[0-9]{7,})$\"/>\n" +
+    "\n" +
+    "			<p class=\"help-block\">\n" +
+    "				<small>{{'ENTER_VALID_EMAIL_OR_PHONE'|translate}}</small>\n" +
+    "			</p>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div ng-show=\"isCustomerLogged()\" class=\"customer-info row\">\n" +
+    "		<div class=\"customer-avatar col-sm-3 hidden-xs\">\n" +
+    "			<img class=\"img-circle\" src=\"{{ activeCustomer.avatar || '/assets/app/images/default-user.jpg' }}\" alt=\"avatar\"/>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-sm-9 customer-profile\">\n" +
+    "			<a href=\"/{{lang}}/cabinet/profile-edit\" class='customer-name'>{{activeCustomer.name || ('NEW_CUSTOMER'|translate)}}</a>\n" +
+    "\n" +
+    "			<a href=\"/{{lang}}/cabinet/profile-edit\" class=\"customer-phone\"> {{activeCustomer.phone | phone}} </a>\n" +
+    "		</div>\n" +
+    "		<a href=\"/{{lang}}/logout\" class=\"btn profile-logout-btn\"> <span class=\"fa fa-power-off\"></span> </a>\n" +
+    "	</div>\n" +
+    "\n" +
+    "\n" +
+    "	<div class=\"form-group feedback-text\" show-errors>\n" +
+    "		<label class=\"control-label\" for=\"feedback-text\">{{'MESSAGE'|translate}}</label> <textarea class=\"form-control\" id=\"feedback-text\" placeholder=\"{{'MESSAGE_TEXT'|translate}}\" name=\"text\" rows=\"7\" ng-model=\"review.text\" required></textarea>\n" +
+    "\n" +
+    "		<p class=\"help-block\">\n" +
+    "			<small>{{'ENTER_MESSAGE_TEXT'|translate}}</small>\n" +
+    "		</p>\n" +
+    "	</div>\n" +
+    "	<button ng-if=\"send === 0\" type=\"submit\" class=\"btn btn-taxi\" ng-disabled=\"reviewForm.$invalid\" ng-click=\"sendReview()\">{{'SEND'|translate}}</button>\n" +
+    "\n" +
+    "	<div ng-if=\"send === 1\" class=\"feedback-msg\">{{'PROCESSING'|translate}}...</div>\n" +
+    "	<div ng-if=\"send === 2\" class=\"feedback-msg\">{{'THANKS'|translate}}!</div>\n" +
+    "	<div ng-if=\"send === -1\" class=\"feedback-msg\">{{'ERROR'|translate}}!</div>\n" +
+    "</form>");
+}]);
+
+angular.module("../src/app/templates/partials/side/work-with-us.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/side/work-with-us.tpl.html",
+    "<h2>{{'WORK_FOR_US'|translate}}</h2>\n" +
+    "<translate>WORK_FOR_US_ASIDE_CONTENT</translate>");
+}]);
+
+angular.module("../src/app/templates/partials/transfer/benefits.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/transfer/benefits.tpl.html",
+    "<div class=\"benefits-grid\">\n" +
+    "\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-pay_card_wh\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'TRANSFER_BENEFITS_PAYMENT'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-wh_car\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'TRANSFER_BENEFITS_VEHICLES'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-one_wh\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'TRANSFER_BENEFITS_PRICE'|translate}}</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-adv_plane\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'TRANSFER_BENEFITS_PLATE'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-tie_wh\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'TRANSFER_BENEFITS_DRIVERS'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-adv_insurance\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'TRANSFER_BENEFITS_INSURANCE'|translate}}</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-wifi_wh\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'TRANSFER_BENEFITS_WIFI'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-adv_nonstandart\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'TRANSFER_BENEFITS_LATE'|translate}}</div>\n" +
+    "	</div>\n" +
+    "	<div class=\"col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix\">\n" +
+    "		<div class=\"col-sm-3\"><i class=\"taxi5-icon taxi5-adv_nosmoking\"></i></div>\n" +
+    "		<div class=\"col-sm-9 text\">{{'TRANSFER_BENEFITS_SMOKING'|translate}}</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/partials/transfer/header-content.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/transfer/header-content.tpl.html",
+    "<section class=\"transfer-promo container\" ng-controller=\"TransferController\">\n" +
+    "\n" +
+    "	<h1 class=\"heading transfer\">\n" +
+    "		<translate>TRANSFER_AIRPORT_HEADING</translate>\n" +
+    "	</h1>\n" +
+    "\n" +
+    "	<h2 class=\"heading rate\">\n" +
+    "		{{'PLANS_AIRPORT_TRANSFER'|translate}} <strong>&nbsp;{{plans.airport.amount | byn:('CURRENCY_FORMAT_TRANSFER' | translate) }}</strong>\n" +
+    "	</h2>\n" +
+    "\n" +
+    "\n" +
+    "	<form name=\"orderForm\" novalidate form-validate>\n" +
+    "\n" +
+    "\n" +
+    "		<div class=\"transfer-form col-lg-10 col-lg-offset-1 col-md-offset-0\">\n" +
+    "\n" +
+    "			<div class=\"direction-btns\">\n" +
+    "				<button class=\"to-airport\" ng-class=\"{'active' : isFrom === false}\" ng-click=\"isFrom = false\">{{ 'TRANSFER_DIRECTION_TO' | translate }}</button>\n" +
+    "				<button class=\"from-airport\" ng-class=\"{'active' : isFrom === true}\" ng-click=\"isFrom = true\">{{ 'TRANSFER_DIRECTION_FROM' | translate }}</button>\n" +
+    "			</div>\n" +
+    "\n" +
+    "\n" +
+    "			<ul class=\"fields-list\">\n" +
+    "\n" +
+    "				<li class=\"row customer\"\n" +
+    "					ng-class=\"{'filled': activeCustomer && (activeCustomer.name || activeCustomer.phone)}\"\n" +
+    "					show-inner-errors\n" +
+    "					ng-init=\"activeField = 'customer'\"\n" +
+    "					ng-form=\"customerSubform\">\n" +
+    "\n" +
+    "					<div class=\"heading\"\n" +
+    "						 ng-class=\"{'active': activeField === 'customer'}\"\n" +
+    "						 ng-click=\"activeField = 'customer' \">\n" +
+    "\n" +
+    "						<span class=\"heading-label\">{{'ORDER_FORM_CUSTOMER'|translate}}&nbsp;&nbsp;<i class=\"fa fa-chevron-right\"></i></span>\n" +
+    "						<span class=\"heading-text\">{{getCustomerString()}}</span>\n" +
+    "					</div>\n" +
+    "\n" +
+    "					<div class=\"content\" ng-show=\"activeField === 'customer'\">\n" +
+    "\n" +
+    "						<div class=\"row\">\n" +
+    "							<div class=\"form-group col-md-6\"  show-errors>\n" +
+    "								<label class=\"control-label form-field\" for=\"client-phone\"> <span class=\"form-label\">{{'PHONE'|translate}}<i class=\"required\">*</i></span>\n" +
+    "									<input autocomplete=\"off\" name=\"phone\" class=\"form-control\" id=\"client-phone\" type=\"tel\" ng-model=\"activeCustomer.phone\" intl-tel-input placeholder=\"{{'PHONE_NUMBER'|translate}}\" required\n" +
+    "											/> </label>\n" +
+    "							</div>\n" +
+    "							<div class=\"form-group col-md-6\"  show-errors>\n" +
+    "								<label class=\"control-label form-field client-name \" for=\"client-name\"> <span class=\"form-label\">{{'NAME'|translate}}<i class=\"required\">*</i></span>\n" +
+    "									<input autocomplete=\"off\" id=\"client-name\" class=\"form-control\" type=\"text\" ng-model=\"activeCustomer.name\" name=\"name\" required placeholder=\"{{'NAME'|translate}}\"\n" +
+    "											/> </label>\n" +
+    "							</div>\n" +
+    "						</div>\n" +
+    "\n" +
+    "					</div>\n" +
+    "				</li>\n" +
+    "\n" +
+    "				<li class=\"row flight\"\n" +
+    "					show-inner-errors\n" +
+    "					ng-class=\"{'filled': flight.number||flight.gate||flight.plate.text}\"\n" +
+    "					ng-form=\"flightSubform\">\n" +
+    "\n" +
+    "					<div class=\"heading\"\n" +
+    "						 ng-class=\"{'active': activeField === 'flight'}\"\n" +
+    "						 ng-click=\"activeField = 'flight'\">\n" +
+    "\n" +
+    "						<span class=\"heading-label\">{{'ORDER_FORM_LOCATION_FLIGHT'|translate}}&nbsp;&nbsp;<i class=\"fa fa-chevron-right\"></i></span>\n" +
+    "						<span class=\"heading-text\">{{getFlightString()}}</span>\n" +
+    "					</div>\n" +
+    "\n" +
+    "					<div class=\"content\"  ng-show=\"activeField === 'flight'\">\n" +
+    "\n" +
+    "						<div class=\"row\">\n" +
+    "							<div class=\"col-sm-6\">\n" +
+    "								<label class=\"form-field control-label\" for=\"flight\"><span class=\"form-label\">{{'ORDER_FORM_LOCATION_FLIGHT_NUMBER_STRING'|translate}}</span> <input name=\"flight\" autocomplete=\"off\" id=\"flight\" ng-model=\"flight.number\"/> </label>\n" +
+    "							</div>\n" +
+    "\n" +
+    "							<div class=\"col-sm-6\">\n" +
+    "								<label class=\"form-field control-label\" for=\"gate\"><span class=\"form-label\">{{'ORDER_FORM_LOCATION_FLIGHT_ARRIVAL_GATE'|translate}}</span> <input name=\"gate\" autocomplete=\"off\" id=\"gate\" ng-model=\"flight.gate\"/> </label>\n" +
+    "							</div>\n" +
+    "\n" +
+    "							<div class=\"col-sm-12 flight-checkbox\">\n" +
+    "								<input id=\"plate-need\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"flight.plate.need\"><label for=\"plate-need\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_LOCATION_MEET_WITH_PLATE</translate></span></label>\n" +
+    "							</div>\n" +
+    "\n" +
+    "							<div ng-if=\"flight.plate.need\">\n" +
+    "								<label class=\"form-field col-xs-12 control-label\" for=\"plate-text\"><span  class=\"form-label\">{{'ORDER_FORM_LOCATION_PLATE_TEXT'|translate}}</span>\n" +
+    "									<input name=\"route-from-plate-text\" autocomplete=\"off\" id=\"plate-text\" type=\"text\" ng-model=\"flight.plate.text\"/> </label>\n" +
+    "							</div>\n" +
+    "						</div>\n" +
+    "\n" +
+    "					</div>\n" +
+    "				</li>\n" +
+    "\n" +
+    "				<li class=\"row location\"\n" +
+    "					show-inner-errors\n" +
+    "					ng-class=\"{'filled': order.location && order.location.type}\"\n" +
+    "					ng-form=\"locationSubform\">\n" +
+    "\n" +
+    "					<div class=\"heading\"\n" +
+    "						 ng-class=\"{'active': activeField === 'location'}\"\n" +
+    "						 ng-click=\"activeField = 'location' \">\n" +
+    "\n" +
+    "						<span class=\"heading-label\">\n" +
+    "							<span ng-if=\"isFrom === true\">{{'ORDER_FORM_TO_WHERE'|translate}}&nbsp;&nbsp;<i class=\"fa fa-chevron-right\"></i></span>\n" +
+    "							<span ng-if=\"isFrom === false\">{{'ORDER_FORM_FROM_WHERE'|translate}}&nbsp;&nbsp;<i class=\"fa fa-chevron-right\"></i></span>\n" +
+    "						</span>\n" +
+    "\n" +
+    "						<span class=\"heading-text\" ng-if=\"order.location && order.location.type\">\n" +
+    "							<i location-string=\"order.location\" force-update=\"true\"></i>\n" +
+    "						</span>\n" +
+    "					</div>\n" +
+    "\n" +
+    "					<div class=\"content\" ng-show=\"activeField === 'location'\">\n" +
+    "\n" +
+    "						<div class=\"transfer-location\">\n" +
+    "\n" +
+    "							<div class=\"form-field\" show-errors>\n" +
+    "								<label class=\"form-field control-label\" for=\"route-from\"><span class=\"form-label\">{{'ORDER_FORM_FROM_WHERE_ADDRESS_OR_NAME'|translate}}<i class=\"required\">*</i></span></label>\n" +
+    "								<input name=\"route-from\" autocomplete=\"off\" id=\"route-from\" type=\"text\" placeholder=\"{{'ORDER_FORM_FROM_WHERE_ADDRESS_OR_NAME'|translate}}\" ng-model=\"order.location\" location-search=\"order.location\" autocomplete-event-name=\"'autocomplete-waypoint-start'\" force-open-event-name=\"'force-open-waypoint-start'\"  ng-required=\"isFrom === false\"/>\n" +
+    "							</div>\n" +
+    "\n" +
+    "							<div ng-if=\"order.location.type\" ng-switch=\"order.location.type\" class=\"location-additional-info clearfix\">\n" +
+    "\n" +
+    "								<div ng-switch-when=\"address\" class=\"clearfix row\">\n" +
+    "									<div class=\"col-xs-3\">\n" +
+    "										<label class=\"form-field control-label\" for=\"route-from-building\" show-errors><span class=\"form-label\">{{'ORDER_FORM_LOCATION_BUILDING'|translate}}<i class=\"required\">*</i></span>\n" +
+    "											<input location-specify-geo=\"order.location\" name=\"route-from-building\" autocomplete=\"off\" id=\"route-from-building\" ng-model=\"order.location.address.building\" required/> </label>\n" +
+    "									</div>\n" +
+    "									<div class=\"col-xs-3\">\n" +
+    "										<label class=\"form-field control-label\" for=\"route-from-section\"><span class=\"form-label\">{{'ORDER_FORM_LOCATION_SECTION'|translate}}</span>\n" +
+    "											<input location-specify-geo=\"order.location\" name=\"route-from-section\" autocomplete=\"off\" id=\"route-from-section\" ng-model=\"order.location.address.section\"/> </label>\n" +
+    "									</div>\n" +
+    "									<div class=\"col-xs-3\">\n" +
+    "										<label class=\"form-field control-label\" for=\"route-from-porch\"><span class=\"form-label\">{{'ORDER_FORM_LOCATION_PORCH'|translate}}</span> <input name=\"route-from-porch\" autocomplete=\"off\" id=\"route-from-porch\" ng-model=\"order.location.address.porch\"/> </label>\n" +
+    "									</div>\n" +
+    "									<div class=\"col-xs-3\">\n" +
+    "										<label class=\"form-field control-label\" for=\"route-from-apartment\"><span class=\"form-label\">{{'ORDER_FORM_LOCATION_APARTMENT'|translate}}</span> <input name=\"route-from-apartment\" autocomplete=\"off\" id=\"route-from-apartment\" ng-model=\"order.location.address.apartment\"/>\n" +
+    "										</label>\n" +
+    "									</div>\n" +
+    "								</div>\n" +
+    "\n" +
+    "								<!--<div ng-if=\"order.location.object && order.location.object.type !== 'airport' || !order.location.object\" class=\"clearfix\" show-errors>-->\n" +
+    "									<!--<label class=\"form-field control-label\" for=\"route-from-comment\"><span class=\"form-label\">{{'COMMENT'|translate}}</span>-->\n" +
+    "										<!--<input name=\"route-from-comment\" autocomplete=\"off\" id=\"route-from-comment\" type=\"text\" ng-model=\"order.location.comment\"/> </label>-->\n" +
+    "								<!--</div>-->\n" +
+    "								<!-- -->\n" +
+    "\n" +
+    "\n" +
+    "							</div>\n" +
+    "							<div  class=\"clearfix\" show-errors>\n" +
+    "								<label class=\"form-field control-label\" for=\"route-from-comment\"><span class=\"form-label\">{{'COMMENT'|translate}}</span>\n" +
+    "									<input name=\"route-from-comment\" autocomplete=\"off\" id=\"route-from-comment\" type=\"text\" ng-model=\"order.location.comment\"/> </label>\n" +
+    "							</div>\n" +
+    "						</div>\n" +
+    "					</div>\n" +
+    "\n" +
+    "				</li>\n" +
+    "\n" +
+    "				<li class=\"row options date\"\n" +
+    "\n" +
+    "					ng-class=\"{'filled': true }\"\n" +
+    "					ng-model=\"order.start_at\">\n" +
+    "\n" +
+    "					<div class=\"heading\"\n" +
+    "						 ng-class=\"{'active': activeField === 'options' }\"\n" +
+    "						 ng-click=\"activeField = 'options'\">\n" +
+    "\n" +
+    "						<span class=\"heading-label\">\n" +
+    "							{{'ORDER_FORM_OPTIONS'|translate}}&nbsp;/&nbsp;{{'ORDER_FORM_WHEN'|translate}}&nbsp;&nbsp;<i class=\"fa fa-chevron-right\"></i>\n" +
+    "						</span>\n" +
+    "\n" +
+    "						<span class=\"heading-text\">\n" +
+    "\n" +
+    "							<i ng-if=\"order.options.animal_grid === true\" class=\"option option-animals active\"></i>\n" +
+    "							<i ng-if=\"order.options.escort === true\" class=\"option option-man active\"></i>\n" +
+    "							<i ng-if=\"order.options.child_seat === true\" class=\"option option-kids active\"></i>\n" +
+    "							<i ng-if=\"order.options.mute\" class=\"option option-mute active\"></i>\n" +
+    "							<i ng-if=\"order.options.test_mode\" class=\"fa fa-cogs\"></i>\n" +
+    "\n" +
+    "							<span ng-if=\"!order.is_postponed\">{{'ORDER_FORM_POSTPONED_NOW_HEADING'|translate}}</span>\n" +
+    "							<span ng-if=\"order.is_postponed\">{{order.start_at | date: \"HH:mm dd/MM/yy\"}}</span>\n" +
+    "						</span>\n" +
+    "					</div>\n" +
+    "\n" +
+    "					<div class=\"content\"  ng-show=\"activeField === 'options'\">\n" +
+    "\n" +
+    "						<div class=\"form-field\">\n" +
+    "							<ul class=\"order-options col-xs-12 col-md-5\">\n" +
+    "								<li class=\"delimeter\">{{'ORDER_FORM_OPTIONS'|translate}}</li>\n" +
+    "								<li>\n" +
+    "									<input id=\"option-animals\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"order.options.animal_grid\"><label for=\"option-animals\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_OPTIONS_ANIMAL</translate></span></label>\n" +
+    "								</li>\n" +
+    "								<li>\n" +
+    "									<input id=\"option-man\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"order.options.escort\"><label for=\"option-man\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_OPTIONS_ESCORT</translate></span></label>\n" +
+    "								</li>\n" +
+    "								<li>\n" +
+    "									<input id=\"option-child\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"order.options.child_seat\"><label for=\"option-child\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_OPTIONS_CHILD_SEAT</translate></span></label>\n" +
+    "								</li>\n" +
+    "								<li>\n" +
+    "									<input id=\"option-mute\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"order.options.mute\"><label for=\"option-mute\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_OPTIONS_MUTE</translate></span></label>\n" +
+    "								</li>\n" +
+    "								<li option-testmode ng-if=\"order.options.test_mode\">\n" +
+    "									<input id=\"option-testmode\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"order.options.test_mode\"><label for=\"option-testmode\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_OPTIONS_TEST_MODE</translate></span></label>\n" +
+    "								</li>\n" +
+    "								<li class=\"delimeter\">{{'ORDER_FORM_WHEN'|translate}}</li>\n" +
+    "								<li>\n" +
+    "									<input id=\"option-postponedd\" class=\"friday-toggle friday-toggle-round-flat\" type=\"checkbox\" ng-model=\"order.is_postponed\"><label for=\"option-postponedd\"><span class=\"friday-toggle-label-text\"><translate>ORDER_FORM_POSTPONED_FOR_DATE</translate></span></label>\n" +
+    "								</li>\n" +
+    "\n" +
+    "							</ul>\n" +
+    "							<div class=\"col-xs-12 col-md-7\" ng-if=\"order.is_postponed\">\n" +
+    "								<datetimepicker ng-if=\"order.is_postponed\" dp-date=\"order.start_at\" min-gap=\"30\" max-days=\"30\" exclude-intervals=\"postponedExcludeIntervals\"></datetimepicker>\n" +
+    "								<p ng-if=\"order.is_postponed\" class=\"field-meta field-meta-else\">({{'ORDER_FORM_POSTPONED_RESTRICTION_MESSAGE'|translate}})<br/><b>{{'ORDER_FORM_POSTPONED_NOW_IN_MINSK'|translate}} {{nowMinsk | date: 'HH:mm dd/MM/yyyy'}}</b></p>\n" +
+    "\n" +
+    "								<div ng-if=\"order.is_postponed && postponedExcludeIntervals.length && hasExclusion\" class=\"postponed-exclude-intervals\">\n" +
+    "									{{'ORDER_FORM_POSTPONED_NOT_AVAILABLE_ALERT'|translate}}:\n" +
+    "									<ul>\n" +
+    "										<li ng-repeat=\"excludeInterval in postponedExcludeIntervals\">\n" +
+    "											- <translate translate-values=\"{start: {{excludeInterval.start | date: 'dd/MM/yyyy'}}, finish: {{excludeInterval.end | date: 'dd/MM/yyyy'}} }\">ORDER_FORM_POSTPONED_NOT_AVAILABLE_INTERVAL</translate>\n" +
+    "										</li>\n" +
+    "									</ul>\n" +
+    "									<translate>ORDER_FORM_POSTPONED_NOT_AVAILABLE_HINT</translate>\n" +
+    "								</div>\n" +
+    "							</div>\n" +
+    "						</div>\n" +
+    "					</div>\n" +
+    "				</li>\n" +
+    "\n" +
+    "			</ul>\n" +
+    "\n" +
+    "			<div class=\"form-controls\">\n" +
+    "				<button class=\"btn create-order-btn\" ng-disabled=\"orderForm.$invalid === true\" ng-click=\"createOrder()\">{{'TRANSFER_DIRECTION_PLACE_ORDER'|translate}}</button>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "\n" +
+    "	</form>\n" +
+    "\n" +
+    "</section>\n" +
+    "\n" +
+    "<section class=\"phones\">\n" +
+    "	<div class=\"container\">\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<small>{{'HEADER_PHONES_SHORT_CODE'|translate}}</small>\n" +
+    "			<br/><a class=\"spec\" href=\"tel:7500\">7500</a>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<small>{{'HEADER_PHONES_LANDLINE'|translate}}</small>\n" +
+    "			<br/><a href=\"tel:+375173997500\">+375 17 399-75-00</a>\n" +
+    "\n" +
+    "		</div>\n" +
+    "		<div class=\"col-md-4\">\n" +
+    "			<small>{{'HEADER_PHONES_MOBILE'|translate}}, Velcom</small>\n" +
+    "			<br/><a href=\"tel:+375291337500\">+375 29 133-75-00</a>\n" +
+    "\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "</section>");
+}]);
+
+angular.module("../src/app/templates/partials/transfer/slogan.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/partials/transfer/slogan.tpl.html",
+    "<div class=\"container\">\n" +
+    "\n" +
+    "	<div class=\"slogan-header\">\n" +
+    "		<img src=\"/assets/app/images/passatpic.png\" alt=\"\"/>\n" +
+    "		<h2 class=\"heading-slogan\">{{'TRANSFER_SLOGAN'|translate}}</h2>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"transfer-rate\">\n" +
+    "\n" +
+    "		<div class=\"col-sm-5 name\">{{'PLANS_AIRPORT_TRANSFER'|translate}}</div>\n" +
+    "		<div class=\"col-sm-4 value\">\n" +
+    "			<span class='currency' ng-if=\"plans.airport.amount\">{{plans.airport.amount | byn:('CURRENCY_FORMAT_TRANSFER' | translate) }}</span>\n" +
+    "			<span class=\"currency secondary\"  ng-if=\"plans.airport.amount\">{{plans.airport.amount | byr | number}}&nbsp;<small>{{'CURRENCY_BYR' | translate}}</small></span>\n" +
+    "			<img ng-if=\"!plans.airport.amount\" class=\"preloader\" src=\"/assets/app/images/preloader_gray.GIF\" alt=\"\"/>\n" +
+    "		</div>\n" +
+    "		<div class=\"col-sm-3 meta\">\n" +
+    "\n" +
+    "			<strong ng-if=\"plans.airport.offer\" class=\"text-danger\">{{'SPECIAL_OFFER'|translate}}</strong>\n" +
+    "			<div ng-if=\"plans.airport.includes\" class=\"text-gray\">\n" +
+    "				<translate translate-values=\"{mileage: '<br/>{{plans.airport.includes}}' }\">PLANS_MILEAGE_TRIP_INCLUDED</translate>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "\n" +
+    "		<div class=\"col-sm-12 description\" ng-if=\"plans.airport.meta\" >{{plans.airport.meta}}</div>\n" +
+    "	</div>\n" +
+    "\n" +
+    "	<div class=\"actions\">\n" +
+    "		<div class=\"tel-block col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 text-center clearfix\">\n" +
+    "			<div class=\"col-sm-7\">{{'PLANS_CALL_FOR_SPECIAL_OFFER'|translate}}</div>\n" +
+    "			<div class=\"col-sm-5 tel\">\n" +
+    "				<i class=\"taxi5-icon taxi5-callusicon\"></i><b><a href=\"tel:7500\">7500</a></b>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/popup-modal.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/popup-modal.tpl.html",
+    "<div class=\"modal-dialog\" ng-class=\"tiny ? 'tiny' : ''\"  >\n" +
+    "	<button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span aria-hidden=\"true\">&times;</span><span class=\"sr-only\">Close</span></button>\n" +
+    "	<div class=\"clearfix\" ui-view=\"popup-dialog-content\">\n" +
+    "	</div>\n" +
+    "</div>");
+}]);
+
+angular.module("../src/app/templates/promotions.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/promotions.tpl.html",
+    "<header class=\"promo-header\" id=\"home\" scroll-broadcast>\n" +
+    "	<nav scroll-toggle=\"0\" class=\"navbar navbar-default\" role=\"navigation\" ui-view=\"nav-menu\"></nav>\n" +
+    "</header>\n" +
+    "<main ui-view=\"promo\">\n" +
+    "\n" +
+    "</main>\n" +
+    "<footer class=\"promo-footer\" ui-view=\"footer\"></footer>\n" +
+    "<aside id=\"aside-modal\" aside-modal class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\" ui-view=\"aside\"></aside>\n" +
+    "<div popup-modal ui-view=\"popup-dialog\" class=\"promotions-modal modal fade\" id=\"popup-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"popup-modal-label\" aria-hidden=\"true\">");
+}]);
+
+angular.module("../src/app/templates/transfer-airport.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../src/app/templates/transfer-airport.tpl.html",
+    "<header class=\"transfer-header\" scroll-broadcast>\n" +
+    "	<nav scroll-toggle=\"0\" class=\"navbar navbar-default\" role=\"navigation\" ui-view=\"nav-menu\"></nav>\n" +
+    "	<div ui-view=\"header-content\"></div>\n" +
+    "</header>\n" +
+    "<main>\n" +
+    "	<section class=\"transfer-benefits\" ui-view=\"benefits\"></section>\n" +
+    "	<section class=\"transfer-slogan\" ui-view=\"slogan\"></section>\n" +
+    "</main>\n" +
+    "<footer ui-view=\"footer\"></footer>\n" +
+    "<aside id=\"aside-modal\" aside-modal class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\" ui-view=\"aside\"></aside>\n" +
+    "<div auth-modal ui-view=\"auth-dialog\" class=\"auth-modal modal fade\" id=\"auth-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"auth-modal-label\" aria-hidden=\"true\">\n" +
+    "</div>");
+}]);

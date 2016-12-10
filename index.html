@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0019)http://taxi5.by/ru/ -->
+<html ng-app="TaxiWebsiteApplication" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+	
+	<title>Такси «ББ»</title>
+	<link rel="icon" type="image/png" href="http://taxi5.by/assets/app/images/favicon.png">
+	<meta content="width=device-width" name="viewport">
+	<meta name="apple-itunes-app" content="app-id=951910609">
+	<!-- injector:css -->
+	<link rel="stylesheet" href="http://taxi5.by/assets/app/css/application.css">
+	<link rel="stylesheet" href="style.css">
+	<!-- endinjector -->
+	<!--<script type="text/javascript" src="//api-maps.yandex.ru/2.0/?load=package.full&amp;amp;lang=ru-RU&amp;amp;coordorder=longlat"></script>-->
+	<script type="text/javascript" async="" src="./files/watch.js.Без названия"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="./files/watch.js.Без названия"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="./files/watch.js.Без названия"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="./files/socket.io.js.Без названия"></script>
+	<!-- injector:js -->
+	<script src="http://taxi5.by/js/vendor.min.js"></script>
+
+	<script src="http://taxi5.by/js/templates-vendor.js"></script>
+	<script src="http://taxi5.by/js/app.min.js"></script>
+	
+	 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" type="text/javascript"></script>
+ 
+ <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
+        <script src="js/datepicker.min.js"></script>
+
+	
+	
+	<!-- endinjector -->
+
+</head>
+<body class="container-fluid ng-scope" ><header id="home" scroll-broadcast="" class="ng-scope">
+
+	<div class="headmenu">
+		<div class="logogl"></div>
+			<div class="headmenu">
+			<div class="head2">
+			<ul class="nav navbar-nav">
+		
+			<li><a scroll-listen="mobile-app" scroll-animate="" href="#ng-scope" class="ng-binding">Клиентам</a></li>
+			<li><a scroll-listen="mobile-app" scroll-animate="" href="/ru/mobile-app" class="ng-binding">Водителям</a></li>
+			<li><a scroll-listen="plans" scroll-animate="" href="#mobile-app" class="ng-binding">Приложение</a></li>
+		
+			<li><a scroll-listen="about-us" scroll-animate="" href="/ru/about-us" class="ng-binding">Наши партнёры</a></li>
+			<li><a scroll-listen="about-us" scroll-animate="" href="#about-us" class="ng-binding">О Нас</a></li>
+				
+		
+		</ul>	
+			<div class="zakaz">
+				<a href="#ng-scope">ЗАКАЗАТЬ</a>
+			</div>
+		</div>
+		
+	</div>
+		
+	</div>
+
+
+	<!-- uiView: header-content --><div ui-view="header-content" class="ng-scope"><section class="slogan container text-center ng-scope">
+	<div class="fff">
+		<h1>
+		<translate class="ng-scope">Заказ в один<span> клик</span></translate>
+	</h1>
+	</div>
+	<br>
+	<br>
+	<br>
+	<img src="./files/passatpic.png" alt="" kasperskylab_antibanner="on">
+
+	<!--<div>-->        <!--<p>Вызов такси</p>-->
+
+	<!--<h2><a href="tel:7500"><i class="fa fa-phone"></i>7500</a></h2>-->    <!--</div>-->
+</section>
+
+<section class="benefits container text-center hidden-xs ng-scope">
+	
+
+	<div class="col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix">
+		<div class="col-sm-3"><i class="taxi5-icon taxi5-wh_car"></i></div>
+		<div class="col-sm-9 text ng-binding">Фиксирование поездки в аэропорт 1000 рублей</div>
+	</div>
+	<div class="col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix">
+		<div class="col-sm-3"><i class="taxi5-icon taxi5-tie_wh"></i></div>
+		<div class="col-sm-9 text ng-binding">Все автомобили комфорт-класса</div>
+	</div>
+	<div class="col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3 clearfix">
+		<div class="col-sm-3"><i class="taxi5-icon taxi5-check_wh"></i></div>
+		<div class="col-sm-9 text ng-binding">Возможность оплаты поездки безналичным расчётом</div>
+	</div>
+	
+</section></div>
+</header>
+<main class="ng-scope" id="ng-scope"> 
+
+	<!-- uiView: benefits --><section id="benefits" scroll-broadcast="" class="benefits ng-scope" ui-view="benefits"><h2 class="text-center ng-binding ng-scope" id="zakaz2">Заказать такси</h2>
+
+
+<div class="klient">
+	<div class="klient-ot">
+		 <div class="klient-ot2">
+			<div class="kll"></div>
+			<div class="kll2">
+				<input id="autocomplete" class="form-control" type="text" name="one"
+        placeholder="Откуда, улица" style="width: 850px">
+			</div>
+		 </div>
+		 <div class="klient-ot3">
+			<input class="form-control" type="text" name="one"
+        placeholder="Номер дома" style="width: 130px">
+		 </div>
+		 <div class="klient-ot4">
+			<input class="form-control" type="text" name="one"
+        placeholder="Корпус" style="width: 130px">
+		 </div>
+	</div>
+	<br>
+	<div class="klient-ot">
+		 <div class="klient-ot2">
+			<div class="kll55"></div>
+			<div class="kll2">
+				<input id="autocomplete2" class="form-control" type="text" name="one"
+        placeholder="Куда, улица" style="width: 850px">
+			</div>
+		 </div>
+		 <div class="klient-ot3">
+			<input class="form-control" type="text" name="one"
+        placeholder="Номер дома" style="width: 130px">
+		 </div>
+		 <div class="klient-ot4">
+			<input class="form-control" type="text" name="one"
+        placeholder="Корпус" style="width: 130px">
+		 </div>
+	</div>
+	<br><br>
+		<div class="time">
+			<div class="time2">
+				
+			</div>
+		</div>
+	<br><br>
+
+	
+	<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default">Эконом</button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default nav-justified">Комфорт</button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default">Бизнес</button>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+
+<div class="child">
+	<div class="child1"><label class="checkbox-inline"><input type="checkbox" value="">Детское кресло</label></div>
+	<div class="child2"><input class="form-control" type="text" name="one"
+        placeholder="Возраст, от" style="width: 150px"></div>
+		
+		<div class="child3"><input class="form-control" type="text" name="one"
+        placeholder="До" style="width: 150px"></div>
+</div>
+
+
+<br>
+
+
+<textarea class="form-control" rows="3" placeholder="Комментарий"></textarea>
+
+<br>
+<br>
+
+<button type="button" class="btn btn-warning btn-lg btn-block">ЗАКАЗАТЬ</button>
+	
+</div>
+	
+		
+</section>
+
+
+<br>
+<br>
+<br>
+<br>
+	<!-- uiView: mobile-app --><section id="mobile-app" scroll-broadcast="" class="mobile-app ng-scope" ui-view="mobile-app"><div class="container ng-scope" ng-controller="SubscribeController">
+	<h2 class="ng-binding">Мобильное приложение</h2>
+
+	<div class="col-md-6 iphone text-center">
+		<img alt="" src="./files/iphone_wh.svg" kasperskylab_antibanner="on">
+
+
+			<div id="carousel-mobile-app" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item">
+						<img src="phone.png" alt="screen" kasperskylab_antibanner="on">
+					</div>
+					<div class="item">
+						<img src="map.jpg" alt="screen" kasperskylab_antibanner="on">
+					</div>
+					<div class="item">
+						<img src="phone.png" alt="screen" kasperskylab_antibanner="on">
+					</div>
+					<div class="item active">
+						<img src="phone.png" alt="screen" kasperskylab_antibanner="on">
+					</div>
+					<div class="item">
+						<img src="phone.png" alt="screen" kasperskylab_antibanner="on">
+					</div>
+				</div>
+				<!--<span data-target="#carousel-mobile-app" data-slide="prev" role="button" class="left carousel-control"><span class="fa fa-angle-left pull-left"></span></span>-->
+				<!--<span data-target="#carousel-mobile-app" data-slide="next" role="button" class="right carousel-control"><span class="fa fa-angle-right pull-right"></span></span>-->
+			</div>
+
+
+	</div>
+
+	<div class="col-md-6 subcribe  text-center">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+		<p class="ng-binding">Теперь заказать наше такси еще проще и удобнее. Скачивайте, устанавливайте и рассказывайте своим друзьям!</p>
+
+		<ul class="store-buttons">
+			<!--<li><a href="https://itunes.apple.com/ru/app/taksi-patnica/id951910609?mt=8" target="_blank" class="taxi5 taxi5-label_apple_transparent"></a></li>-->
+			<!--<li><a href="https://play.google.com/store/apps/details?id=com.isolutions.taxi5" target="_blank" class="taxi5 taxi5-label_google_transparent"></a></li>-->
+
+			<li><a href="https://itunes.apple.com/ru/app/taksi-patnica/id951910609?mt=8" target="_blank" class="taxi5 taxi5-app_store_black_transparent_ru"></a></li>
+			<li><a href="https://play.google.com/store/apps/details?id=com.isolutions.taxi5" target="_blank" class="taxi5 taxi5-google_play_black_transparent_ru"></a></li>
+		</ul>
+	</div>
+</div></section>
+	
+	
+	
+	
+	
+	<!-- uiView: about-us --><section id="about-us" scroll-broadcast="" class="about-us container ng-scope" ui-view="about-us"><h2 class="ng-binding ng-scope">О нас</h2>
+<article class="ng-scope">
+	<div class="col-md-5">
+		<h3>
+			<translate class="ng-scope">Текст текст текст текст текст текст ваопв валдп  текст текст текст ваопв валдп.</strong></translate>
+		</h3>
+	</div>
+	<div class="col-md-offset-1 col-md-6">
+		<translate class="ng-scope"><p>текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп текст текст текст ваопв валдп</p><p>Мы часто пользуемся такси и устали от хамства, обмана и дряхлых машин. Хотим ездить с комфортом, брать с собой любимую собаку, использовать wi-fi для работы и развлечений и оплачивать поездку картой. Хотим рекомендовать друзьям классное такси и быть уверены, что им понравится.</p><p>Мы мечтали о современном такси и создали его. Для себя и для вас.</p><p>   для людей. Круглосуточно. Семь дней в неделю.</p></translate>
+	</div>
+</article></section>
+</main>
+<!-- uiView: footer --><footer ui-view="footer" class="ng-scope"><!--<a class="feedback-btn btn btn-default hidden-xs hidden-sm" href="/{{lang}}/review">Сообщить об ошибке</a>-->
+<div class="container ng-scope">
+	<div class="col-md-4 left-block">
+		<p copyright="" class="ng-binding">© 2009 - 2016 <translate class="ng-scope">ООО&nbsp;«Такси&nbsp;ББ»</translate></p>
+		
+		<p>лицензия Министерства транспорта и коммуникаций 5474575  выдано на основании решения от 21.02.2009</p>
+
+	</div>
+	<div class="col-md-3 social-buttons">
+		<ul class="row">
+			<li class="facebook"><a href="https://www.facebook.com/taxi5by" class="fa fa-facebook" target="_blank"></a></li>
+			<li class="vk"><a href="http://vk.com/taxi5by" class="fa fa-vk" target="_blank"></a></li>
+			<li class="twitter"><a href="https://twitter.com/taxi5by" class="fa fa-twitter" target="_blank"></a></li>
+			<li class="instagram"><a href="http://instagram.com/taxi5by" class="fa fa-instagram" target="_blank"></a></li>
+			<li class="youtube"><a href="https://www.youtube.com/channel/UCFBs-iCA3o48MZlATEMVFLQ" class="fa fa-youtube" target="_blank"></a></li>
+		</ul>
+	</div>
+
+	<div class="col-md-5 menu-copyright-block container">
+		<div class="col-md-12 row">
+			<ul class="col-md-6">
+			
+			</ul>
+			<ul class="col-md-6">
+				<a href="#"><div class="it"></div></a>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-8 card-payment-methods">
+		<ul>
+
+			<li><img src="./files/visa.png" alt="" kasperskylab_antibanner="on"></li>
+			<li><img src="./files/master-card.png" alt="" kasperskylab_antibanner="on"></li>
+			
+		</ul>
+	</div>
+</div></footer>
+		
+	<script>
+		var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), {
+    language: 'ru',
+    componentRestrictions: {country: 'ru'}
+});
+	</script>
+	
+	<script>
+		var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete2'), {
+    language: 'ru',
+    componentRestrictions: {country: 'ru'}
+});
+	</script>
+</body></html>
